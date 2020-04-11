@@ -1,0 +1,21 @@
+{
+  "name": "learningblog",
+  "version": "1.0.0",
+  "description": "学习总结",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenzhiwei0109/learningblog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenzhiwei0109/learningblog/issues"
+  },
+  "homepage": "https://github.com/chenzhiwei0109/learningblog#readme"
+}

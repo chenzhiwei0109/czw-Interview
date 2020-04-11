@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/chenzhiwei0109/learningblog/issues"
   },
-  "homepage": "https://github.com/chenzhiwei0109/learningblog#readme"
+  "homepage": "https://github.com/chenzhiwei0109/learningblog#readme",
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
 }

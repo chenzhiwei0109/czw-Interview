@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 module.exports = {
     title: '学习笔记', // 显示在左上角的网页名称以及首页在浏览器标签显示的title名称
     description: '前端,HTML,CSS,webpack,前端学习,前端面试', // meta 中的描述文字，用于SEO
@@ -7,5 +9,16 @@ module.exports = {
         ['meta', { name: 'keywords', content: 'vuepress 前端 笔记' }],
         ['meta', { name: 'author', content: 'Chen' }]
     ],
-    themeConfig: require('./themeconfig.js')
+    themeConfig: require('./themeconfig.js'),
+    plugins: [
+        [
+            '@vuepress/last-updated',
+            {
+                transformer: (timestamp) => {
+                    moment.locale('zh-cn')
+                    return moment(timestamp).format('ll');
+                }
+            }
+        ]
+    ]
 }

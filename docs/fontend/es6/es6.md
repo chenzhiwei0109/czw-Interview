@@ -43,7 +43,7 @@ sidebarDepth: 2
 
 **方法1： for循环**
 
-```
+```js
 for(let i = 0; i < arr.length ; i++){
 	//continue;
 	//break;
@@ -55,7 +55,7 @@ for(let i = 0; i < arr.length ; i++){
 - 不支持break和continue
 - 可以遍历NodeList 对象(queryselectall)
 
-```
+```js
 aLi.forEach(li=>{
 	....
 })
@@ -84,7 +84,7 @@ arr.every(function(item){
 - key是一个字符串；
 - 可以使用break和continue
 
-```
+```js
 for(var key in object){
 	console.log(key,object[key])
 }
@@ -122,20 +122,20 @@ arguements、nodelist、htmlcollection
 
 es5写法
 
-```
+```js
 let args = [].slice.call(arguements)
 大坑：es6废弃arguements,eslint会出错
 ```
 
 es6写法
 
-```
+```js
 Array.prototype.from(document.querySelectAll('img'));
 ```
 
 **Array.from语法**
 
-```
+```js
 //伪数组，map函数 ，函数体内部this的指向
 Array.form(arrayLike,mapFn,thisArg)
 
@@ -143,16 +143,14 @@ Array.form(arrayLike,mapFn,thisArg)
 
 初始化并填充默认值
 
-```
+```js
 let array = Array(5);
-
 ```
 
 进行foreach遍历的时候，需要判空的。无法实现
 
 ```js
 let array = Array.from({length:5},function(){return 1})
-
 ```
 
 ### 填充替换或者创建数组
@@ -173,27 +171,26 @@ let array = Array.from({length:5},function(){return 1})
   ```js
   let array = Array.of(1,2,8,6,5)  //[1,2,8,6,5]
   array = Array.of(1)   //[1]
-  
   ```
-
+  
 - Array.prototype.fill
 
   替换、填充
 
-  ```
-  Array.fill(value[,start[,end]) //start默认0 end默认数组最后一个元素，如果不填，默认所有数组元素都是被填充
-  
+  ```js
+  Array.fill(value[,start[,end]) 
+  //start默认0 end默认数组最后一个元素，如果不填，默认所有数组元素都是被填充
   ```
 
   初始化数组，然后赋值1
 
-  ```
+  ```js
   let array = Array(5);
   array = array.fill(1);
   
   ```
 
-  ```
+  ```js
   let array = [1,2,3,4,5];
   array.fill(8,2,4) //[1,2,8,8,5]
   
@@ -1134,13 +1131,21 @@ Promise.rase([p1() ,p2()]).then(res=>{
 
 ## 九、Reflect
 
+Object方法迁移到Reflect
+
+### 静态方法
+
+#### Reflect.apply
+
+Object对象没有apply方法 
+
 比如apply方法。是动态指向作用域
 
 要使用apply,需要先指定是哪个对象的哪个方法调用，函数.apply
 
 有了反射，就可以先调用，当他执行时再去找这个方法
 
-```
+```js
 Math.floor.apply(null,[1.712])  //1
 Reflect.apply(Math.floor,null,[1.712]) //我先要用apply,执行时再去找他的方法.
 ```
@@ -1166,11 +1171,229 @@ let price = 100.5
 Reflect.apply(price>100?Math.floor:Math.ceil,null,[price]) //我先要用apply,执行时再去找他的方法.
 ```
 
-**什么情况下使用?**
+#### Reflect.construct(target, args)
 
-Reflect.construct 
+object对象没有construct
 
-## 集合Set
+`Reflect.construct`方法等同于`new target(...args)`，这提供了一种不使用`new`，来调用构造函数的方法。
+
+```javascript
+function Greeting(name) {
+  this.name = name;
+}
+
+// new 的写法
+const instance = new Greeting('张三');
+
+// Reflect.construct 的写法
+const instance = Reflect.construct(Greeting, ['张三']);
+
+let date = Reflect.construct(Date,[]); 
+date.getTime()
+date instanceof Date;
+```
+
+如果`Reflect.construct()`方法的第一个参数不是函数，会报错。
+
+#### Reflect.defineProperty()
+
+请从现在开始就使用`Reflect.defineProperty`代替它。
+
+Reflect.defineProperty(target, propertyKey, attributes)
+
+```js
+function MyDate() {
+  /*…*/
+}
+
+// 旧写法
+Object.defineProperty(MyDate, 'now', {
+  value: () => Date.now()
+});
+
+// 新写法
+const student = {}
+Reflect.defineProperty(stundent, 'name', {
+  value: 'czw'
+});
+```
+
+#### Reflect.deleteProperty() 
+
+```js
+const myObj = { foo: 'bar' };
+
+// 旧写法
+delete myObj.foo;
+
+// 新写法
+Reflect.deleteProperty(myObj, 'foo');
+```
+
+#### Reflect.get(target, name, receiver) 
+
+```javascript
+var myObject = {
+  foo: 1,
+  bar: 2,
+  get baz() {
+    return this.foo + this.bar;
+  },
+}
+
+Reflect.get(myObject, 'foo') // 1
+Reflect.get(myObject, 'bar') // 2
+Reflect.get(myObject, 'baz') // 3
+```
+
+#### Reflect.set(target, name, value, receiver)
+
+`Reflect.set`方法设置`target`对象的`name`属性等于`value`。
+
+```js
+var myObject = {
+  foo: 1,
+  set bar(value) {
+    return this.foo = value;
+  },
+}
+
+myObject.foo // 1
+
+Reflect.set(myObject, 'foo', 2);
+myObject.foo // 2
+
+Reflect.set(myObject, 'bar', 3)
+myObject.foo // 3
+```
+
+#### Reflect.getOwnPropertyDescriptor(target, propertyKey) 
+
+**Reflect.getOwnPropertyDescriptor**基本等同于`Object.getOwnPropertyDescriptor`，用于得到指定属性的描述符，将来会替代掉后者。
+
+```js
+const obj = {x:1,y:2};
+Reflect.getOwnPropertyDescriptor(obj,'x');
+//{value: 1, writable: true, enumerable: true, configurable: true}
+```
+
+#### Reflect.getPrototypeof()
+
+```
+let d = new Date()
+Reflect.getPrototypeof(d)  //d的原型
+```
+
+#### Reflect.setPrototypeOf(obj, newProto)
+
+`Reflect.setPrototypeOf`方法用于设置目标对象的原型（prototype），对应`Object.setPrototypeOf(obj, newProto)`方法。它返回一个布尔值，表示是否设置成功。
+
+```javascript
+const myObj = {};
+
+// 旧写法
+Object.setPrototypeOf(myObj, Array.prototype);
+
+// 新写法
+Reflect.setPrototypeOf(myObj, Array.prototype);
+
+myObj.length // 0
+```
+
+
+
+#### Reflect.has(obj,key）
+
+has是Reflect特有。
+
+`Reflect.has`方法对应`name in obj`里面的`in`运算符。 默认就是字符串不需要改，哈哈
+
+如果`Reflect.has()`方法的第一个参数不是对象，会报错。
+
+````js
+const obj = {x:1,y:2}
+Reflect.has(obj,'x')//判断obj是否有  true
+var myObject = {
+  foo: 1,
+};
+
+// 旧写法
+'foo' in myObject // true
+
+// 新写法
+Reflect.has(myObject, 'foo') // true
+````
+
+#### Reflect.isExtensible (target) -是否可扩展
+
+`Reflect.isExtensible`方法对应`Object.isExtensible`，返回一个布尔值，表示当前对象是否可扩展。
+
+```js
+const myObject = {};
+
+// 旧写法
+Object.isExtensible(myObject) // true
+
+// 新写法
+Reflect.isExtensible(myObject) // true
+
+Object.freeze(myObject)
+Reflect.isExtensible(myObject)  //false
+myObject.z = 3; //不起效果
+```
+
+如果参数不是对象，`Object.isExtensible`会返回`false`，因为非对象本来就是不可扩展的，而`Reflect.isExtensible`会报错。
+
+```javascript
+Object.isExtensible(1) // false
+Reflect.isExtensible(1) // 报错
+```
+
+#### Reflect.ownKeys (target) 
+
+`Reflect.ownKeys`方法用于返回对象的所有属性，基本等同于`Object.getOwnPropertyNames`与`Object.getOwnPropertySymbols`之和。
+
+**返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性）组成的数组。**
+
+```javascript
+var myObject = {
+  foo: 1,
+  bar: 2,
+  [Symbol.for('baz')]: 3,
+  [Symbol.for('bing')]: 4,
+};
+
+// 旧写法
+Object.getOwnPropertyNames(myObject)
+// ['foo', 'bar']
+
+Object.getOwnPropertySymbols(myObject)
+//[Symbol(baz), Symbol(bing)]
+
+// 新写法
+Reflect.ownKeys(myObject)
+// ['foo', 'bar', Symbol(baz), Symbol(bing)]
+```
+
+如果`Reflect.ownKeys()`方法的第一个参数不是对象，会报错。如果是数组，是索引和length
+
+#### Reflect.preventExtensions(target)
+
+`Reflect.preventExtensions`对应`Object.preventExtensions`方法，用于让一个对象变为不可扩展。它返回一个布尔值，表示是否操作成功。
+
+```javascript
+var myObject = {};
+
+// 旧写法
+Object.preventExtensions(myObject) // Object {}
+
+// 新写法
+Reflect.preventExtensions(myObject) // true
+```
+
+
+
+## 十、集合Set
 
 **NaN属于重复数据。null和undefined不相等**
 
@@ -1239,7 +1462,7 @@ for(let val of s){
 
 weakset存储的数据只能是对象
 
-## 八、字典Map
+## 十一、字典Map
 
 字典结构——用来存储不重复key的hash结构。
 
@@ -1306,7 +1529,7 @@ let [firstName,,thirdName] = new Set([1,2,3,4]);  //firstName =1 thirdName = 3
 
 只接受对象类型的key,其他没区别
 
-## 九、正则新增知识点
+## 十二、正则新增知识点
 
 ### y修饰符
 
@@ -1380,7 +1603,7 @@ console.log(/[a-z]/i.test('\u212A'))   //无法忽略后面的大小写
 console.log(/[a-z]/iu.test('\u212A'))
 ```
 
-## 十、模板字符串
+## 十三、模板字符串
 
 Tag函数
 
@@ -1402,4 +1625,518 @@ let s1 = `我是
 
 ![1586684008460](../../.vuepress/public/assets/img/1586684008460.png)
 
-## 
+##  十四、Proxy
+
+代理。 不破坏对象原始结构。
+
+假设房东去找中介卖房子
+
+```js
+let o = {
+	name:'xx',
+	price:190
+}
+let d = new Proxy(o,{
+	get(target,key){  //获取房价，target:代理的对象不能是源对象名，否则便闭包，key:对应price
+        if(key) ==='price'{//如果读的信息===price
+            return target[key]+20
+        }else{ //如果获取的信息不是price,就返回原信息
+            return target[key]
+        }
+    }
+
+}); //
+console.log(d.price) //210  命中 if(key) === 'price'
+console.log(d.name)  //'xx'
+```
+
+### 案例:属性只读
+
+**set:写操作**
+
+从后端读取数据，排序后如何还原？比如数组sort完毕，就无法还原了；
+
+proxy:拿走数据备份，但是又不想进行赋值操作，把他变成只读的。
+
+```js
+let o = {
+	name:'小明',
+	price:190
+}
+//只能读取o信息，不能修改
+let d = new Proxy(o,{
+    get (target,key){
+        return target[key]
+    },
+    set (target,key,value){   
+    	return false
+	}
+})
+//handle 操作，回调的意思
+console.log(d.price,d.name)//可读
+d.price = 200 //value就是200
+console.log()
+```
+
+**es5 defineproperty**
+
+对原属性o的结构进行变换，使得对象的结构不稳定，V8引擎希望你对象结构越稳定越好 ！！用户和自己都不能写。
+
+```js
+let o = {
+	name:'小明',
+	price:190
+}
+for(let [key] of Object.entries(o)){ //键值对形式展示o,匹配key
+	//属性描述符
+    Object.defineProperty(o,key,{
+        writable:false  //不可写
+    })
+} 
+o.proce = 300 // 还是200
+```
+
+### 案例：数据校验 
+
+拦截无效数据(假设超过300就不上报),
+
+不希望用户添加其他数据，比如添加广告，地址之类的。
+
+```js
+let o = {
+    name:'xiaoming',
+    price:180
+}
+let d = new Proxy(o,{
+    get(target,key){
+        return target[key] || ""  //如果没有相应数据不返还undefined而是空
+    }
+    set(target,key,value){  //key 默认就是字符串
+    	if(Reflect.has(target,key)){  //如果o有这个属性
+            if(key === 'price'){ //如果这个属性为price
+                if(value>300){  //如果price>300
+                    return false
+                }else{
+                    target[key] = value
+                }
+            }else{//如果这个属性不是price
+                target[key] = value
+            }
+        }else{//如果对象没有这个属性
+            return false
+        }
+	}
+})
+d.price = 280  //280
+d.price = 301 // ''
+d.age = 400 //破坏数据结构，不起作用
+```
+
+**解耦合**
+
+```js
+let validator = function(target,key,value){
+    	if(Reflect.has(target,key)){  //如果o有这个属性
+            if(key === 'price'){ //如果这个属性为price
+                if(value>300){  //如果price>300
+                    return false
+                }else{
+                    target[key] = value
+                }
+            }else{//如果这个属性不是price
+                target[key] = value
+            }
+        }else{//如果对象没有这个属性
+            return false
+        }
+}
+let d = new Proxy(o,{
+    get(target,key){
+        return target[key] || ""  //如果没有相应数据不返还undefined而是空
+    }
+    set:validator
+})
+```
+
+### 案例：监听错误上报
+
+监控哪个用户在做这个违规信息。
+
+使用错误中断操作。
+
+侧重代码解耦。
+
+```js
+let o = {
+    name:'xiaoming',
+    price:180
+}
+//监听错误
+window.addEventListner('error',(e)=>{
+    console.log(e.message)
+    //上报错误信息
+    report('www.xxx.com') 
+},true) //需要捕获信息！！
+
+//校验规则
+let validator = (target,key,value)=>{
+    if(Reflect.has(target,key)){  
+        if(key === 'price'){ 
+            if(value>300){  
+                throw new TypeError('price exceed 300')  //触发错误
+            }else{
+                target[key] = value
+            }
+        }else{
+            target[key] = value
+        }
+    }else{
+        return false
+    }
+}
+```
+
+### 案例组件随机ID
+
+recavotable
+
+组件监控；唯一id;随机;只读；
+
+```js
+class Component {
+	constructor(){
+		this.id = Math.random().toString(36).slice(-8)  //生成36进制字符串截取后八位
+	}
+}
+let com = new Component();
+for(let i = 0;i< 10; i ++){
+	console.log(com.id) //decw3ewj
+}
+```
+
+这种方式每次获取都会改变值
+
+```js
+class Component {
+	get id(){
+        return Math.random().toString(36).slice(-8)
+    }
+}
+let com = new Component();
+for(let i = 0;i< 10; i ++){
+	console.log(com.id) //每次都不一样了。
+}
+
+```
+
+解决方案
+
+```js
+class Component {
+	constructor(){
+		this.proxy = new Proxy({
+			id: Math.random().toString(36).slice(-8)
+		},{}) //代理这个对象，
+	}
+    get id(){
+        return this.proxy.id
+    }
+}
+let com = new Component();
+for(let i = 0;i< 10; i ++){
+	console.log(com.id) 
+}
+```
+
+### 阅后即焚-撤回proxy
+
+```js
+let o = {
+	name:'小明',
+	price:190
+}
+// d是包含撤销操作和代理数据
+let d = Proxy.revocalble(o,{
+    get (target,key){
+        return target[key]
+    },
+    set (target,key,value){   
+    	return false
+	}
+})
+d.proxy.price //190
+d  //{proxy:Proxy,revoke:f}
+setTimeout(()=>{
+    d.proxy.price //190
+    d.revoke()
+    setTimeout(function(){
+        console.log(d.proxy.price)  //读不了
+    },100)
+},1000)
+//1秒后撤销数据
+
+```
+
+## 十五、Generator
+
+ES6如何让循环停下来？ 使用迭代器，或者闭包,而不是for循环
+
+```js
+for(let i =0;i<5;i++){
+	console.log(i)
+}
+```
+
+### 闭包累加
+
+```
+function add(){
+	let a = 0
+	return function(){
+		console.log(a)
+		return a++
+	}
+}
+var c = add();
+c();  //0
+c(); // 1
+c();  //2
+```
+
+### generator
+
+Generator 函数是一个状态机，封装了多个内部状态。
+
+执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。
+
+形式上，Generator 函数是一个普通函数，但是有两个特征。一是，`function`关键字与函数名之间有一个星号；二是，函数体内部使用`yield`表达式，定义不同的内部状态（`yield`在英语里的意思就是“产出”）。
+
+```js
+function * loop(){
+	for(let i =0;i<5;i++){
+		yield console.log(i)
+	}
+}
+const l = loop();
+l.next()  //0
+l.next()  //1
+l.next()  //2
+l.next()  //3
+l.next()  //4
+l.next()  //{value: undefined, done: true}
+l.next()  //{value: undefined, done: true}
+```
+
+### yeild表达式
+
+执行遇到yeild就停下来
+
+next查找yield或者return 找到就结束当前查找。
+
+yield没有返回值，他只能执行后面的东西。
+
+```js
+function * gen(){
+	let val;
+	val = yiled 1;
+	console.log(val)
+}
+const l = gen();
+l.next();  //执行到 yiled 1 ; 1不是一个输出。然后停下来
+l.next();// 做赋值动作，向下执行，
+```
+
+```js
+function * gen(){
+	let val;
+	val = yiled [1,2,3]
+	console.log(val)
+}
+const l = gen();
+l.next();  //执行到 yiled 1 ; 1不是一个输出。然后停下来
+l.next();// 做赋值动作,yiled返回undefined,val就赋值undefined，向下执行，
+```
+
+ *** yeild**
+
+yeild * 表示后面是一个遍历的对象或者是一个generator对象。
+
+```js
+function * gen(){
+	let val;
+	val = yiled * [1,2,3];  //是一个可遍历的对象。如果不加*，就是[1,2,3]
+	console.log(val)
+}
+const l = gen();
+l.next();  
+l.next();
+```
+
+### next函数
+
+next的返回值第一个是当前返回执行的结果的值，第二个是循环是否结束；
+
+next传参数修改上一个yeild的返回值
+
+next不传参数，上一个yeild返回undefined
+
+![1586752689281](../../.vuepress/public/assets/img/1586752689281.png)
+
+ 第三个图
+
+next传的数据给yeild返回值。
+
+调用第一个next(10)，先去找yeild表达式，找到[1,2,3]执行，此时没涉及赋值操作，
+
+调用第二个next(20),对yeild表达式求值作为赋值操作，用20来代替yeild表达式的返回值,此时val赋值为2
+
+ ```
+function * gen() {
+	let val;
+	val = (yield [1,2,3])+7
+	clg val
+}
+const l = gen();
+l.next(10);   
+l.next(20);  //计算yeild表达式的值， 7 + 20  =val = 27  返回
+ ```
+
+### 退出
+
+for循环break退出
+
+![1586753419685](../../.vuepress/public/assets/img/1586753419685.png)
+
+![1586753493195](../../.vuepress/public/assets/img/1586753493195.png)
+
+ return 控制提前结束,return 传递的参数影响value
+
+![1586753536670](../../.vuepress/public/assets/img/1586753536670.png)
+
+  ![1586753520012](../../.vuepress/public/assets/img/1586753520012.png)
+
+**抛出异常控制退出**
+
+这种循环节奏是外部控制
+
+```js
+function * gen(){
+	while(true){
+		try{
+			yield 1
+		}catch(e){
+			console.log(e.message)
+		}
+	}
+}
+const g = gen();
+g.next()
+g.next()
+g.next()
+g.next()
+g.throw(new Error('ss'))// 脱出当前异常,继续下一次执行
+g.next()
+
+```
+
+![1586753814679](../../.vuepress/public/assets/img/1586753814679.png)
+
+###  总结
+
+- next可以传值，修改yeild的数据
+- return 终止generator函数运行
+- try catch 可以捕获异常
+
+### 案例-抽奖
+
+es5抽奖
+
+```JS
+//1等 1人 2等 2人 3等 3人
+function draw(first=1,second=2,third =5){
+	let firstPrize=['1A','1B','1C','1D','1E','1F']
+	let secondPrize = ['2A','2B','2C','2D','2E','2F']
+	let thirdPrize = ['3A','3B','3C','3D','3E','3F']
+    let result = [];
+    let random;
+    for(let i = 0; i< first; i++){
+        random = Math.floor(Math.random()*firstPrize.length)  //每个元素都可能被抽走
+        result = result.concat(firstPrize.splice(random,1))  //从firstPirze拿到并删除
+    }
+    for(let i = 0; i< second; i++){
+        random = Math.floor(Math.random()*secondPrize.length)  //每个元素都可能被抽走
+        result = result.concat(secondPrize.splice(random,1))  //从firstPirze拿到并删除
+    }
+    for(let i = 0; i< third; i++){
+        random = Math.floor(Math.random()*thirdPrize.length)  //每个元素都可能被抽走
+        result = result.concat(thirdPrize.splice(random,1))  //从firstPirze拿到并删除
+    }
+    return result;
+}
+let t = draw();
+for(let val of t){
+    console.log(val )
+}
+```
+
+es6抽奖
+
+```js
+function * draw(first=1,second=2,third =5){
+    let firstPrize=['1A','1B','1C','1D','1E','1F']
+	let secondPrize = ['2A','2B','2C','2D','2E','2F']
+	let thirdPrize = ['3A','3B','3C','3D','3E','3F']
+    let count = 0
+    let random;
+    while(true){
+        if(count < first){
+        	random = Math.floor(Math.random()*firstPrize.length);
+ 			yield firstPrize[random]; //选中这个人
+            count++
+            firstPrize.splice(random,1)//删除这个人在这个数组
+        }else if(count < first + second){
+            random = Math.floor(Math.random()*secondPrize.length);
+ 			yield secondPrize[random]; //选中这个人
+            count++
+            secondPrize.splice(random,1)//删除这个人在这个数组
+        } else if(count < first + second + third){
+            random = Math.floor(Math.random()*thirdPrize.length);
+ 			yield thirdPrize[random]; //选中这个人
+            count++
+            thirdPrize.splice(random,1)//删除这个人在这个数组
+        } else{
+            return false
+        }
+    }
+}
+let d = draw();
+console.log(d.next().value)//1D
+console.log(d.next().value)//xx
+console.log(d.next().value)//xx
+console.log(d.next().value)//xx
+console.log(d.next().value)//xx
+```
+
+### 斐波那契
+
+```js
+function* fibonacci() {
+  let [prev, curr] = [0, 1];
+  for (;;) {
+    yield curr;
+    [prev, curr] = [curr, prev + curr];
+  }
+}
+
+for (let n of fibonacci()) { // n 就是curr
+  if (n > 1000) break;
+  console.log(n);
+}
+```
+
+## 十六、Iterator
+
+遍历器
+
+
+

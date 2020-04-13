@@ -1,0 +1,14 @@
+<script>
+  let x = 1;
+  let b = function () {
+    console.log(this.x)
+  };
+  let obj = {
+    x: x,
+    y: 2,
+    a: function () {
+      //...
+    },
+    b,
+  };
+</script>

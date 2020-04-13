@@ -1,9 +1,32 @@
 module.exports = [
   // /是docs下d1
-  { text: '首页', link: '/' },
-  { text: '面试', link: '/interview/' },
-  { text: '前端学习', link: '/fontend/' },
-  { text: '项目及采坑记录', link: '/project/' },
+  {
+    text: '面试',
+    items: [
+      { text: '基础面试题', link: '/interview/base/' },
+      { text: '框架面试题', link: '/interview/frame/' },
+      { text: '真题笔记', link: '/interview/面试真题/' }
+    ]
+  },
+  {
+    text: '学习笔记',
+    items: [
+      { text: 'HTML和CSS笔记', link: '/fontend/htmlcss/' },
+      { text: 'JavaScript笔记', link: '/fontend/javascript/' },
+      { text: 'H5C3移动端笔记', link: '/fontend/h5c3/' },
+      { text: 'ECMAScript6笔记', link: '/fontend/es6/' },
+      { text: 'webpack笔记', link: '/fontend/webpack/' },
+
+      // { text: '数据结构与算法', link: '/fontend/数据结构与算法/' },
+    ]
+  },
+  {
+    text: '项目及采坑记录',
+    items: [
+      { text: '项目总结', link: '/project/project/' },
+      { text: '采坑点', link: '/project/bug/' }
+    ]
+  },
   // 前端文档
   {
     text: '前端文档',
@@ -45,12 +68,13 @@ module.exports = [
       { text: '动画animate', link: 'https://daneden.github.io/animate.css/' },
       { text: '随机数据mock', link: 'http://mockjs.com/' },
       { text: '阿里图标', link: 'https://www.iconfont.cn/' },
+      { text: '跨域处理-服务器代理', link: 'https://bird.ioliu.cn/' },
     ]
   },
 
   // 大佬论坛
   {
-    text: '大佬博客论坛',
+    text: '博客论坛笔记',
     items: [
       {
         text: '博客论坛',

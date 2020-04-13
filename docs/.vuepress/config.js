@@ -1,5 +1,3 @@
-const moment = require('moment');
-
 module.exports = {
     base:'/learningblog/',
     title: '学习笔记', // 显示在左上角的网页名称以及首页在浏览器标签显示的title名称
@@ -11,15 +9,5 @@ module.exports = {
         ['meta', { name: 'author', content: 'Chen' }]
     ],
     themeConfig: require('./themeconfig.js'),
-    plugins: [
-        [
-            '@vuepress/last-updated',
-            {
-                transformer: (timestamp) => {
-                    moment.locale('zh-cn')
-                    return moment(timestamp).format('ll');
-                }
-            }
-        ]
-    ]
+
 }

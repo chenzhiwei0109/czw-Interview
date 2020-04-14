@@ -1,7 +1,6 @@
 ---
 sidebarDepth: 2
 ---
-
 # ES6(ES2015)
 
 ## **一、ES6作用域分类**
@@ -2138,5 +2137,47 @@ for (let n of fibonacci()) { // n 就是curr
 
 遍历器
 
+- 可迭代协议： obj[Symbol.interator]有
+- 迭代器协议
 
+```js
+let authors = {
+  allAuthors: {
+    fiction: ['Agla', 'Skks', 'LP'],
+    scienceFiction: ['Neal', 'Arthru', 'Ribert'],
+    fantasy: ['J.R.Tole', 'J.M.R', 'Terry P.K']
+  },
+  Addres: []
+}
+authors[Symbol.iterator] = function () {
+  let allAuthors = this.allAuthors
+  let keys = Reflect.ownKeys(allAuthors)
+  let values = []
+  return {
+    next () {
+      if (!values.length) {
+        if (keys.length) {
+          values = allAuthors[keys[0]]
+          keys.shift()
+        }
+      }
+      return {
+        done: !values.length,
+        value: values.shift()
+      }
+    }
+  }
+}
+```
+
+generator函数就是返回一个interator
+
+```js
+authors[Symbol.iterator] = function () {
+  let allAuthors = this.allAuthors
+  let keys = Reflect.ownKeys(allAuthors)
+  let values = []
+  return 
+}
+```
 

@@ -16,15 +16,15 @@ module.exports = [
       { text: 'H5C3移动端笔记', link: '/fontend/h5c3/' },
       { text: 'ECMAScript6笔记', link: '/fontend/es6/' },
       { text: 'webpack笔记', link: '/fontend/webpack/' },
-
-      // { text: '数据结构与算法', link: '/fontend/数据结构与算法/' },
+      { text: '数据结构与算法', link: '/fontend/数据结构与算法/' },
     ]
   },
   {
     text: '项目及采坑记录',
     items: [
-      { text: '项目总结', link: '/project/project/' },
-      { text: '采坑点', link: '/project/bug/' }
+      { text: '博客总结', link: '/project/blog/' },
+      { text: '采坑点', link: '/project/bug/' },
+      { text: '小米商城', link: '/project/xiaomi/' }
     ]
   },
   // 前端文档
@@ -69,6 +69,9 @@ module.exports = [
       { text: '随机数据mock', link: 'http://mockjs.com/' },
       { text: '阿里图标', link: 'https://www.iconfont.cn/' },
       { text: '跨域处理-服务器代理', link: 'https://bird.ioliu.cn/' },
+      { text: '正则可视化', link: 'https://regexper.com/' },
+      { text: 'base64', link: 'http://tool.chinaz.com/tools/imgtobase/' },
+
     ]
   },
 

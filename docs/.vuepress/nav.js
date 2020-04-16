@@ -3,9 +3,19 @@ module.exports = [
   {
     text: '面试',
     items: [
-      { text: '基础面试题', link: '/interview/base/' },
+      { text: '手撕源码汇总', link: '/interview/0-手撕源码汇总/' },
+      { text: 'HTMLCSS面试题', link: '/interview/1-html-css面试题/' },
+      { text: 'JS面试题', link: '/interview/2-js面试题/' },
+      { text: 'ES6面试题', link: '/interview/3-ES6面试题/' },
+      { text: 'HTML5和移动端', link: '/interview/4-html5移动端/' },
+      { text: 'Webpack面试题', link: '/interview/5-webpack面试题/' },
+      { text: 'Vue面试题', link: '/interview/6-vue面试题/' },
       { text: '框架面试题', link: '/interview/frame/' },
-      { text: '真题笔记', link: '/interview/面试真题/' }
+      { text: '浏览器工作原理及优化', link: '/interview/7-浏览器工作原理及优化/' },
+      { text: '算法面试题', link: '/interview/8-算法面试题/' },
+      { text: '手撕源码汇总', link: '/interview/frame/' },
+
+
     ]
   },
   {
@@ -92,7 +102,6 @@ module.exports = [
           { text: '简书', link: 'https://www.jianshu.com/' },
         ]
       },
-
       {
         text: '他人笔记',
         items: [
@@ -102,6 +111,13 @@ module.exports = [
           { text: '小猿圈', link: 'https://book.apeland.cn/details/314/' },
           { text: '面试题-看云', link: 'https://www.kancloud.cn/hanxuming/vue-iq/945437' },
           { text: '面试题-github榜1', link: 'https://github.com/haizlin/fe-interview' },
+        ]
+      },
+      {
+        text: '刷题',
+        items: [
+          { text: '牛客', link: 'https://www.nowcoder.com/contestRoom' },
+          { text: 'leetcode', link: 'https://leetcode-cn.com/' }
         ]
       }
     ]

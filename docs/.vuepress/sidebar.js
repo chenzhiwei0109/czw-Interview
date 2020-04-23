@@ -30,7 +30,7 @@ module.exports = {
     'vue',
     'vue-router'
   ],
-  '/interview/7-浏览器工作原理及优化/': [
+  '/interview/7-http相关/': [
     '',
     '1-输入url',
     '2-互联网协议',

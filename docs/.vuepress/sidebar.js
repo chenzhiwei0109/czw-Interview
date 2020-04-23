@@ -12,7 +12,8 @@ module.exports = {
     '',
     '1-数据类型相关面试题',
     '2-三座大山',
-    '3-webAPI'
+    '3-webAPI',
+    'js'
   ],
   '/interview/3-ES6面试题/': [
     '',
@@ -22,7 +23,7 @@ module.exports = {
   ],
   '/interview/5-webpack面试题/': [
     '',
-
+    'webpack面试题'
   ],
   '/interview/6-vue面试题/': [
     '',
@@ -36,8 +37,13 @@ module.exports = {
     '3-浏览器安全',
     '4-异步请求方案',
     '5-缓存相关',
-
+    '6-http',
   ],
+  '/interview/8-算法面试/': [
+    '',
+  ],
+
+
 
   //学习笔记
   '/fontend/htmlcss/': [

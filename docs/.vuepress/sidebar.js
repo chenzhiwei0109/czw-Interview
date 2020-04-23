@@ -65,13 +65,25 @@ module.exports = {
   ],
   '/fontend/webpack/': [
     '',
+    '1-webpack初探',
+    '2-webpack核心概念',
+    '3-webpack高级特性',
+    '4-配置案例',
+    '5-webpack底层原理'
   ],
 
   '/fontend/数据结构与算法/': [
     '',
     '简单算法',
   ],
-
+  '/fontend/http协议/': [
+    '',
+    '1-http协议发展历史',
+    '2-HTTP各种特性总览',
+    '3-HTTP各种特性总览',
+    '4-Nginx代理以及面向未来的HTTP',
+    '5-其他',
+  ],
   //项目总结
   '/project/blog/': [
     '',

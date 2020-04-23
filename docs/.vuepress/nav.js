@@ -27,6 +27,7 @@ module.exports = [
       { text: 'ECMAScript6笔记', link: '/fontend/es6/' },
       { text: 'webpack笔记', link: '/fontend/webpack/' },
       { text: '数据结构与算法', link: '/fontend/数据结构与算法/' },
+      { text: 'http协议相关', link: '/fontend/http协议/' },
     ]
   },
   {

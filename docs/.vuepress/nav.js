@@ -10,12 +10,8 @@ module.exports = [
       { text: 'HTML5和移动端', link: '/interview/4-html5移动端/' },
       { text: 'Webpack面试题', link: '/interview/5-webpack面试题/' },
       { text: 'Vue面试题', link: '/interview/6-vue面试题/' },
-      { text: '框架面试题', link: '/interview/frame/' },
-      { text: '浏览器工作原理及优化', link: '/interview/7-浏览器工作原理及优化/' },
+      { text: '浏览器工作原理及优化', link: '/interview/7-http相关/' },
       { text: '算法面试题', link: '/interview/8-算法面试题/' },
-      { text: '手撕源码汇总', link: '/interview/frame/' },
-
-
     ]
   },
   {

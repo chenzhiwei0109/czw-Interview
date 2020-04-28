@@ -10,14 +10,15 @@ module.exports = [
       { text: 'HTML5和移动端', link: '/interview/4-html5移动端/' },
       { text: 'Webpack面试题', link: '/interview/5-webpack面试题/' },
       { text: 'Vue面试题', link: '/interview/6-vue面试题/' },
+      { text: '浏览器http面试题', link: '/interview/7-浏览器http面试题/' },
       { text: '算法面试题', link: '/interview/8-算法面试题/' },
     ]
   },
   {
     text: '学习笔记',
     items: [
-      { text: 'HTML和CSS笔记', link: '/fontend/htmlcss/' },
-      { text: 'JavaScript笔记', link: '/fontend/javascript/' },
+      { text: 'HTML和CSS笔记', link: '/fontend/0-HTML和CSS笔记/' },
+      { text: 'JavaScript笔记', link: '/fontend/1-JavaScript笔记/' },
       { text: 'H5C3移动端笔记', link: '/fontend/h5c3/' },
       { text: 'ECMAScript6笔记', link: '/fontend/es6/' },
       { text: 'webpack笔记', link: '/fontend/webpack/' },
@@ -30,7 +31,7 @@ module.exports = [
     items: [
       { text: '博客总结', link: '/project/blog/' },
       { text: '采坑点', link: '/project/bug/' },
-      { text: '小米商城', link: '/project/xiaomi/' }
+      // { text: '小米商城', link: '/project/xiaomi/' }
     ]
   },
   // 前端文档
@@ -60,15 +61,18 @@ module.exports = [
           { text: 'VUE-vant', link: 'https://youzan.github.io/vant/#/zh-CN/' },
           { text: 'MUI文档', link: 'https://dev.dcloud.net.cn/mui/' },
           { text: 'AntDesign', link: 'https://ant.design/index-cn' },
+          { text: 'Swiper', link: 'https://www.swiper.com.cn/' },
+          { text: 'cube', link: 'https://didi.github.io/cube-ui/#/zh-CN' },
         ]
       }
     ]
   },
   // 工具
   {
-    text: '工具',
+    text: '工具文档',
     items: [
       { text: 'echart图', link: 'https://www.echartsjs.com/zh/index.html' },
+      { text: 'better-scroll', link: 'https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/' },
       { text: '腾讯AI', link: 'https://ai.qq.com/' },
       { text: 'lodash中文', link: 'https://www.lodashjs.com/' },
       { text: '动画animate', link: 'https://daneden.github.io/animate.css/' },
@@ -76,12 +80,10 @@ module.exports = [
       { text: '阿里图标', link: 'https://www.iconfont.cn/' },
       { text: '跨域处理-服务器代理', link: 'https://bird.ioliu.cn/' },
       { text: '正则可视化', link: 'https://regexper.com/' },
-      { text: 'base64', link: 'http://tool.chinaz.com/tools/imgtobase/' },
-
+      { text: 'base64', link: 'http://tool.chinaz.com/tools/imgtobase/' }
     ]
   },
 
-  // 大佬论坛
   {
     text: '博客论坛笔记',
     items: [

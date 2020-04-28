@@ -2,6 +2,15 @@ module.exports = {
   //面试
   '/interview/0-手撕源码汇总/': [
     '',
+    '手写bind',
+    '手写Promise',
+    '手写防抖',
+    '手写节流',
+    '手写深拷贝',
+    '手写create',
+    '手写trim方法',
+    '数组扁平化flatten',
+    'isEqual'
   ],
   '/interview/1-html-css面试题/': [
     '',
@@ -30,6 +39,10 @@ module.exports = {
     'vue',
     'vue-router'
   ],
+  '/interview/7-浏览器http面试题/': [
+    '',
+    '一-输入url'
+  ],
   '/interview/8-算法面试/': [
     '',
   ],
@@ -37,19 +50,30 @@ module.exports = {
 
 
   //学习笔记
-  '/fontend/htmlcss/': [
-    'html',
+  '/fontend/0-HTML和CSS笔记/': [
+    'html基础',
+    'html表格',
     'css基础',
     'css布局',
     'css效果',
     'css动画',
     'css预处理器'
   ],
-  '/fontend/javascript/': [
-    'ecmascript',
-    'bom',
-    'dom'
+  '/fontend/1-JavaScript笔记/': [
+    '',
+    '1-JS基础语法',
+    '2-数据类型和转换',
+    '3-错误处理机制',
+    {
+      title: '标准库',
+      sidebarDepth: 1,    // 可选的, 默认值是 1
+      children: [
+        '/fontend/1-JavaScript笔记/标准库/Array',
+        '/fontend/1-JavaScript笔记/标准库/Object',
+      ]
+    }
   ],
+
   '/fontend/h5c3/': [
     '',
     'css3',
@@ -88,8 +112,8 @@ module.exports = {
   '/project/bug/': [
     'better-scroll',
   ],
-  '/project/xiaomi/': [
-    '',
-    '项目简介'
-  ],
+  // '/project/xiaomi/': [
+  //   '',
+  //   '项目简介'
+  // ],
 }

@@ -1,5 +1,147 @@
 # css面试题
 
+## css如何居中?
+
+### 水平居中
+
+1. margin:0 auto;   ie5和ie6:在body加text-align:center
+
+2. absolute定位+left50%+margin-left负的宽度一般
+
+3. absolute定位+left50%+transform:translateX(-50%)
+
+4. flex布局，flex-direction为默认row时，水平主轴(main axis)使用 justify-content:center;主轴居中。
+
+5. inline元素的父元素设置text-align:center;
+
+6. 浮动元素居中
+
+   ```css
+   .square{
+       float: left;
+       position: relative;
+       left: 50%;
+       transform: translateX(-50%);
+   }
+   ```
+
+   ```
+   body>div.square+div.line
+   ```
+
+7. 绝对定位居中
+
+   ```css
+   span{
+   	position:abslute;
+   	left:0;
+   	right:0;
+   	margin:0 auto  
+   }
+   ```
+
+   ```css
+   span{
+   	position:abslute;
+   	left:0;
+   	right:0;
+   	widht:120px;
+   	left:50%;
+   	margin-left:-60px  //或者 transform: translateX(-50%);
+   }
+   ```
+
+### 垂直居中
+
+**文字垂直居中**
+
+1. 内边距
+
+   ![1587996149270](../../.vuepress/public/assets/img/1587996149270.png)
+
+2. 行内元素-line-height等于父元素的高。
+
+   line-height是基线之间的距离，line-height和fontsize之差得到行距。当line-height等于父元素高度，就没有行距了，就变成一行了。但是p这种自带marigin就不行
+
+   ![1587996397252](../../.vuepress/public/assets/img/1587996397252.png)
+
+3. 多行文字垂直居中  ie9+
+
+   ![1587996544767](../../.vuepress/public/assets/img/1587996544767.png)
+
+4. 列表
+
+   配合中线排列
+
+   ![1587996628762](../../.vuepress/public/assets/img/1587996628762.png)
+
+5. gird
+
+   ```css
+   ul{
+   	display:grid;
+   	grid-template-colums:repeat(6,1fr);
+   	align-items:center;
+   	justify-content:center
+   }
+   ```
+
+6. 定位
+
+   ```
+   position
+   top:50%
+   margin-top:自身宽高一般
+   ```
+
+7. 伪元素+利用行内元素基线对齐
+
+   需要给他一个元素作为对比
+
+   ![1587996816269](../../.vuepress/public/assets/img/1587996816269.png)
+
+   ```
+   div{
+   	display:inline-blick;
+   	vertial-align:middle
+   }
+   div::after{
+   	content:'';
+   	display:inline-block;
+   	width:0;
+   	vertial-align:middle
+   }
+   ```
+
+
+
+## css绘制三角形和直角梯形
+
+css绘制三角形和梯形利用对角分割，边框会沿着对角线分布：
+
+![1587994513896](../../.vuepress/public/assets/img/1587994513896.png)
+
+```css
+#triangle {
+    width:0;
+    border:10px solid transparent;
+    border-left-color:#f00
+}
+```
+
+```css
+#trapezoid {
+	width:200px;
+	border-bottom:50px solid #f00;
+	border-right:20px solid transparent;
+	height:0;
+	line-height:50px;
+	text-align:center;
+}
+```
+
+![1587994728479](../../.vuepress/public/assets/img/1587994728479.png)
+
 ## 三栏布局
 
 **假设高度已知，请写出三栏布局，其中左栏，右栏宽度各300px,中间自适应**

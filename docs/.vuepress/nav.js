@@ -4,7 +4,7 @@ module.exports = [
   {
     text: '面试',
     items: [
-      { text: '面经汇总', link: '/interview/0-面经汇总/面经.md' },
+      { text: '面经汇总', link: '/interview/0-面经汇总/' },
       { text: 'CSS', link: '/interview/1-css面试题/' },
       { text: 'JS', link: '/interview/2-js面试题/' },
       { text: 'H5和移动端', link: '/interview/3-h5移动端/' },
@@ -12,9 +12,17 @@ module.exports = [
       { text: 'Vue', link: '/interview/5-vue面试题/' },
       { text: 'React', link: '/interview/6-react面试题/' },
       { text: '综合', link: '/interview/7-综合面试题/' },
-      { text: '数据结构与算法', link: '/interview/8-数据结构与算法/' },
-      { text: '其他技术栈', link: '/interview/9-其他技术栈/' },
+      { text: '数据结构与算法', link: '/interview/8-js数据结构与算法/' },
+      { text: '其他技术栈', link: '/interview/9-其他面试题/' },
       { text: '知识点速记', link: '/interview/10-知识点速记/' },
+    ]
+  },
+  {
+    text: '计算机基础',
+    items: [
+      { text: '计算机组成原理', link: '/计算机基础/计算机组成原理/' },
+      { text: '操作系统', link: '/计算机基础/操作系统/' },
+      { text: '计算机网络', link: '/计算机基础/计算机网络/' }
     ]
   },
   {
@@ -26,17 +34,30 @@ module.exports = [
       { text: 'ECMAScript6笔记', link: '/fontend/3-ES6/' },
       { text: 'Webpack笔记', link: '/fontend/4-Webpack/' },
       { text: 'Vue笔记', link: '/fontend/5-Vue/' },
-      { text: 'React笔记', link: '/fontend/6-React/' },
-      { text: '数据结构与算法', link: '/fontend/数据结构与算法/' },
-      { text: 'http协议相关', link: '/fontend/http协议/' },
+      { text: 'React笔记', link: '/fontend/6-React/' }
     ]
   },
   {
-    text: '项目及采坑记录',
+    text: '前端进阶',
     items: [
-      { text: '博客总结', link: '/project/blog/' },
-      { text: '采坑点', link: '/project/bug/' },
-      // { text: '小米商城', link: '/project/xiaomi/' }
+      { text: 'node', link: '/fontendplus/node/' },
+      { text: 'koa', link: '/fontendplus/koa/' },
+      { text: 'eggJs', link: '/fontendplus/egg/' },
+      { text: 'ts', link: '/fontendplus/ts/' },
+      { text: 'vue3', link: '/fontendplus/vue3/' },
+      { text: '浏览器工作原理实践', link: '/fontendplus/浏览器工作原理实践/' },
+      { text: '设计模式', link: '/fontendplus/设计模式/' },
+    ]
+  },
+  {
+    text: '项目',
+    items: [
+      { text: '个人博客', link: '/project/1-个人博客/' },
+      { text: 'vue多媒体', link: '/project/2-vue多媒体/' },
+      { text: '移动商城', link: '/project/3-移动商城/' },
+      { text: '商城后台', link: '/project/4-vue后台管理/' },
+      { text: '弹幕视频网', link: '/project/5-b站移动端/' },
+      { text: '社交类app', link: '/project/6-wp7社区/' },
     ]
   },
   // 前端文档
@@ -66,7 +87,6 @@ module.exports = [
           { text: 'VUE-vant', link: 'https://youzan.github.io/vant/#/zh-CN/' },
           { text: 'MUI文档', link: 'https://dev.dcloud.net.cn/mui/' },
           { text: 'AntDesign', link: 'https://ant.design/index-cn' },
-          { text: 'Swiper', link: 'https://www.swiper.com.cn/' },
           { text: 'cube', link: 'https://didi.github.io/cube-ui/#/zh-CN' },
         ]
       }
@@ -77,6 +97,7 @@ module.exports = [
     text: '工具文档',
     items: [
       { text: 'echart图', link: 'https://www.echartsjs.com/zh/index.html' },
+      { text: 'Swiper', link: 'https://www.swiper.com.cn/' },
       { text: 'better-scroll', link: 'https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/' },
       { text: '腾讯AI', link: 'https://ai.qq.com/' },
       { text: 'lodash中文', link: 'https://www.lodashjs.com/' },

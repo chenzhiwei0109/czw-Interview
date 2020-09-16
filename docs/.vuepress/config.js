@@ -5,7 +5,7 @@ module.exports = {
     // 注入到当前页面的 HTML <head> 中的标签
     head: [
         ['link', { rel: 'icon', href: '/title.jpg' }],
-        ['meta', { name: 'keywords', content: 'vuepress 前端 笔记' }],
+        ['meta', { name: 'keywords', content: 'vuepress 学习 笔记' }],
         ['meta', { name: 'author', content: 'Chen' }]
     ],
     themeConfig: require('./themeconfig.js'),

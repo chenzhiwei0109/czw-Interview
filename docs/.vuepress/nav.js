@@ -79,7 +79,7 @@ module.exports = [
         { text: '维基百科', link: 'https://www.wikipedia.org/' },]
       },
       {
-        text: '组件库',
+        text: '工具',
         ariaLabel: '组件库菜单',
         items: [
           { text: 'VUE-element-ui', link: 'https://element.eleme.cn/#/zh-CN' },
@@ -88,30 +88,23 @@ module.exports = [
           { text: 'MUI文档', link: 'https://dev.dcloud.net.cn/mui/' },
           { text: 'AntDesign', link: 'https://ant.design/index-cn' },
           { text: 'cube', link: 'https://didi.github.io/cube-ui/#/zh-CN' },
+          { text: 'echart图', link: 'https://www.echartsjs.com/zh/index.html' },
+          { text: 'Swiper', link: 'https://www.swiper.com.cn/' },
+          { text: 'better-scroll', link: 'https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/' },
+          { text: '腾讯AI', link: 'https://ai.qq.com/' },
+          { text: 'lodash中文', link: 'https://www.lodashjs.com/' },
+          { text: '动画animate', link: 'https://daneden.github.io/animate.css/' },
+          { text: '随机数据mock', link: 'http://mockjs.com/' },
+          { text: '阿里图标', link: 'https://www.iconfont.cn/' },
+          { text: '跨域处理-服务器代理', link: 'https://bird.ioliu.cn/' },
+          { text: '正则可视化', link: 'https://regexper.com/' },
+          { text: 'base64', link: 'http://tool.chinaz.com/tools/imgtobase/' }
         ]
       }
     ]
   },
-  // 工具
   {
-    text: '工具文档',
-    items: [
-      { text: 'echart图', link: 'https://www.echartsjs.com/zh/index.html' },
-      { text: 'Swiper', link: 'https://www.swiper.com.cn/' },
-      { text: 'better-scroll', link: 'https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/' },
-      { text: '腾讯AI', link: 'https://ai.qq.com/' },
-      { text: 'lodash中文', link: 'https://www.lodashjs.com/' },
-      { text: '动画animate', link: 'https://daneden.github.io/animate.css/' },
-      { text: '随机数据mock', link: 'http://mockjs.com/' },
-      { text: '阿里图标', link: 'https://www.iconfont.cn/' },
-      { text: '跨域处理-服务器代理', link: 'https://bird.ioliu.cn/' },
-      { text: '正则可视化', link: 'https://regexper.com/' },
-      { text: 'base64', link: 'http://tool.chinaz.com/tools/imgtobase/' }
-    ]
-  },
-
-  {
-    text: '博客论坛笔记',
+    text: '前端博客',
     items: [
       {
         text: '博客论坛',
@@ -134,7 +127,7 @@ module.exports = [
           { text: 'JS数据结构和算法', link: 'https://www.jianshu.com/p/38853c044156' },
           { text: '小猿圈', link: 'https://book.apeland.cn/details/314/' },
           { text: '面试题-看云', link: 'https://www.kancloud.cn/hanxuming/vue-iq/945437' },
-          { text: '面试题-github榜1', link: 'https://github.com/haizlin/fe-interview' },
+          { text: '面试题-github', link: 'https://github.com/haizlin/fe-interview' },
         ]
       },
       {

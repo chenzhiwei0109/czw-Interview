@@ -1,49 +1,45 @@
 module.exports = {
-  //面试
-  '/interview/0-手撕源码汇总/': [
+  //面试  interview
+  '/interview/0-面经汇总/': [
     '',
-    '手写bind',
-    '手写Promise',
-    '手写防抖',
-    '手写节流',
-    '手写深拷贝',
-    '手写create',
-    '手写trim方法',
-    '数组扁平化flatten',
-    'isEqual'
+    '面经'
   ],
-  '/interview/1-html-css面试题/': [
+  '/interview/1-css面试题/': [
     '',
-    'html面试题',
-    'css面试题'
+    'htmlcss面试题',
+    'css笔试题',
+    'css预处理'
   ],
   '/interview/2-js面试题/': [
     '',
-    '1-数据类型相关面试题',
-    '2-三座大山',
-    '3-webAPI',
-    'js'
+    '1-概念题',
+    '2-面试题',
+    '3-笔试题',
+    '4-进阶笔试题',
+    '5-手写源码',
+    '6-es6相关',
+    '7-异步汇总',
   ],
-  '/interview/3-ES6面试题/': [
+  '/interview/3-h5移动端/': [
     '',
   ],
-  '/interview/4-html5移动端/': [
-    '',
+  '/interview/4-webpack面试题/': [
+    ''
   ],
-  '/interview/5-webpack面试题/': [
-    '',
-    'webpack面试题'
+
+  '/interview/5-vue面试题/': [
+    ''
   ],
-  '/interview/6-vue面试题/': [
-    '',
-    'vue',
-    'vue-router'
+  '/interview/6-react面试题/': [
+    ''
   ],
-  '/interview/7-浏览器http面试题/': [
+  '/interview/7-综合面试题/': [
     '',
-    '一-输入url'
+    '1-http面试题',
+    '2-浏览器工作原理',
+    '3-web综合安全',
   ],
-  '/interview/8-算法面试/': [
+  '/interview/8-js数据结构与算法/': [
     '',
   ],
 

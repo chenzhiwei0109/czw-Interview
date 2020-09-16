@@ -1,27 +1,32 @@
 module.exports = [
   // /是docs下d1
+
   {
     text: '面试',
     items: [
-      { text: '手撕源码汇总', link: '/interview/0-手撕源码汇总/' },
-      { text: 'HTMLCSS面试题', link: '/interview/1-html-css面试题/' },
-      { text: 'JS面试题', link: '/interview/2-js面试题/' },
-      { text: 'ES6面试题', link: '/interview/3-ES6面试题/' },
-      { text: 'HTML5和移动端', link: '/interview/4-html5移动端/' },
-      { text: 'Webpack面试题', link: '/interview/5-webpack面试题/' },
-      { text: 'Vue面试题', link: '/interview/6-vue面试题/' },
-      { text: '浏览器http面试题', link: '/interview/7-浏览器http面试题/' },
-      { text: '算法面试题', link: '/interview/8-算法面试题/' },
+      { text: '面经汇总', link: '/interview/0-面经汇总/面经.md' },
+      { text: 'CSS', link: '/interview/1-css面试题/' },
+      { text: 'JS', link: '/interview/2-js面试题/' },
+      { text: 'H5和移动端', link: '/interview/3-h5移动端/' },
+      { text: 'Webpack', link: '/interview/4-webpack面试题/' },
+      { text: 'Vue', link: '/interview/5-vue面试题/' },
+      { text: 'React', link: '/interview/6-react面试题/' },
+      { text: '综合', link: '/interview/7-综合面试题/' },
+      { text: '数据结构与算法', link: '/interview/8-数据结构与算法/' },
+      { text: '其他技术栈', link: '/interview/9-其他技术栈/' },
+      { text: '知识点速记', link: '/interview/10-知识点速记/' },
     ]
   },
   {
-    text: '学习笔记',
+    text: '前端基础',
     items: [
       { text: 'HTML和CSS笔记', link: '/fontend/0-HTML和CSS笔记/' },
       { text: 'JavaScript笔记', link: '/fontend/1-JavaScript笔记/' },
-      { text: 'H5C3移动端笔记', link: '/fontend/h5c3/' },
-      { text: 'ECMAScript6笔记', link: '/fontend/es6/' },
-      { text: 'webpack笔记', link: '/fontend/webpack/' },
+      { text: 'H5移动端笔记', link: '/fontend/2-HTML5和移动端/' },
+      { text: 'ECMAScript6笔记', link: '/fontend/3-ES6/' },
+      { text: 'Webpack笔记', link: '/fontend/4-Webpack/' },
+      { text: 'Vue笔记', link: '/fontend/5-Vue/' },
+      { text: 'React笔记', link: '/fontend/6-React/' },
       { text: '数据结构与算法', link: '/fontend/数据结构与算法/' },
       { text: 'http协议相关', link: '/fontend/http协议/' },
     ]

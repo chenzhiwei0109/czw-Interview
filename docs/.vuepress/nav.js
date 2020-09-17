@@ -1,6 +1,13 @@
 module.exports = [
   // /是docs下d1
-
+  {
+    text: '数据结构与算法',
+    items: [
+      { text: '数据结构与算法', link: '/数据结构与算法/数据结构与算法/' },
+      { text: '算法刷题', link: '/数据结构与算法/算法刷题/' },
+    
+    ]
+  },
   {
     text: '面试',
     items: [
@@ -17,14 +24,7 @@ module.exports = [
       { text: '知识点速记', link: '/interview/10-知识点速记/' },
     ]
   },
-  {
-    text: '计算机基础',
-    items: [
-      { text: '计算机组成原理', link: '/计算机基础/计算机组成原理/' },
-      { text: '操作系统', link: '/计算机基础/操作系统/' },
-      { text: '计算机网络', link: '/计算机基础/计算机网络/' }
-    ]
-  },
+
   {
     text: '前端基础',
     items: [
@@ -44,6 +44,7 @@ module.exports = [
       { text: 'koa', link: '/fontendplus/koa/' },
       { text: 'eggJs', link: '/fontendplus/egg/' },
       { text: 'ts', link: '/fontendplus/ts/' },
+      { text: 'vue源码', link: '/fontendplus/vue源码/' },
       { text: 'vue3', link: '/fontendplus/vue3/' },
       { text: '浏览器工作原理实践', link: '/fontendplus/浏览器工作原理实践/' },
       { text: '设计模式', link: '/fontendplus/设计模式/' },
@@ -58,6 +59,14 @@ module.exports = [
       { text: '商城后台', link: '/project/4-vue后台管理/' },
       { text: '弹幕视频网', link: '/project/5-b站移动端/' },
       { text: '社交类app', link: '/project/6-wp7社区/' },
+    ]
+  },
+  {
+    text: '计算机基础',
+    items: [
+      { text: '计算机组成原理', link: '/计算机基础/计算机组成原理/' },
+      { text: '操作系统', link: '/计算机基础/操作系统/' },
+      { text: '计算机网络', link: '/计算机基础/计算机网络/' }
     ]
   },
   // 前端文档

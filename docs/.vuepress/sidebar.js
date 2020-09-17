@@ -1,12 +1,38 @@
 module.exports = {
+  //数据结构与算法
+  '/数据结构与算法/数据结构与算法/': [
+    '',
+    '01-数据结构与算法',
+    '02-栈和队列和链表',
+    '03-集合和字典',
+    '03-树和图',
+    '04-排序算法',
+    '05-分而治之',
+    '06-动态规划',
+    '07-贪心算法',
+    '08-回溯算法',
+  ],
+  '/数据结构与算法/算法刷题/': [
+    '',
+    '剑指offer',
+    'leetcode算法题',
+  ],
+
+
   //面试  interview
   '/interview/0-面经汇总/': [
     '',
-    '面经'
+    '百度',
+    '快手',
+    '腾讯',
+    '网易',
+    '字节',
+    '阿里',
+    '其他'
   ],
   '/interview/1-css面试题/': [
     '',
-    'htmlcss面试题',
+    'html和css面试题',
     'css笔试题',
     'css预处理'
   ],
@@ -22,85 +48,107 @@ module.exports = {
   ],
   '/interview/3-h5移动端/': [
     '',
+    'html5面试题',
+    '移动端面试题',
   ],
   '/interview/4-webpack面试题/': [
-    ''
+    '',
+    'webpack面试题'
   ],
 
   '/interview/5-vue面试题/': [
-    ''
+    '',
+    'vue面试题1',
+    'vue面试题2',
+    'vue面试题3',
+
   ],
   '/interview/6-react面试题/': [
-    ''
+    '',
   ],
   '/interview/7-综合面试题/': [
     '',
-    '1-http面试题',
-    '2-浏览器工作原理',
-    '3-web综合安全',
+    '1-web综合问题',
+    '2-网络面试题',
+    '3-浏览器工作原理',
   ],
-  '/interview/8-js数据结构与算法/': [
-    '',
-  ],
+
 
 
 
   //学习笔记
   '/fontend/0-HTML和CSS笔记/': [
-    'html基础',
-    'html表格',
-    'css基础',
-    'css布局',
-    'css效果',
-    'css动画',
-    'css预处理器'
+    '1-Emmet语法',
+    '2-html基础',
+    '3-css基础',
+    '4-css选择器',
+    '5-css3',
+    '6-css预处理器',
   ],
   '/fontend/1-JavaScript笔记/': [
     '',
-    '1-JS基础语法',
-    '2-数据类型和转换',
-    '3-错误处理机制',
-    {
-      title: '标准库',
-      sidebarDepth: 1,    // 可选的, 默认值是 1
-      children: [
-        '/fontend/1-JavaScript笔记/标准库/Array',
-        '/fontend/1-JavaScript笔记/标准库/Object',
-      ]
-    }
+    '方法',
+    '类型转换',
+    'DOM',
+    // {
+    //   title: '标准库',
+    //   sidebarDepth: 1,    // 可选的, 默认值是 1
+    //   children: [
+    //     '/fontend/1-JavaScript笔记/标准库/Array',
+    //     '/fontend/1-JavaScript笔记/标准库/Object',
+    //   ]
+    // }
   ],
 
-  '/fontend/h5c3/': [
+  '/fontend/2-HTML5和移动端/': [
     '',
     'css3',
     'html5',
     '移动端'
   ],
-  '/fontend/es6/': [
+  '/fontend/3-ES6/': [
     '',
-    'es6'
+    'es6',
+    'es7',
+    'es8',
+    'es9',
+    'es10',
+    'es11',
   ],
-  '/fontend/webpack/': [
+  '/fontend/4-Webpack/': [
     '',
     '1-webpack初探',
     '2-webpack核心概念',
     '3-webpack高级特性',
-    '4-配置案例',
-    '5-webpack底层原理'
+    '4-webpack配置案例',
+    '5-webpack性能优化',
+    '6-webpack底层原理',
+    '7-webpack脚手架',
+  ],
+  '/fontend/5-Vue/': [
+    ''
+  ],
+  '/fontend/6-React/': [
+    '',
+    '1-react基础',
+    '2-react进阶',
+    '3-redux',
+    '4-redux进阶',
   ],
 
-  '/fontend/数据结构与算法/': [
+  // 前端高级
+  '/fontendplus/浏览器工作原理实践/': [
     '',
-    '简单算法',
+    '浏览器安全',
+    'HTTP'
   ],
-  '/fontend/http协议/': [
-    '',
-    '1-http协议发展历史',
-    '2-HTTP各种特性总览',
-    '3-HTTP各种特性总览',
-    '4-Nginx代理以及面向未来的HTTP',
-    '5-其他',
+  '/fontendplus/设计模式/': [
+    ''
   ],
+  '/fontendplus/node/': [
+    ''
+  ],
+
   //项目总结
   '/project/blog/': [
     '',

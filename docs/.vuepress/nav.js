@@ -5,7 +5,7 @@ module.exports = [
     items: [
       { text: '数据结构与算法', link: '/数据结构与算法/数据结构与算法/' },
       { text: '算法刷题', link: '/数据结构与算法/算法刷题/' },
-    
+
     ]
   },
   {
@@ -48,6 +48,7 @@ module.exports = [
       { text: 'vue3', link: '/fontendplus/vue3/' },
       { text: '浏览器工作原理实践', link: '/fontendplus/浏览器工作原理实践/' },
       { text: '设计模式', link: '/fontendplus/设计模式/' },
+      { text: '微信小程序', link: '/fontendplus/微信小程序/' },
     ]
   },
   {
@@ -59,6 +60,7 @@ module.exports = [
       { text: '商城后台', link: '/project/4-vue后台管理/' },
       { text: '弹幕视频网', link: '/project/5-b站移动端/' },
       { text: '社交类app', link: '/project/6-wp7社区/' },
+      { text: '7-其他项目', link: '/project/7-其他项目/' },
     ]
   },
   {
@@ -67,6 +69,14 @@ module.exports = [
       { text: '计算机组成原理', link: '/计算机基础/计算机组成原理/' },
       { text: '操作系统', link: '/计算机基础/操作系统/' },
       { text: '计算机网络', link: '/计算机基础/计算机网络/' }
+    ]
+  },
+  {
+    text: 'tools',
+    items: [
+      { text: 'mock', link: '/tools/mock/' },
+      { text: 'swiper', link: '/tools/swiper/' },
+      { text: 'better-scroll', link: '/tools/better-scroll/' }
     ]
   },
   // 前端文档

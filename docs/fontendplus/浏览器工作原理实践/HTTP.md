@@ -51,7 +51,7 @@ HTTP/0.9需求很简单，用来在网络之间传输HTML 超文本的内容，�
 
 HTTP/0.9无法满足传输多种类型文件的需求，客户端无法告知服务器如文件编码、文件类型等信息。同样，服务器是直接返回数据给浏览器的，也无法告诉浏览器更多的关于服务器返回的文件信息。HTTP/1.0 引入了请求头和响应头，它们都是以为 Key-Value 形式保存的。HTTP 发送请求时，会带上请求头信息，服务器返回数据时，会先返回响应头信息。
 
-![image-20200916182139852](D:/czw-project/learningblog/docs/.vuepress/public/assets/img/image-20200916182139852.png)
+![image-20200916182139852](../../.vuepress/public/assets/img/image-20200916182139852.png)
 
 **那 HTTP/1.0 是怎么通过请求头和响应头来支持多种不同类型的数据呢？**
 
@@ -100,7 +100,7 @@ http1.0每次进行HTTP通信都要进行握手传输挥手三个阶段。随着
 
 **HTTP/1.1 中增加了持久连接的方法，它的特点是在一个 TCP 连接上可以传输多个 HTTP 请求，只要浏览器或者服务器没有明确断开连接，那么该 TCP 连接会一直保持**。
 
-![image-20200916185239355](D:/czw-project/learningblog/docs/.vuepress/public/assets/img/image-20200916185239355.png)
+![image-20200916185239355](../../.vuepress/public/assets/img/image-20200916185239355.png)
 
 从上图可以看出，HTTP 的持久连接可以有效减少 TCP 建立连接和断开连接的次数，这样的好处是减少了服务器额外的负担，并提升整体 HTTP 的请求时长。
 
@@ -182,7 +182,7 @@ HTTP/1.1 中使用持久连接时，虽然能公用一个 TCP 管道，但是在
 
 HTTP/2 的解决方案可以总结为：**一个域名只使用一个 TCP 长连接和消除队头阻塞问题**
 
-![image-20200916200708599](D:/czw-project/learningblog/docs/.vuepress/public/assets/img/image-20200916200708599.png)
+![image-20200916200708599](../../.vuepress/public/assets/img/image-20200916200708599.png)
 
 每个请求都有一个对应的 ID，如 stream1 表示 index.html 的请求，stream2 表示 foo.css 的请求。这样在浏览器端，就可以随时将请求发送给服务器了。
 
@@ -192,7 +192,7 @@ HTTP/2 使用了多路复用技术，可以将请求分成一帧一帧的数据�
 
 ### 多路复用的实现
 
-![image-20200916201146329](D:/czw-project/learningblog/docs/.vuepress/public/assets/img/image-20200916201146329.png)
+![image-20200916201146329](../../.vuepress/public/assets/img/image-20200916201146329.png)
 
 HTTP/2 添加了一个**二进制分帧层**，那我们就结合图来分析下 HTTP/2 的请求和接收过程。
 
@@ -255,7 +255,7 @@ HTTP/2 协议规范于 2015 年 5 月正式发布，在那之后，该协议已�
 
 我们就把**在 TCP 传输过程中，由于单个数据包的丢失而造成的阻塞称为 TCP 上的队头阻塞**。
 
-![image-20200916202353178](D:/czw-project/learningblog/docs/.vuepress/public/assets/img/image-20200916202353178.png)
+![image-20200916202353178](../../.vuepress/public/assets/img/image-20200916202353178.png)
 
 在 HTTP/2 中，多个请求是跑在一个 TCP 管道中的，如果其中任意一路数据流中出现了丢包的情况，那么就会阻塞该 TCP 连接中的所有请求。这不同于 HTTP/1.1，使用 HTTP/1.1 时，浏览器为每个域名开启了 6 个 TCP 连接，如果其中的 1 个 TCP 连接发生了队头阻塞，那么其他的 5 个连接依然可以继续传输数据。
 
@@ -265,7 +265,7 @@ HTTP/2 协议规范于 2015 年 5 月正式发布，在那之后，该协议已�
 
 TCP 的握手过程也是影响传输效率的一个重要因素
 
-网络延迟又称为 RTT（Round Trip Time）。我们把从浏览器发送一个数据包到服务器，再从服务器返回数据包到浏览器的整个往返时间称为 RTT（如下图）。RTT 是反映网络性能的一个重要指标。
+网络延迟又称为 RTT（Round Trip Time）。我们把从浏览器发送一个数据包到服务器，再从服务器返回数据包到浏览器的整个往返时间称为 RTT。RTT 是反映网络性能的一个重要指标。
 
 我们知道 HTTP/1 和 HTTP/2 都是使用 TCP 协议来传输的，而如果使用 HTTPS 的话，还需要使用 TLS 协议进行安全传输，而使用 TLS 也需要一个握手过程，这样就需要有两个握手延迟过程。
 
@@ -284,7 +284,7 @@ TCP 的握手过程也是影响传输效率的一个重要因素
 
 - 因此，HTTP/3 选择了一个折衷的方法——UDP 协议，基于 UDP 实现了类似于 TCP 的多路数据流、传输可靠性等功能，我们把这套功能称为**QUIC 协议**。关于 HTTP/2 和 HTTP/3 协议栈的比较，你可以参考下图：
 
-![image-20200916202653966](D:/czw-project/learningblog/docs/.vuepress/public/assets/img/image-20200916202653966.png)
+![image-20200916202653966](../../.vuepress/public/assets/img/image-20200916202653966.png)
 
 HTTP/3 中的 QUIC 协议集合了以下几点功能。
 

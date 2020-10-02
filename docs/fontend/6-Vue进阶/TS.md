@@ -110,14 +110,22 @@ Use class-style component syntax? y
 不把老项目转换ts  n
 ```
 
+src改变的文件如下
+
 - main.ts
 - tsconfig.json
 - shims-vue.d.ts
 - shims-tsx.d.ts
 
-## 类型注解和编译时类型检查
+```
+"compilerOptions": {
+"noImplicitAny": false, //报错取消
+}
+```
 
-类型注解
+
+
+## 类型注解
 
 
 

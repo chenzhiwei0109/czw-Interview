@@ -2,7 +2,7 @@
 
 [TOC]
 
-## 1 前端模块化历程
+## 前端模块化历程
 
 模块介绍<https://www.webpackjs.com/concepts/modules/>
 
@@ -154,7 +154,7 @@ npx webpack index.js
 
 
 
-## 2.webpack是什么？
+## webpack是什么？
 
 webpack是一个**模块打包机**(module bundler),每个import都是一个模块,最早时他是JS模块打包工具，后来随着发展，现在可以打包各种形式的模块，比如css文件图片等等
 
@@ -219,7 +219,7 @@ if ( module.hot ) {
 }
 ```
 
-## 3.webpack创建汇总
+## webpack创建方式汇总
 
 ### 初始化package.json
 
@@ -263,7 +263,7 @@ npx webpack -v  //4.43.0
 npm install webpack@4.16.5 webpack-cli -D
 ```
 
-## 4.webpack.config.js
+## webpack.config.js
 
 >webpack做打包，他不知道如何打包，需要配置文件辅助他，但是如果我们不写配置他有默认配置，我们可以自己写配置，他默认使用webpack.config.js，我们也可以修改默认配置文件。
 
@@ -318,7 +318,7 @@ npm run xx -->webpack
 
 webpack-cli使我们能在命令行使用webpack命令
 
-## 5.Webpack打包输出内容
+## Webpack打包输出内容
 
 ![1589506839390](../../.vuepress/public/assets/img/1589506839390.png)
 
@@ -352,7 +352,7 @@ webpack-cli使我们能在命令行使用webpack命令
 
 - 警告说明：webpack配置应该指定打包模式,不配他会默认设置 mode:production
 
-## 6.开发环境与生产环境配置
+## 开发环境与生产环境配置
 
 'development':不被压缩
 

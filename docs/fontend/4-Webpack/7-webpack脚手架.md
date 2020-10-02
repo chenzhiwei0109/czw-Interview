@@ -92,15 +92,7 @@ module.exports = {
 }
 ```
 
-## 对比
 
-react设计思路是十分灵活，不会过度封装，所以react需要学的更多，vue对新手来说学习成本低。学完react,发现vue是真好啊，react真麻烦！
-
-## 记住什么
-
-loader是什么entry是什么plugin是什么,rules怎么配置，忘记了就去webpack官网查看。
-
-[概念](https://www.webpackjs.com/concepts/)[配置](https://www.webpackjs.com/configuration/)[API](https://www.webpackjs.com/api/)[指南](https://www.webpackjs.com/guides/)[LOADERS](https://www.webpackjs.com/loaders/)[插件](https://www.webpackjs.com/plugins/)
 
 
 

@@ -1,66 +1,5 @@
 # ts基础入门
 
-## 什么是ts
-
-<https://www.tslang.cn/>
-
-TS是js的超集，他会被编译成普通js然后去运行
-
-## TS的优势
-
-1. 错误提示更好，可以在编写过程中报错，比如知道传入的对象参数里的详细参数。开发过程可以发现潜在的类型问题。
-2. 代码提示更加友好，更加的语义化,而且有中文提示。
-3. 通过静态类型定义，可以更好的阅读代码。
-
-demo.js
-
-```js
-function demo(data){
-  return Math.sqrt(data.x**2+data.y**2)
-}
-demo();
-```
-
-demo.ts
-
-```ts
-function tsdemo(data: { x: number, y: number }) {
-  return Math.sqrt(data.x ** 2 + data.y ** 2)
-}
-tsdemo({ x: 1, y: 2 });
-```
-
-```ts
-interface Point = { x: number, y: number }
-function tsdemo(data:Point) {
-  return Math.sqrt(data.x ** 2 + data.y ** 3)
-}
-tsdemo({ x: 1, y: 2 });
-```
-
-## ts基础环境搭建
-
-```bash
-npm install typescript@3.6.4 -g
-```
-
-运行
-
-```bash
-tsc demo.ts
-node demo.js
-```
-
-使用简单方法
-
-```bash
-npm install -g ts-node@3.6.4 -g
-```
-
-```bash
- ts-node demo.ts
-```
-
 ## 静态类型
 
 - 静态类型可以有很好的语法提示。
@@ -179,7 +118,7 @@ const total = getTotal(1,2)
 function fn(){}
 const fn1 = () =>{}
 
-//函数类型注解
+//函数类型注解 返回值要是number类型
 function add(first:number,second:number):number{
   return first+second;
 }
@@ -255,7 +194,7 @@ const rawData = '{"name":"czw"}';
 const newData:Person = JSON.parse(pawData);
 ```
 
-## 数组和元组
+## 类型数组和元组
 
 数组存储特定基础类型
 
@@ -267,7 +206,7 @@ const strArr:string[] = ['a','b','c'];
 const arr:(number | string)[] = [1,'2',3]
 ```
 
-### 类型别名:type alias
+类型别名:type alias
 
 数组存储引用类型
 
@@ -279,12 +218,14 @@ const objectArr:User[]={
 }
 ```
 
+对象类型
+
 ```ts
 class Teacher{
   name:string,
   age:number;
 }
-//这种情况也可以。第二项符合Teacher类型
+//第二项符合Teacher类型
 const objectArr:Teacher[]={
   new Teacher(),
 	{

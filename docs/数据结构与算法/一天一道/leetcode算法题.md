@@ -1,103 +1,4 @@
-# leetcode算法题
-
-
-
-## 二分搜索
-
-```js
-function BinarySearch (arr, target) {
-    let from = 0;//从0开始
-    let to = arr.length - 1 //到最后一个
-    let mid = Math.floor((from + to)/2)
-    while (from <= to) { //如果第一个小于最后一个
-        mid = Math.floor((from + to)/2) //从他俩中间找
-        if (arr[mid] > target) { //如果中间这个大于目标
-            to = mid - 1 //说明最大值小于中间，把mid设为mid-1;
-        } else if (arr[mid] < target) {//如果中间数字比目标数字小
-            from = mid + 1//说明最小值应该设为中间数字+1；
-        } else {
-            return mid
-        }
-    }
-			//如果找不到就返回-1
-    return -1
-}
-```
-
-
-
-## 排序算法
-
-
-
-### 快速排序
-
-```js
-function quickSort(arr){
-  if(arr.length<2) return arr;
-  var index =Math.floor(arr.length/2);
-  var current =arr.splice(index,1)[0]
-  var left=[],right = []
-  for(var i=0; i<arr.length; i++){
-    if(arr[i]<current){
-      left.push(arr[i])
-    }else{
-      right.push(arr[i])
-    }
-  }
-  return quickSort(left).concat([current],quickSort(right))
-}
-```
-
-原地快拍
-
-//两个指针，分别在排头和排位 
-
-//8,[11,4,3,2,1,6,7,89,30]
-
-L -->              <----R 比flag小就停止
-
- 比flag大就停止
-
-调换位置继续逻辑，到R = L
-
-```js
-function quickSort1(arr, low = 0, high = arr.length - 1) {
-  if(low >= high) return
-  let left = low
-  let right = high
-  let temp = arr[left]
-  while(left < right) {
-    if(left < right && temp <= arr[right]) {
-      right --
-    }
-    arr[left] = arr[right]
-    if(left < right && temp >= arr[left]) {
-      left ++
-    }
-    arr[right] = arr[left]
-  }
-  arr[left] = temp
-  quickSort1(arr, low, left - 1)
-  quickSort1(arr, left + 1, high)
-  return arr
-}
-console.log(quickSort1([11,4,3,6,1,9,7,2,0]))
-```
-
-### 挨揍排序
-
-```js
-function fuckSort(arr){
-  var newList = []
-  arr.forEach(item=>{
-    setTimeout(()=>{
-      newList.push(item);
-    },item*4)
-  })
-  return newList;
-}
-```
+# leetcode刷题
 
 ## 1. 两数之和
 
@@ -139,7 +40,7 @@ var twoSum = function(nums, target) {
 };
 ```
 
-**方法3**
+**方法**
 
 利用map。原理同上。
 
@@ -156,9 +57,190 @@ var twoSum = function(nums, target) {
 };
 ```
 
+```js
+var twoSum = function(nums, target) {
+    let mapbox = new Map();
+    for(var i=0;i<nums.length;i++){
+        var b = target - nums[i];
+        if(mapbox.has(b)){
+            return [mapbox.get(b),i]
+        }
+        mapbox.set(nums[i],i)
+    }
+};
+```
+
+## [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/)
+
+给出两个 **非空** 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 **逆序** 的方式存储的，并且它们的每个节点只能存储 **一位** 数字。
+
+如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
+
+您可以假设除了数字 0 之外，这两个数都不会以 0 开头。
+
+**示例：**
+
+```
+输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
+输出：7 -> 0 -> 8
+原因：342 + 465 = 807
+```
+
+步骤
+
+```js
+1.新建空链表
+2.遍历被相加的两个链表，个位数追加，十位数留在下一位相加
+```
+
+代码
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var addTwoNumbers = function (l1, l2) {
+    let l3 = new ListNode(0);//创建一个头部节点
+    let p3 = l3;
+    let carry = 0;//十位数
+    while (l1 || l2) {
+        const val1 = l1 ? l1.val : 0;											
+        const val2 = l2 ? l2.val : 0;
+        const val = val1 + val2 + carry;
+        carry = Math.floor(val / 10);   // 取十位数
+        p3.next = new ListNode(val % 10); //取个位数
+        if (l1) l1 = l1.next;
+        if (l2) l2 = l2.next;
+        p3 = p3.next
+    }
+    if(carry){ //如果最后两位相加也是十位数还需要添加一个链表 
+        p3.next = new ListNode(carry)
+    }
+    return l3.next；
+};
+```
+
+## [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+
+给定一个字符串，请你找出其中不含有重复字符的 **最长子串** 的长度。
+
+**示例 1:**
+
+```
+输入: "abcabcbb"
+输出: 3 
+解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+```
+
+**示例 2:**
+
+```
+输入: "bbbbb"
+输出: 1
+解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
+```
+
+**示例 3:**
+
+```
+输入: "pwwkew"
+输出: 3
+解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
+     请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
+```
+
+利用字典索引的唯一性，维护一个滑动窗口，从头开始遍历字符串，把每一项作为字典key，索引作为字典val,遇到重复的项就把左指针往后移动，并和之前的字串长度比对，然后把重复项在字典进行更新。
+
+```js
+var lengthOfLongestSubstring = function(s) {
+    var L =0;
+    var result =0;
+    var map = new Map()
+    for(var i=0;i<s.length;i++){
+        let rightVal = s[i];//右指针指向
+        if(map.has(rightVal)&&map.get(rightVal)>=L){//如果字典里有重复项，并且重复项索引比L大
+            L = map.get(rightVal)+1 //左指针加1,跳过重复项。
+        }
+        result = Math.max(result,i-L+1)//最大者是当前窗口长度:右边减左边+1
+                //如何知道是重复字符? 把当前的值作为字典的索引。利用索引的不重复性。
+        map.set(rightVal,i)
+    }
+    return result
+};
+```
+
+## [4. 寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)
+
+给定两个大小为 m 和 n 的正序（从小到大）数组 `nums1` 和 `nums2`。请你找出并返回这两个正序数组的中位数。
+
+**进阶：**你能设计一个时间复杂度为 `O(log (m+n))` 的算法解决此问题吗？
+
+**示例 1：**
+
+```
+输入：nums1 = [1,3], nums2 = [2]
+输出：2.00000
+解释：合并数组 = [1,2,3] ，中位数 2
+```
+
+**示例 2：**
+
+```
+输入：nums1 = [1,2], nums2 = [3,4]
+输出：2.50000
+解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
+```
+
+**示例 3：**
+
+```
+输入：nums1 = [0,0], nums2 = [0,0]
+输出：0.00000
+```
+
+**示例 4：**
+
+```
+输入：nums1 = [], nums2 = [1]
+输出：1.00000
+```
+
+**示例 5：**
+
+```
+输入：nums1 = [2], nums2 = []
+输出：2.00000
+```
+
+**提示：**
+
+- `nums1.length == m`
+- `nums2.length == n`
+- `0 <= m <= 1000`
+- `0 <= n <= 1000`
+- `1 <= m + n <= 2000`
+- `-106 <= nums1[i], nums2[i] <= 106`
+
+```js
+var findMedianSortedArrays = function(nums1, nums2) {
+	if(nums1.length>nums2.length){
+        
+    }
+};
+```
 
 
-## 7. 整数翻转
+
+## 整数翻转
 
 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
 

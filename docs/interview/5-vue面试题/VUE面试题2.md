@@ -175,6 +175,10 @@ const router = new VueRouter({
 
 一个网站有很多共享的数据，比如用户的名称头像等信息。vuex就是用来专门管理这些公用数据的。
 
+Vuex遵循单向数据流，全局有一个State存放数据，这个State是响应式的。需要通过mutations才能commit到state的数据，mutations还可以和devtools进行交互。
+
+一些异步操作或者批量更新操作需要走Action,action需要通过mutations才能和devtools交互，根据state变化修改数据
+
 ## vuex有什么?
 
 ```js
@@ -307,6 +311,10 @@ export default {
   }
 }
 ```
+
+## vuex中为什么把把异步操作封装在action，把同步操作放在mutations？
+
+![image-20200927185237626](../../.vuepress/public/assets/img/image-20200927185237626.png)
 
 ## vue打包
 

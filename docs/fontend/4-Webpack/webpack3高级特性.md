@@ -1,113 +1,313 @@
-# 高级特性
+# webpack高级配置
 
-[TOC]
+## 热模块替换(HMR)
+
+### HMR配置
+
+- Hot Module Replacement
 
 
+- 只有更新的内容被替换，类似ajax那种不刷新页面。页面整体不刷新。之前渲染的内容不会变化
+- 不⽀持抽离出的css 我们要使⽤css-loader而不是mini-css-extract-plugin
 
-## 1 tree-shaking
+```shell
+_"start":"webpack-dev-server"
+```
 
-### 概念
-
-当我们引入一个模块的时候，不引入所有代码，只引入需要的代码，比如vue3里对tree-shaking的支持，使得v-model这种模块.
-
-但是他只支持ES模块这种静态模块引入，像CommonJS这种require动态模块是不支持的。
-
-- 如果你的模式是production,就只需要把devtool改成 cheap-module-source-map;
-
-- 但是你的模式是development,需要添加一个额外的optimization:{usedExports:true}。
-
-- tree-shaking还需要在package.json里设置sideEffects,比如css文件或者babel-pollifill。配置成数组形式
-
-默认情况下，你只使用了一个代码，但是其他代码也会被打包进，会使得main.js变的很大。
-
-tree-shaking的意思是摇树，会把
-
-举个栗子：
+webpack.config.js
 
 ```js
-//math.js
-export const add = (a, b) => {
-	console.log( a + b );
-}
+const webpack = require('webpack');
 
-export const minus = (a, b) => {
-	console.log( a - b );
+devServer:{
+	hot:true,
+	hotOnly:true, //即使hmr不生效，浏览器也不会自动刷新。
 }
+plugins:[
+	new webpack.HotModuleReplacementPlugin()
+]
+```
+
+```shell
+"start":"webpack-dev-server"
+```
+
+### 处理JS模块HMR
+
+**两个模块，如果一个模块数据改变，不能影响其他模块的变更数据。**
+
+使用module.hot.accept方法，
+
+```js
+//counter.js 
+function counter() {
+    var div = document.createElement("div");
+    div.setAttribute("id", "counter");
+    div.innerHTML = 1;
+    div.onclick = function() {
+        div.innerHTML = parseInt(div.innerHTML, 10) + 1;
+    };
+    document.body.appendChild(div);
+}
+export default counter;
 ```
 
 ```js
-//Tree Shaking 只支持 ES Module模块引入，静态引入
-//const add = reqiure('./math')这种不支持，因为 CommonJS是动态引入。
-import { add } from './math.js';
-add(1, 2);
+//number.js
+function number() {
+ var div = document.createElement("div");
+ div.setAttribute("id", "number");
+ div.innerHTML = 13000;
+ document.body.appendChild(div);
+}
+export default number;
 ```
 
-但是这样生成的文件既有add又有minus两个方法。
 
-### 开发环境配置
 
-**development开发环境默认没有tree-shaking**
+```js
+import counter from './counter';
+import number from './number';
 
-即使配置，.但是他并不是实际去掉，tree-shaking还会保留代码。他只是在代码里提示。
+counter();
+number();
 
-![1589537723947](../../.vuepress/public/assets/img/1589537723947.png)
-
-配置如下
-
-config.js
-
-```
-module.exports={
-	optimization:{
-		usedExports:true
-	}
+//实现js的局部模块更新需要这样。但是引入css文件不需要写，因为css-loader帮我们实现了这个。vue写代码也有这个效果。vue-loader也内置了这个,或者react使用的babelprecess也会有。
+if(module.hot) { 
+	module.hot.accept('./number', () => {  //如果number文件变化，就执行后面这个函数
+		document.body.removeChild(document.getElementById('number'));//number变化就移除之前的number
+		number();
+	})
 }
 ```
 
-package.json
+如果我们在项目引入一些比较偏的数据文件，需要手动写module.hot.accept
 
-因为如果像bable/pollyfill这种，不会导出内容，所以打包时有可能被treeshaking忽略掉，所以对这种文件需要配置sideEffects（副作用）
+### 资料
+
+<https://www.webpackjs.com/plugins/hot-module-replacement-plugin/>
+
+热模块底层实现：<https://www.webpackjs.com/concepts/hot-module-replacement/>
+
+## bable相关
+
+babel国内没有多少相关课程，也都是配合webpack一起讲的。
+
+### 转es6基本代码
+
+很多框架比如vue和react会生成es5原生代码，用于兼容低版本。他们内部使用的都是
+
+<https://www.babeljs.cn/setup#installation>
+
+```
+cnpm install --save-dev babel-loader @babel/core
+```
+
+`babel-loader`:打包使用的工具，是webpack与babel的通信桥梁。
+
+`·babel/core`:用于babel识别js内容，转换成AST抽象语法树然后把语法树编译成向下兼容的代码。
+
+**webpack配置**
+
+node_modules的代码是第三方代码，没必要做转，他们给我们做了。
+
+```
+{ test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+```
+
+**翻译规则配置**
+
+babel-loader并不会把es6翻译成es5,需要**babel/preset-env。**他有一些转换的翻译规则
+
+```js
+cnpm install @babel/preset-env --save-dev
+```
+
+.`babelrc` 
 
 ```
 {
-	"name"：xxx,
-	"sideEffects": false, //tree-shaking不需要对特殊的做处理
-	//"sideEffects": ["@babel/polly-fill"]
-	//"sideEffects": ["*.css"] //style.css也不会导出任何内容，但是不能被忽略
+  "presets": ["@babel/preset-env"]
 }
 ```
 
-### 生存环境配置
-
-productions里只需要写一个"sideEffects": false。
-
-## 2 Development和Production模式区分打包
-
-| 开发环境       | 生产环境                       | 公共环境 |
-| -------------- | ------------------------------ | -------- |
-| source-map详细 | source-map简洁或者使用.map存储 | 出入口   |
-| 代码不被压缩   | 代码被uglify                   |          |
-| 需要devServer  | 不需要devServer                |          |
-
-### 文件重新整理
-
-```bash
-npm install webpack-merge -D
-```
-
-webpack.prod.js
+或者不使用babelrc文件,在config里配置
 
 ```js
-//只需要生成文件然后上传到服务器就可以，不需要dev-server,热更新插件没必要。
-//opzitionmyziton的tree-shaking也可以去掉
+const webpack = require("webpack");
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader",
+                options: {
+                    presets: ["@babel/preset-env"]
+                }
+            }
+        ],
+    },
+};
+```
+
+但是这样并不会支持一些例如promise特性的转换，我们需要使用polyfill来做兼容
+
+### @babel/polyfill
+
+@babel/polyfill-补充低版本缺失的函数
+
+以全局变量的⽅式注⼊进来的。windows.Promise，它会造成全局对象的污染
+
+promise或者map这种的需要使用polyfill做低版本补充。
+
+```
+npm install --save @babel/polyfill
+```
+
+**引入方式1**：
+
+全部引入:在代码运行之前引入。pollify会污染全局环境
+
+```
+// src/index.js
+import "@babel/polyfill";
+```
+
+**useBuiltIns-按需引入**
+
+如果是直接引入，main.js会变特别大。我们如果只用到promise,则需要按需引入：
+
+- 如果配置了babel-loader内容，设置了"useBuiltIns": "usage"，**不用在业务代码引入babel**
+
+```JS
+// src/index.js
+//import "@babel/polyfill"; //这一行可以忽略
+```
+
+```js
+{
+    	test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        options: {
+             presets: ["@babel/preset-env",{
+             	useBuiltIns:'usage'，//按需引入
+                "targets": {
+                    "edge": "17",
+                    "firefox": "60",
+                    "chrome": "67", 
+                    "safari": "11.1",
+                },
+             }]
+        }
+}
+
+```
+
+useBuiltIns的配置属性:
+
+- entry:需要在 webpack 的⼊⼝⽂件⾥ import "@babel/polyfill" ⼀ 次。 babel 会根据你的使⽤情况导⼊垫⽚，没有使⽤的功能不会被导⼊相应的垫⽚。
+- usage: 不需要 import ，全⾃动检测，但是要安装 @babel/polyfill 。
+- false: 如果你 import "@babel/polyfill" ，它不会排除掉没有使⽤的垫⽚，程序体积会庞⼤。(不推荐)
+
+>请注意： usage 的⾏为类似 babel-transform-runtime，不会造成全局污染，因此也会不会对类似 Array.prototype.includes() 进⾏ polyfill。
+
+<https://www.babeljs.cn/docs/usage>
+
+### 类库方案-解决全局污染问题:
+
+transform-runtime类库方案-解决全局污染问题
+
+<https://www.babeljs.cn/docs/babel-plugin-transform-runtime>
+
+```
+npm install --save @babel/runtime
+
+npm install --save-dev @babel/plugin-transform-runtime
+npm install --save @babel/runtime-corejs2
+```
+
+不需要再index.js里引入
+
+业务代码只需要配proeseess,并且引入就可以
+
+这个插件会以闭包的形式引入，不污染全局变量
+
+```js
+{
+    	test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        options: {
+            "plugins": [[
+            	"@babel/plugin-transform-runtime",
+                "absoluteRuntime": false,
+                "corejs": 2,   //改成2需要安装npm install --save @babel/runtime-corejs2
+                "helpers": true,
+                "regenerator": true,
+                "useESModules": false,
+            ]]
+
+        }
+}
+```
+
+### bablerc
+
+解决babel配置项问题过多,不使用options选项
+
+.bablerc
+
+```json
+{
+    "plugins": [["@babel/plugin-transform-runtime", {
+        "corejs": 2,
+        "helpers": true,
+        "regenerator": true,
+        "useESModules": false
+    }]]
+}
+```
+
+```json
+{
+    "plugins": [["@babel/preset-env", {
+        targets:{
+            chrome:"67"
+        },
+        useBuiltIns:'usage'
+    }]]
+}
+```
+
+### 总结：
+
+我们希望借助babel把es6代码转换成es5代码，需要在官网的设置里找webpack，让我们代码支持es6->es5,但是有些promise和map需要在低版本浏览器注入，需要引入babel pollifil,并在参数里配置 useBuilt。
+
+但是官网这种配置解决的是业务代码。所以我们需要在官网找transform runtime进行操作。需要把corejs从false改成2，这样才会把不存在的方法打包进main.js并且需要额外安装包 runtime-corejs2
+
+## development和Production模式区分打包
+
+| 开发环境       | 生产环境                       |      |
+| -------------- | ------------------------------ | ---- |
+| source-map详细 | source-map简洁或者使用.map存储 |      |
+| 代码不被压缩   | 代码被uglify                   |      |
+| 需要devServer  | 不需要devServer                |      |
+
+### webpack-merge
+
+```bash
+cnpm install webpack-merge -D
+```
+
+```js
 const merge = require('webpack-merge');
 const commonConfig = require('./webpack.common.js');
-
 const prodConfig = {
 	mode: 'production',
 	devtool: 'cheap-module-source-map'
 }
-
 module.exports = merge(commonConfig, prodConfig);
 ```
 
@@ -169,8 +369,6 @@ module.exports={
 }
 ```
 
-### 路径问题
-
 我们如果使用devserver启动服务，就不会看到打包生成的内容了，为了方便看到开发环境下打包的内容。要创建一个build命令。
 
 ```json
@@ -200,20 +398,163 @@ module.exports={
 }
 ```
 
+### 环境变量使用
 
+不使用 merge,这样每个都是自己独立的配置文件
 
-## 3 代码分割(Code Splitting)
+```
+module.exports = devConfig;
+```
 
-合理的代码分割使得用户体验更好。
+```
+module.exports = prodConfig;
+```
+
+common.js
+
+```js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const devConfig = require('./webpack.dev.js');
+const prodConfig = require('./webpack.prod.js');
+const commonConfig = {.....}
+
+//env是全局变量，如果env.production存在，说明是线上环境，否则是开发环境
+module.exports = (env) => {
+	if(env && env.production) {
+		return merge(commonConfig, prodConfig);
+	}else {
+		return merge(commonConfig, devConfig);
+	}
+}
+
+```
+
+```json
+{
+    "scripts": {
+        "dev-build": "webpack --config ./build/webpack.common.js",
+        "dev": "webpack-dev-server --config ./build/webpack.common.js",
+        "build": "webpack --env.production --config ./build/webpack.common.js"//通过全局像webpack传递一个全局属性。这样开发环境下就会。
+    },  
+}
+```
+
+## treeshaking摇树
+
+清除没有用到的css、js(Dead Code)
+
+Dead Code特点
+
+- 代码不会执行
+- 只支持ES模块化静态引入。
+
+开发生产模式区分
+
+- 如果你的模式是production,就只需要把devtool改成 cheap-module-source-map;
+
+- 但是你的模式是development,需要添加一个额外的optimization:{usedExports:true}。
+
+- tree-shaking还需要在package.json里设置sideEffects,比如css文件或者babel-pollifill。配置成数组形式
+
+默认情况下，你只使用了一个代码，但是其他代码也会被打包进，会使得main.js变的很大。
+
+举个tree-shaking的栗子：
+
+```js
+//math.js
+export const add = (a, b) => {
+	console.log( a + b );
+}
+
+export const minus = (a, b) => {
+	console.log( a - b );
+}
+```
+
+```js
+//Tree Shaking 只支持 ES Module模块引入，静态引入
+//const add = reqiure('./math')这种不支持，因为 CommonJS是动态引入。
+import { add } from './math.js';
+add(1, 2);
+```
+
+但是这样生成的文件既有add又有minus两个方法。
+
+**development默认没有tree-shaking**
+
+即使配置，.但是他并不是实际去掉，tree-shaking还会保留代码。他只是在代码里提示。
+
+![1589537723947](../../.vuepress/public/assets/img/1589537723947.png)
+
+webpack.config.js
+
+```
+module.exports={
+	optimization:{
+		usedExports:true  //哪些导出的模块被使⽤了，再做打包
+	}
+}
+```
+
+### 副作用配置
+
+package.json
+
+因为如果像bable/pollyfill这种，不会导出内容，所以打包时有可能被treeshaking忽略掉，所以对这种文件需要配置sideEffects（副作用）
+
+```
+{
+	"name"：xxx,
+	"sideEffects": false, //tree-shaking不需要对特殊的做处理
+	//"sideEffects": ["@babel/polly-fill"]
+	//"sideEffects": ["*.css"] //style.css也不会导出任何内容，但是不能被忽略
+}
+```
+
+productions里只需要写一个"sideEffects": false。
+
+```
+"sideEffects":false //正常对所有模块进⾏tree shaking , 仅⽣产模式有效，需要配合usedExports
+```
+
+### css摇树
+
+```
+npm i glob-all purify-css purifycss-webpack --save-dev
+```
+
+```js
+const PurifyCSS = require('purifycss-webpack')
+const glob = require('glob-all')
+plugins:[
+    // 清除⽆⽤ css
+    new PurifyCSS({
+        paths: glob.sync([
+            // 要做 CSS Tree Shaking 的路径⽂件
+            path.resolve(__dirname, './src/*.html'), // 请注意，我们同样需要对 html ⽂
+            件进⾏ tree shaking
+            path.resolve(__dirname, './src/*.js')
+        ])
+    })
+    ]
+```
+
+## Code Splitting代码分割
 
 ### 代码分割是是什么
+
+合理的代码分割使得用户体验更好。
 
 **不使用代码分割带来的潜在问题：**
 
 假设lodash有1M,业务代码有1M,打包生成的js代码就有差不多2M。
 
 - 打包文件会很大，加载时间会很长。
-- lodash这种库不会变化，如果业务代码逻辑变化，用户又要加载2MB的内容。这里面有1mb是肯定不会变更的，浪费了一半的加载时间！！！！
+- lodash这种库不会变化，如果业务代码逻辑变化，用户又要重新加载2MB的内容。这里面有1mb是肯定不会变更的，浪费了一半的加载时间！！！！
 
 当我们引入一些第三方库时
 
@@ -325,7 +666,7 @@ webpack有两种方法实现：
 1. 同步代码：在webpack.config.js做optimization配置
 2. 异步代码：import无需配置，自动进行分割
 
-## 4 SplitChunksPlugin
+## SplitChunksPlugin
 
 切割片插件
 
@@ -472,7 +813,7 @@ splitChunks: {
 }
 ```
 
-## 5 lazyloading懒加载和chunk
+## 懒加载lazyloading和chunk
 
 ### 懒加载
 
@@ -525,7 +866,7 @@ optimization: {
 },
 ```
 
-## 6 打包分析(bundle analysis)
+## 打包分析(bundle analysis)
 
 注重代码覆盖率
 
@@ -537,7 +878,7 @@ optimization: {
 - [webpack-visualizer](https://chrisbateman.github.io/webpack-visualizer/): 可视化并分析你的 bundle，检查哪些模块占用空间，哪些可能是重复使用的。
 - [webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer): 一款分析 bundle 内容的插件及 CLI 工具，以便捷的、交互式、可缩放的树状图形式展现给用户。
 
-## 7 preloading prefetching
+## 预处理preloading prefetching
 
 缓存带来的性能提升很少，应该多关注**代码覆盖率！**
 
@@ -594,6 +935,19 @@ document.addEventListener('click', () =>{
 
 ```js
 import(/* webpackPrefetch: true */ 'LoginModal');
+```
+
+## output里filename和chunkFilename区别
+
+```js
+	entry: {
+		main: './src/index.js',  
+	},
+	output: {
+		filename: '[name].js',  //filename是main.js ,他里面引入Lodash，异步加载lodash.js
+		chunkFilename: '[name].chunk.js', //lodash这种的不会显示在index.html,而是被间接引入到相应文件
+		path: path.resolve(__dirname, '../dist')
+	}
 ```
 
 ## 8 css代码分离压缩
@@ -766,7 +1120,7 @@ module.exports = {
     }
 ```
 
-## 9 浏览器缓存Caching
+## 浏览器缓存Caching
 
 >当我们使用占位符contenthash后，每次js文件变化都会引起文件名hash变化，这样每次用户第二次访问页面时发现js名字变化，就会去重新请求js文件，否则的话js文件名不变，用户默认还是会读取浏览器缓存。这样会带来一些问题。
 >
@@ -819,7 +1173,7 @@ main.js放置业务逻辑，vender.js放的类库，两者的关联处理代码�
 
 ![1587610335463](../../.vuepress/public/assets/img/1587610335463.png)
 
-## 10 Shimming
+## Shimming
 
 shimming 垫片。
 
@@ -861,55 +1215,4 @@ plugins:[
 			}]
 		},
 ```
-
-## 总结
-
-自此，guides里的基本都讲了。除了Ahthoring libraries
-
-## 11 环境变量使用
-
-不使用 merge,这样每个都是自己独立的配置文件
-
-```
-module.exports = devConfig;
-```
-
-```
-module.exports = prodConfig;
-```
-
-common.js
-
-```js
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require('webpack');
-const merge = require('webpack-merge');
-const devConfig = require('./webpack.dev.js');
-const prodConfig = require('./webpack.prod.js');
-const commonConfig = {.....}
-
-//env是全局变量，如果env.production存在，说明是线上环境，否则是开发环境
-module.exports = (env) => {
-	if(env && env.production) {
-		return merge(commonConfig, prodConfig);
-	}else {
-		return merge(commonConfig, devConfig);
-	}
-}
-
-```
-
-```json
-{
-    "scripts": {
-        "dev-build": "webpack --config ./build/webpack.common.js",
-        "dev": "webpack-dev-server --config ./build/webpack.common.js",
-        "build": "webpack --env.production --config ./build/webpack.common.js"//通过全局像webpack传递一个全局属性。这样开发环境下就会。
-    },  
-}
-```
-
-
 

@@ -4,7 +4,7 @@
 
 
 
-## 1 loader是什么，loader执行顺序是什么？
+## loader是什么，loader执行顺序是什么？
 
 **webpack本身并不知道如何处理非JS文件，但是loader知道,他帮助我们解析这些非js的文件**
 
@@ -84,7 +84,7 @@ module.exports = {
 }
 ```
 
-## 2 使用loader打包静态图片
+## 使用loader打包静态图片
 
 ### 占位符placeholder
 
@@ -155,7 +155,7 @@ module.exports = {
 }
 ```
 
-## 3 使用loader打包样式文件
+## 使用loader打包样式文件
 
 ### css文件处理
 
@@ -268,21 +268,21 @@ css-loader常用配置项
 
 ```js
 rules:[
-  {
-    test:/\.scss$/,
-    use:[
-      'style-loader',
-      {
-        loader:'css-loader',
-        options:{
-          importLoaders:2    //import引入的scss文件在引入之前可能不走前两个loader,希望				 						//在index.scss里引入的xx.scss也去走前两个loaderloader.
-          modules:true   // 开启样式模块化。
-        }
-      },
-      'sass-loader',
-      'postcss-loader'
-    ]
-  }
+    {
+        test:/\.scss$/,
+        use:[
+            'style-loader',
+            {
+                loader:'css-loader',
+                options:{
+                    importLoaders:2    //import引入的scss文件在引入之前可能不走前两个loader,希望				 						//在index.scss里引入的xx.scss也去走前两个loaderloader.
+                    modules:true   // 开启样式模块化。
+                }
+            },
+            'sass-loader',
+            'postcss-loader'
+        ]
+    }
 ]
 ```
 

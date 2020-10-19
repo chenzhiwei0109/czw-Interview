@@ -57,6 +57,12 @@ Object.defineProperty(data,"name",{
 
 - 无法原生监听数组，需要特殊处理
 
+- ```js
+  Object.defineProperty 对数组和对象的表现一直，并非不能监控数组下标的变化，vue2.x中无法通过数组索引来实现响应式数据的自动更新是vue本身的设计导致的，不是 defineProperty 的锅。
+  Object.defineProperty 和 Proxy 本质差别是，defineProperty 只能对属性进行劫持，所以出现了需要递归遍历，新增属性需要手动 Observe 的问题。
+  Proxy 作为新标准，浏览器厂商势必会对其进行持续优化，但它的兼容性也是块硬伤，并且目前还没有完整的polifill方案。
+  ```
+
 ## vue如何深度监听data?缺点是什么？
 
 ```js
@@ -360,3 +366,6 @@ Vue.component('heading',{
   - 汇总data的修改，一次性渲染视图。
   - 减少DOM操作次数，提高性能。
 
+## vue3为什么使用proxy
+
+https://www.jb51.net/article/171869.htm

@@ -132,8 +132,6 @@ module.exports = app => {
 };
 ```
 
-
-
 # 控制器
 
 ## 自定义 Controller 基类

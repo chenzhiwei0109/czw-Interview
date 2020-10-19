@@ -4,13 +4,13 @@ module.exports = [
     text: '数据结构与算法',
     items: [
       { text: '数据结构与算法', link: '/数据结构与算法/数据结构与算法/01-数据结构与算法' },
-      { text: '算法刷题', link: '/数据结构与算法/算法刷题/' },
+      { text: '算法刷题', link: '/数据结构与算法/刷题/' },
     ]
   },
   {
     text: '面试',
     items: [
-      { text: '面经汇总', link: '/interview/0-面经汇总/' },
+      { text: '面经汇总', link: '/interview/面经汇总/' },
       { text: 'CSS', link: '/interview/1-css面试题/' },
       { text: 'JS', link: '/interview/2-js面试题/' },
       { text: 'H5和移动端', link: '/interview/3-h5移动端/' },
@@ -138,8 +138,9 @@ module.exports = [
         ]
       },
       {
-        text: '他人笔记',
+        text: '文档',
         items: [
+          { text: 'JavaScript20年', link: 'https://cn.history.js.org/' },
           { text: 'Vue源码', link: 'https://ustbhuangyi.github.io/vue-analysis/v2/prepare/' },
           { text: '小慕读书文档', link: 'http://www.youbaobao.xyz/admin-docs/' },
           { text: 'JS数据结构和算法', link: 'https://www.jianshu.com/p/38853c044156' },

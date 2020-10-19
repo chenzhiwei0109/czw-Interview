@@ -205,19 +205,19 @@ module.exports = {
 - config / config.default.js 目录下配置
 
 ```js
-  config.security = {
+config.security = {
     // 关闭 csrf
     csrf: {
-      enable: false,
+        enable: false,
     },
-     // 跨域白名单
+    // 跨域白名单
     domainWhiteList: [ 'http://localhost:3000' ],
-  };
-  // 允许跨域的方法
-  config.cors = {
+};
+// 允许跨域的方法
+config.cors = {
     origin: '*',
     allowMethods: 'GET, PUT, POST, DELETE, PATCH'
-  };
+};
 ```
 
 ## 数据库

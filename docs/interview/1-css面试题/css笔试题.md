@@ -1,5 +1,190 @@
 # css笔试题
 
+## CSS布局方案有哪些
+
+### 三栏布局
+
+**假设高度已知，请写出三栏布局，其中左栏，右栏宽度各300px,中间自适应**
+
+简述:
+
+>- 首先就是浮动，左右浮动；注意要把center放在right下面。
+>
+>浮动后脱离文档流，但是兼容性比较好，基本上淘宝呀，百度呀全是浮动
+>
+>- 其次是定位。
+>
+>好处是快捷，缺点是脱离文档流，导致子元素脱离文档流，有效性查
+>
+>- 再次是flex布局，他是比较完美的，特别是移动端基本都是flex布局
+>
+>- 最后是表格布局，他对SEO不友好，性能不行，但是他兼容性好，当使用flex不行的时候，可以使用这个，他其中的一个单元格高度超出，会使得其他的单元格高度跟着变
+>- 还有就是grid布局，他是新出的技术，就像栅格布局960布局为宽度，12行12列，grid布局就把他标准化，不再使用模拟做网格布局。grid布局可以做很多复杂的事情，代码量少的多。
+
+**方法1：**
+
+左侧左浮动，右侧右浮动，中间的设置margin左右外边距
+
+```css
+.left {
+  float: left;
+  width: 300px;
+  background: #ff0000;
+}
+
+.right {
+  float: right;
+  width: 300px;
+  background: #00ff00;
+}
+
+.center {
+  background: #0000ff;
+}
+```
+
+```html
+<div class="left">123</div>
+<div class="right"></div>
+<div class="center">
+  <h1>浮动解决方案</h1>
+</div>
+```
+
+**方法2：**
+
+绝对定位
+
+```css
+div {
+  position: absolute;
+  height: 400px;
+}
+
+div.left {
+  left: 0;
+  width: 300px;
+  background: #ff0000;
+}
+
+div.right {
+  right: 0;
+  width: 300px;
+  background: #00ff00;
+}
+div.center{
+  position: absolute;
+  left: 300px;
+  right: 300px;
+  min-width: 300px;
+  background: #0000ff;
+}
+```
+
+```htm
+<div class="left"></div>
+<div class="right"></div>
+<div class="center">aaaaaaaa</div>
+```
+
+**方法3**
+
+flex-box
+
+```css
+.container{
+    display:flex;
+    .left,.right{
+        width:300;
+        background:red
+    }
+    .center{
+        flex:1;
+        background:yellow
+    }
+}
+```
+
+```html
+<div class="container">
+  <div class="left"></div>
+  <div class="center"></div>
+  <div class="right"></div>
+</div>
+```
+
+**方法4**
+
+table-cell 
+
+>```
+>row
+>```
+
+父元素display:table
+
+子元素display:table-cell
+
+```css
+.container {
+  width: 100%;
+  display: table;
+  height: 100px;
+}
+.container>div {
+  display: table-cell;
+}
+.left {
+  width: 300px;
+  background: #0000ff;
+}
+.center {
+  background: #ff0000;
+}
+.right {
+  width: 300px;
+}
+```
+
+```htm
+<div class="container">
+  <div class="left"></div>
+  <div class="center">aaa</div>
+  <div class="right"></div>
+</div>
+```
+
+**方法5**
+
+grid布局
+
+```css
+.container {
+  display: grid;
+  width: 100%;
+  grid-template-rows: 100px;
+  grid-template-columns: 300px auto 300px;
+}
+```
+
+```html
+<div class="container">
+  <div class="left" style="background: #f00;"></div>
+  <div class="center">aaa</div>
+  <div class="right" style="background: #0000ff;"></div>
+</div>
+```
+
+### 如果去掉高度已知
+
+如果高度未知，表格布局和flex布局基本通用。
+
+![1587011859302](../../.vuepress/public/assets/img/1587011859302.png)
+
+为什么浮动内容超出？
+
+内容向左浮动时，被左侧块挡住，当内容超出他发现左边没有的话就会往左移动了。浮动脱离文档流但是不脱离文字流。 如果我不想。可以给中间创建bfc,或者中间的设置左右margin
+
 ## 实现居中的方案
 
 我们经常碰到让一个div框针对某个模块居中的情况。
@@ -240,191 +425,6 @@ css绘制三角形和梯形利用对角分割，边框会沿着对角线分布�
 ```
 
 ![1587994728479](../../.vuepress/public/assets/img/1587994728479.png)
-
-## 三栏布局
-
-**假设高度已知，请写出三栏布局，其中左栏，右栏宽度各300px,中间自适应**
-
-简述:
-
->- 首先就是浮动，左右浮动；注意要把center放在right下面。
->
->浮动后脱离文档流，但是兼容性比较好，基本上淘宝呀，百度呀全是浮动
->
->- 其次是定位。
->
->好处是快捷，缺点是脱离文档流，导致子元素脱离文档流，有效性查
->
->- 再次是flex布局，他是比较完美的，特别是移动端基本都是flex布局
->
->- 最后是表格布局，他对SEO不友好，性能不行，但是他兼容性好，当使用flex不行的时候，可以使用这个，他其中的一个单元格高度超出，会使得其他的单元格高度跟着变
->- 还有就是grid布局，他是新出的技术，就像栅格布局960布局为宽度，12行12列，grid布局就把他标准化，不再使用模拟做网格布局。grid布局可以做很多复杂的事情，代码量少的多。
-
-**方法1：**
-
-左侧左浮动，右侧右浮动，中间的设置margin左右外边距
-
-```css
-.left {
-  float: left;
-  width: 300px;
-  background: #ff0000;
-}
-
-.right {
-  float: right;
-  width: 300px;
-  background: #00ff00;
-}
-
-.center {
-  background: #0000ff;
-}
-```
-
-```html
-<div class="left">123</div>
-<div class="right"></div>
-<div class="center">
-  <h1>浮动解决方案</h1>
-</div>
-```
-
-**方法2：**
-
-绝对定位
-
-```css
-div {
-  position: absolute;
-  height: 400px;
-}
-
-div.left {
-  left: 0;
-  width: 300px;
-  background: #ff0000;
-}
-
-div.right {
-  right: 0;
-  width: 300px;
-  background: #00ff00;
-}
-div.center{
-  position: absolute;
-  left: 300px;
-  right: 300px;
-  min-width: 300px;
-  background: #0000ff;
-}
-```
-
-```htm
-<div class="left"></div>
-<div class="right"></div>
-<div class="center">aaaaaaaa</div>
-```
-
-**方法3**
-
-flex-box
-
-```css
-.container{
-    display:flex;
-    .left,.right{
-        width:300;
-        background:red
-    }
-    .center{
-        flex:1;
-        background:yellow
-    }
-}
-```
-
-```html
-<div class="container">
-  <div class="left"></div>
-  <div class="center"></div>
-  <div class="right"></div>
-</div>
-```
-
-**方法4**
-
-table-cell 
-
->```
->row
->```
-
-父元素display:table
-
-子元素display:table-cell
-
-```css
-.container {
-  width: 100%;
-  display: table;
-  height: 100px;
-}
-.container>div {
-  display: table-cell;
-}
-.left {
-  width: 300px;
-  background: #0000ff;
-}
-.center {
-  background: #ff0000;
-}
-.right {
-  width: 300px;
-}
-```
-
-```htm
-<div class="container">
-  <div class="left"></div>
-  <div class="center">aaa</div>
-  <div class="right"></div>
-</div>
-```
-
-**方法5**
-
-grid布局
-
-```css
-.container {
-  display: grid;
-  width: 100%;
-  grid-template-rows: 100px;
-  grid-template-columns: 300px auto 300px;
-}
-```
-
-```html
-<div class="container">
-  <div class="left" style="background: #f00;"></div>
-  <div class="center">aaa</div>
-  <div class="right" style="background: #0000ff;"></div>
-</div>
-```
-
-## 如果去掉高度已知
-
-如果高度未知，表格布局和flex布局基本通用。
-
-![1587011859302](../../.vuepress/public/assets/img/1587011859302.png)
-
-为什么浮动内容超出？
-
-内容向左浮动时，被左侧块挡住，当内容超出他发现左边没有的话就会往左移动了。浮动脱离文档流但是不脱离文字流。 如果我不想。可以给中间创建bfc,或者中间的设置左右margin
-
-
 
 ## JS如何获取宽高？
 

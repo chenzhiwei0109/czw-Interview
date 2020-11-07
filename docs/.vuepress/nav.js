@@ -1,6 +1,13 @@
 module.exports = [
   // /是docs下d1
   {
+    text: '知识点速记',
+    items: [
+      { text: '正则表达式', link: '/知识点速记/正则表达式' },
+
+    ]
+  },
+  {
     text: '数据结构与算法',
     items: [
       { text: '数据结构与算法', link: '/数据结构与算法/数据结构与算法/01-数据结构与算法' },
@@ -10,17 +17,15 @@ module.exports = [
   {
     text: '面试',
     items: [
-      { text: '面经汇总', link: '/interview/面经汇总/' },
+      { text: '面经汇总', link: '/interview/面经/' },
       { text: 'CSS', link: '/interview/1-css面试题/' },
       { text: 'JS', link: '/interview/2-js面试题/' },
       { text: 'H5和移动端', link: '/interview/3-h5移动端/' },
       { text: 'Webpack', link: '/interview/4-webpack面试题/' },
       { text: 'Vue', link: '/interview/5-vue面试题/' },
       { text: 'React', link: '/interview/6-react面试题/' },
-      { text: '综合', link: '/interview/7-综合面试题/' },
-      { text: '数据结构与算法', link: '/interview/8-js数据结构与算法/' },
-      { text: '其他技术栈', link: '/interview/9-其他面试题/' },
-      { text: '知识点速记', link: '/interview/10-知识点速记/' },
+      { text: '浏览器网络', link: '/interview/7-浏览器网络面试题/' },
+      { text: '其他面试题', link: '/interview/8-其他面试题/' },
     ]
   },
 
@@ -32,22 +37,24 @@ module.exports = [
       { text: 'H5移动端笔记', link: '/fontend/2-HTML5和移动端/' },
       { text: 'ECMAScript6笔记', link: '/fontend/3-ES6/' },
       { text: 'Webpack笔记', link: '/fontend/4-Webpack/' },
-      { text: 'Vue笔记', link: '/fontend/5-Vue/' },
-      { text: 'React笔记', link: '/fontend/6-React/' }
+      { text: 'Vue基础', link: '/fontend/5-Vue基础/' },
+      { text: 'Vue进阶', link: '/fontend/6-Vue进阶/' },
+      { text: 'React基础', link: '/fontend/7-React基础/' },
+      { text: 'React进阶', link: '/fontend/8-React进阶/' },
+      { text: 'Node', link: '/fontend/9-Node/' },
     ]
   },
   {
     text: '前端进阶',
     items: [
-      { text: 'node', link: '/fontendplus/node/' },
-      { text: 'koa', link: '/fontendplus/koa/' },
-      { text: 'eggJs', link: '/fontendplus/egg/' },
-      { text: 'ts', link: '/fontendplus/ts/' },
-      { text: 'vue源码', link: '/fontendplus/vue源码/' },
-      { text: 'vue3', link: '/fontendplus/vue3/' },
-      { text: '浏览器工作原理实践', link: '/fontendplus/浏览器工作原理实践/' },
-      { text: '设计模式', link: '/fontendplus/设计模式/' },
-      { text: '微信小程序', link: '/fontendplus/微信小程序/' },
+      { text: 'koa', link: '/fontendplus/1-koa/' },
+      { text: 'eggJs', link: '/fontendplus/2-egg/' },
+      { text: 'typescript', link: '/fontendplus/3-ts/' },
+      { text: 'vue源码', link: '/fontendplus/5-vue源码/' },
+      { text: 'vue3', link: '/fontendplus/4-vue3/' },
+      { text: '浏览器工作原理实践', link: '/fontendplus/6-浏览器工作原理实践/' },
+      { text: '设计模式', link: '/fontendplus/7-设计模式/' },
+      { text: '数据可视化', link: '/fontendplus/8-数据可视化/' },
     ]
   },
   {
@@ -55,11 +62,12 @@ module.exports = [
     items: [
       { text: '个人博客', link: '/project/1-个人博客/' },
       { text: 'vue多媒体', link: '/project/2-vue多媒体/' },
-      { text: '移动商城', link: '/project/3-移动商城/' },
-      { text: '商城后台', link: '/project/4-vue后台管理/' },
-      { text: '弹幕视频网', link: '/project/5-b站移动端/' },
-      { text: '社交类app', link: '/project/6-wp7社区/' },
-      { text: '7-其他项目', link: '/project/7-其他项目/' },
+      { text: '弹幕视频项目', link: '/project/3-b站移动端/' },
+      { text: '直播项目', link: '/project/4-直播项目/' },
+      { text: 'wp7吧', link: '/project/5-wp7社区/' },
+      { text: '移动商城', link: '/project/6-移动商城/' },
+      { text: '商城后台', link: '/project/7-后台管理/' },
+      { text: '其他项目', link: '/project/8-其他项目/' },
     ]
   },
   {
@@ -138,8 +146,9 @@ module.exports = [
         ]
       },
       {
-        text: '文档',
+        text: '面试题',
         items: [
+          { text: '2020前端复习', link: 'https://juejin.im/post/6844904116339261447#heading-14' },
           { text: 'JavaScript20年', link: 'https://cn.history.js.org/' },
           { text: 'Vue源码', link: 'https://ustbhuangyi.github.io/vue-analysis/v2/prepare/' },
           { text: '小慕读书文档', link: 'http://www.youbaobao.xyz/admin-docs/' },

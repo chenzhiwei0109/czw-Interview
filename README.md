@@ -1,58 +1,36 @@
-```
-learningblog-master
-├─ deploy.sh
-├─ docs
-│  ├─ .vuepress
-│  │  ├─ config.js
-│  │  │  ├─ fontend
-│  │  │  │  ├─ index.html
-│  │  │  │  └─ vue全家桶
-│  │  │  │     ├─ index.html
-│  │  │  │     ├─ vue-router.html
-│  │  │  │     ├─ vuex.html
-│  │  │  │     └─ vue基础.html
-│  │  │  ├─ index.html
-│  │  │  ├─ interview
-│  │  │  │  ├─ htmlcss.html
-│  │  │  │  ├─ index.html
-│  │  │  │  ├─ js.html
-│  │  │  │  ├─ react.html
-│  │  │  │  └─ vue.html
-│  │  │  ├─ project
-│  │  │  │  └─ index.html
-│  │  │  └─ title.jpg
-│  │  ├─ nav.js
-│  │  ├─ public
-│  │  │  ├─ rick.jpg
-│  │  │  └─ title.jpg
-│  │  ├─ sidebar.js
-│  │  └─ themeconfig.js
-│  ├─ fontend
-│  │  ├─ html和css
-│  │  ├─ javascript
-│  │  ├─ README.md
-│  │  └─ webpack
-│  ├─ interview
-│  │  ├─ base
-│  │  │  ├─ htmlcss.md
-│  │  │  ├─ js.md
-│  │  │  └─ README.md
-│  │  └─ frame
-│  │     ├─ react.md
-│  │     ├─ README.md
-│  │     ├─ vue-router.md
-│  │     └─ vue.md
-│  ├─ project
-│  │  ├─ bug
-│  │  │  ├─ better-scroll.md
-│  │  │  └─ README.md
-│  │  └─ project
-│  │     ├─ README.md
-│  │     └─ 博客搭建总结.md
-│  └─ README.md
-├─ node_modules
-├─ package-lock.json
-├─ package.json
-└─ README.md
+- 目录深度
+---
+sidebarDepth: 0
+---
 
+- 目录
+[[toc]]
+
+- 自定义提示
+::: tip
+这是一个提示
+:::
+
+::: warning
+这是一个警告
+:::
+
+::: danger
+这是一个危险警告
+:::
+
+::: details
+这是一个详情块，在 IE / Edge 中不生效
+:::
+
+你也可以自定义块中的标题：
+
+::: danger STOP
+危险区域，禁止通行
+:::
+
+::: details 点击查看代码
+```js
+console.log('你好，VuePress！')
 ```
+:::

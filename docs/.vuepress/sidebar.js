@@ -17,19 +17,18 @@ module.exports = {
     'leetcode算法题',
   ],
   //面试  interview
-  '/interview/0-面经汇总/': [
+  '/interview/面经/': [
     '',
     '百度',
     '快手',
     '腾讯',
     '网易',
     '字节',
-    '阿里',
-    '其他'
+    '阿里'
   ],
   '/interview/1-css面试题/': [
     '',
-    'html和css面试题',
+    'css面试题',
     'css笔试题',
     'css预处理'
   ],
@@ -37,10 +36,10 @@ module.exports = {
     '',
     '1-概念题',
     '2-面试题',
-    '3-笔试题',
-    '4-进阶笔试题',
-    '5-手写源码',
-    '6-es6相关',
+    '3-笔试题1',
+    '4-笔试题2',
+    '5-手撕题',
+    '6-es6面试题',
     '7-异步汇总',
   ],
   '/interview/3-h5移动端/': [
@@ -50,26 +49,38 @@ module.exports = {
   ],
   '/interview/4-webpack面试题/': [
     '',
-    'webpack面试题'
+    'webpack面试题',
+    'webpack手写'
   ],
 
   '/interview/5-vue面试题/': [
     '',
-    'vue面试题1',
-    'vue面试题2',
-    'vue面试题3',
+    'VUE面试题1',
+    'VUE面试题2',
+    'VUE面试题3',
+    'VUE原理',
+        {
+      title: 'vue源码',
+      sidebarDepth: 2,    // 可选的, 默认值是 1
+      children: [
+        '/interview/5-vue面试题/VUE源码',
+        '/interview/5-vue面试题/VUE原理',
+      ]
+    }
 
   ],
   '/interview/6-react面试题/': [
     '',
   ],
-  '/interview/7-综合面试题/': [
+  '/interview/7-浏览器网络面试题/': [
     '',
-    '1-web综合问题',
-    '2-网络面试题',
-    '3-浏览器工作原理',
+    '1-浏览器工作原理',
+    '2-浏览器安全',
+    '3-http协议',
   ],
-
+  '/interview/8-其他面试题/': [
+    ''
+  ],
 
 
 

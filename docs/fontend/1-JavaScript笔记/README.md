@@ -1,1 +1,1 @@
-# js笔记
+# JavaScript笔记

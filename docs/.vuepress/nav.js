@@ -17,7 +17,6 @@ module.exports = [
   {
     text: '面试',
     items: [
-      { text: '面经汇总', link: '/interview/面经/' },
       { text: 'CSS', link: '/interview/1-css面试题/' },
       { text: 'JS', link: '/interview/2-js面试题/' },
       { text: 'H5和移动端', link: '/interview/3-h5移动端/' },
@@ -26,6 +25,7 @@ module.exports = [
       { text: 'React', link: '/interview/6-react面试题/' },
       { text: '浏览器网络', link: '/interview/7-浏览器网络面试题/' },
       { text: '其他面试题', link: '/interview/8-其他面试题/' },
+      { text: '面经汇总', link: '/interview/面经/' },
     ]
   },
 

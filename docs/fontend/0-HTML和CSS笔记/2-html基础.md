@@ -396,6 +396,3 @@ user-agent stylesheet
 - 描述文档的结构
 - 元素算法:h5o.github.io
 
-### 9.form的作用是哪些
-
-- 

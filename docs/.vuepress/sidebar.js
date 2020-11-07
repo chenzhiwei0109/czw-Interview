@@ -29,6 +29,7 @@ module.exports = {
   '/interview/1-css面试题/': [
     '',
     'css面试题',
+    'css面试题2',
     'css笔试题',
     'css预处理'
   ],
@@ -39,8 +40,8 @@ module.exports = {
     '3-笔试题1',
     '4-笔试题2',
     '5-手撕题',
-    '6-es6面试题',
-    '7-异步汇总',
+    '6-异步汇总',
+    '7-ES6面试题'
   ],
   '/interview/3-h5移动端/': [
     '',
@@ -58,16 +59,7 @@ module.exports = {
     'VUE面试题1',
     'VUE面试题2',
     'VUE面试题3',
-    'VUE原理',
-        {
-      title: 'vue源码',
-      sidebarDepth: 2,    // 可选的, 默认值是 1
-      children: [
-        '/interview/5-vue面试题/VUE源码',
-        '/interview/5-vue面试题/VUE原理',
-      ]
-    }
-
+    '手写VUE'
   ],
   '/interview/6-react面试题/': [
     '',
@@ -86,18 +78,21 @@ module.exports = {
 
   //学习笔记
   '/fontend/0-HTML和CSS笔记/': [
+    '',
     '1-Emmet语法',
     '2-html基础',
     '3-css基础',
     '4-css选择器',
     '5-css3',
     '6-css预处理器',
+    '7-css布局',
+    '8-其他'
   ],
   '/fontend/1-JavaScript笔记/': [
     '',
-    '方法',
-    '类型转换',
-    'DOM',
+    '1-类型转换',
+    '2-方法',
+    '3-dom',
     // {
     //   title: '标准库',
     //   sidebarDepth: 1,    // 可选的, 默认值是 1

@@ -3,6 +3,8 @@
 
 通过getter和setter,修改数据就可以自动更新视图。开发者更多关注于业务逻辑而不是DOM操作
 
+![image-20200920214545035](../../.vuepress/public/assets/img/image-20200920214545035.png)
+
 ## vue的优(特点)缺点
 
 ⾸先Vue最核⼼的两个特点，响应式和组件化。 
@@ -369,3 +371,36 @@ Vue.component('heading',{
 ## vue3为什么使用proxy
 
 https://www.jb51.net/article/171869.htm
+
+## vue首屏渲染解决方案
+
+输入URL时
+
+- 使用CDN加速请求，可能在全国各地放置一些CDN服务器。
+
+  我的网站买的是青岛的CDN，所以山东境内看的可能比较快。
+
+  我在黑龙江上学时，哈尔滨好像有个叫红房的地方，每年优酷都会提供数千万上亿的资金在这个地方放置他们的CDN服务器。
+
+- 缓存
+
+  - 强缓存
+    - 不向服务器发信息
+    - 响应头 cache-control :max-age:31536000  (秒 一年31536000秒)。在一年内不需要向服务器发送请求，他的优先级更高
+    - 响应头 Expires 一个日期，时间戳
+    - cache-control 设置了max-age会使得expires失效
+  - 协商缓存
+    - `Last-Modified`:
+
+- HTTP2
+
+- 预加载
+
+渲染流程
+
+- SSR
+- SSG
+  - 请求之前生成的静态页面。
+  - Gatsby
+  - Gridsome
+  - 不专门做SSG

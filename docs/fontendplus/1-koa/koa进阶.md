@@ -87,9 +87,5 @@ cross-env保证跨平台配置正确。
 npm i rimraf -D 
 ```
 
-## 优化koa应用 
-
-```js
-
-```
+## 
 

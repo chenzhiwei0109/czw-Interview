@@ -1,4 +1,11 @@
-# sass
+---
+sidebarDepth: 2
+---
+
+# SASS
+
+[TOC]
+[[toc]]
 
 作用：
 

@@ -1,4 +1,15 @@
+---
+sidebarDepth: 2
+---
+
 # HTML笔记
+
+
+[TOC]
+[[toc]]
+
+
+
 
 ## 文档声明
 

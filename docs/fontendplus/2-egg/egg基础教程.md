@@ -1,3 +1,9 @@
+---
+sidebarDepth: 2
+---
+
+# eggJS笔记
+
 安装egg.js
 
 ```

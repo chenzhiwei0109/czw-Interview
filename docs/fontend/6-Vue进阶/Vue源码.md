@@ -1,3 +1,8 @@
+---
+sidebarDepth: 2
+---
+
+# vue源码
 ## 数据响应式
 
 1. `observe()`返回Observer实例    `core/observer/index.js`

@@ -1,4 +1,7 @@
 module.exports = {
+  '/知识点速记/': [
+    '正则表达式'
+  ],
   //数据结构与算法
   '/数据结构与算法/数据结构与算法/': [
     '01-数据结构与算法',
@@ -17,7 +20,7 @@ module.exports = {
     'leetcode算法题',
   ],
   //面试  interview
-  '/interview/面经/': [
+  '/interview/8-面经/': [
     '',
     '百度',
     '快手',
@@ -30,8 +33,7 @@ module.exports = {
     '',
     'css面试题',
     'css面试题2',
-    'css笔试题',
-    'css预处理'
+    'css笔试题'
   ],
   '/interview/2-js面试题/': [
     '',
@@ -59,20 +61,20 @@ module.exports = {
     'VUE面试题1',
     'VUE面试题2',
     'VUE面试题3',
-    '手写VUE'
+    'VUE手写'
   ],
   '/interview/6-react面试题/': [
     '',
+    '面试题1'
   ],
   '/interview/7-浏览器网络面试题/': [
     '',
     '1-浏览器工作原理',
     '2-浏览器安全',
     '3-http协议',
+    '4-web综合问题'
   ],
-  '/interview/8-其他面试题/': [
-    ''
-  ],
+
 
 
 
@@ -93,25 +95,17 @@ module.exports = {
     '1-类型转换',
     '2-方法',
     '3-dom',
-    // {
-    //   title: '标准库',
-    //   sidebarDepth: 1,    // 可选的, 默认值是 1
-    //   children: [
-    //     '/fontend/1-JavaScript笔记/标准库/Array',
-    //     '/fontend/1-JavaScript笔记/标准库/Object',
-    //   ]
-    // }
   ],
-
-  '/fontend/2-HTML5和移动端/': [
+  '/fontend/2-H5和移动端/': [
     '',
-    'css3',
-    'html5',
+    'HTML5',
     '移动端'
   ],
   '/fontend/3-ES6/': [
     '',
-    'es6',
+    'es6常用语法',
+    'es6其他语法',
+    'es6异步',
     'es7',
     'es8',
     'es9',
@@ -120,41 +114,143 @@ module.exports = {
   ],
   '/fontend/4-Webpack/': [
     '',
-    '1-webpack初探',
-    '2-webpack核心概念',
-    '3-webpack高级特性',
-    '4-webpack配置案例',
-    '5-webpack性能优化',
-    '6-webpack底层原理',
-    '7-webpack脚手架',
+    'webpack1介绍',
+    'webpack2基本配置',
+    'webpack3高级特性',
+    'webpack4配置案例',
+    'webpack5构建优化',
+    'webpack6底层原理',
+    'webpack7框架配置',
   ],
-  '/fontend/5-Vue/': [
-    ''
-  ],
-  '/fontend/6-React/': [
+  '/fontend/5-Vue基础/': [
     '',
-    '1-react基础',
-    '2-react进阶',
-    '3-redux',
-    '4-redux进阶',
+    'VUE1-基础',
+    'VUE2-组件化',
+    'VUE3-动画',
+    'VUE4-可复用性',
+    'VUE5-脚手架',
+    'VUE6-路由',
+    'VUE7-VUEX',
+    'VUE8-SSR',
+    'VUE9-Nuxt案例'
+  ],
+  '/fontend/6-Vue进阶/': [
+    '',
+    'Vue组件化',
+    'Vue源码'
   ],
 
+  '/fontend/7-React基础/': [
+    '',
+    '1-基础',
+    '2-redux',
+    '3-router',
+    '4-hooks',
+  ],
+  '/fontend/8-React进阶/': [
+    '',
+    '1-组件化'
+  ],
+  '/fontend/9-Node/': [
+    '',
+    'node基础',
+    'node核心模块',
+    '爬虫'
+  ],
+  '/fontend/10-git': [
+    'git常用指令'
+  ],
   // 前端高级
-  '/fontendplus/浏览器工作原理实践/': [
+  '/fontendplus/1-koa/': [
+    '',
+    'koa基础',
+    'koa进阶'
+  ],
+  '/fontendplus/2-egg/': [
+    '',
+    'egg基础教程',
+    'egg学习笔记'
+  ],
+  '/fontendplus/3-ts/': [
+    '',
+    '1-值类型和any类型',
+    '2-数组和元组tuple',
+    '3-interface接口',
+    '4-函数',
+    '5-类型',
+    '6-class',
+    '7-类和接口',
+    '8-枚举enums',
+    '9-泛型generics'
+
+  ],
+  '/fontendplus/4-vue3/': [
+    '',
+    '1-vue3新特性',
+    '2-vue3基础',
+    '3-vite'
+  ],
+  '/fontendplus/5-浏览器工作原理实践/': [
     '',
     '浏览器安全',
     'HTTP'
   ],
-  '/fontendplus/设计模式/': [
-    ''
-  ],
-  '/fontendplus/node/': [
+  '/fontendplus/6-设计模式/': [
     ''
   ],
 
+
   //项目总结
-  '/project/blog/': [
+  '/project/1-个人博客/': [
     '',
+  ],
+  '/project/2-vue多媒体/': [
+    '',
+  ],
+
+  '/project/3-b站移动端/': [
+    '',
+    {
+      title: '前端',   // 必要的
+      path: '/project/3-b站移动端/前端/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+      collapsable: true, // 可选的, 默认值是 true可折叠
+      sidebarDepth: 2,    // 可选的, 默认值是 1
+      children: [
+        '/project/3-b站移动端/前端/0-全局配置接口整理',
+        '/project/3-b站移动端/前端/1-首页分类页开发',
+        '/project/3-b站移动端/前端/2_个人中心部分',
+        '/project/3-b站移动端/前端/3_作品中心页',
+        '/project/3-b站移动端/前端/4_自定义播放器',
+        '/project/3-b站移动端/前端/5_后续更新'
+      ]
+    },
+    {
+      title: '后端',   // 必要的
+      path: '/project/3-b站移动端/后端/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+      collapsable: true, // 可选的, 默认值是 true可折叠
+      sidebarDepth: 2,    // 可选的, 默认值是 1
+      children: [
+        '/project/3-b站移动端/后端/2_全局配置',
+        '/project/3-b站移动端/后端/3_用户相关',
+        '/project/3-b站移动端/后端/4_分类相关',
+        '/project/3-b站移动端/后端/5_作品相关',
+        '/project/3-b站移动端/后端/6_收藏相关',
+        '/project/3-b站移动端/后端/7_评论相关',
+        '/project/3-b站移动端/后端/8_关注相关',
+
+      ]
+    },
+      {
+      title: 'uniCloud',   // 必要的
+      path: '/project/3-b站移动端/unicloud/1'     // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+  
+    },
+    {
+      title: '上线',   // 必要的
+      path: '/project/3-b站移动端/上线环境/部署'     // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+  
+    },
+
   ],
   '/project/bug/': [
     'better-scroll',

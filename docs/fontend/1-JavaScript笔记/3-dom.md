@@ -1,3 +1,7 @@
+---
+sidebarDepth: 2
+---
+
 # DOM
 
 ## 获取DOM元素九种方式

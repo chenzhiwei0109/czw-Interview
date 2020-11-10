@@ -1,8 +1,10 @@
-[TOC]
+---
+sidebarDepth: 2
+---
 
+# eggJS文档
 
-
-# 安装egg
+## 安装egg
 
 我们推荐直接使用脚手架，只需几条简单指令，即可快速生成项目（`npm >=6.1.0`）:
 
@@ -15,15 +17,10 @@ npm i
 启动项目:
 
 ```
-npm run dev
 open http://localhost:7001
 ```
 
-
-
-
-
-# 目录结构
+## 目录结构
 
 ```
 egg-project
@@ -65,9 +62,9 @@ egg-project
         └── home.test.js
 ```
 
-# 路由相关
+## 路由相关
 
-## 1. get传值
+### 1. get传值
 
 ```js
 // router.js
@@ -82,7 +79,7 @@ async index(ctx) {
 }
 ```
 
-## 2. 4种配置方法
+### 2. 4种配置方法
 
 ```js
 router.verb('path-match', app.controller.action);
@@ -93,9 +90,9 @@ router.verb('router-name', 'path-match', middleware1, ..., middlewareN, app.cont
 
 
 
-# 重定向
+## 重定向
 
-## 1. ctx
+### 1. ctx
 
 ```js
 async index() {
@@ -104,13 +101,13 @@ async index() {
 }
 ```
 
-## 2. 路由重定向
+### 2. 路由重定向
 
 ```js
 app.router.redirect('/', '/home/index', 302);
 ```
 
-## 3.路由分组
+### 3.路由分组
 
 ```js
 // app/router.js
@@ -132,9 +129,9 @@ module.exports = app => {
 };
 ```
 
-# 控制器
+## 控制器
 
-## 自定义 Controller 基类
+### 自定义 Controller 基类
 
 ```js
 // app/core/base_controller.js
@@ -178,17 +175,17 @@ class PostController extends Controller {
 
 
 
-# 模板引擎
+## 模板引擎
 
-## 1. 安装和使用ejs
+### 1. 安装和使用ejs
 
-### （1）安装：
+#### （1）安装：
 
 ```
 npm i egg-view-ejs --save
 ```
 
-### （2）配置：/config
+#### （2）配置：/config
 
 config/config.default.js
 
@@ -218,7 +215,7 @@ module.exports = {
 };
 ```
 
-### （3）使用
+#### （3）使用
 
 app/controller
 
@@ -2640,7 +2637,7 @@ User.getDeletedPosts(); // WHERE deleted = true
 
 
 
-# 扩展
+## 扩展
 
 extend/helper.js
 
@@ -2667,13 +2664,9 @@ module.exports = {
 this.ctx.helper.formatTime(dateline)
 ```
 
+## 中间件
 
-
-
-
-# 中间件
-
-## 1. 定义
+### 1. 定义
 
 app/middleware/getIp.js
 
@@ -2695,7 +2688,7 @@ module.exports = (option, app) => {
 
 
 
-## 2. 配置
+### 2. 配置
 
 config/config.default.js（配置全局中间件，所有路由都会调用）
 
@@ -2738,9 +2731,9 @@ module.exports = appInfo => {
 
 
 
-## 3. 使用
+### 3. 使用
 
-### 路由中使用
+#### 路由中使用
 
 app/router.js
 
@@ -2756,7 +2749,7 @@ module.exports = app => {
 
 
 
-### 使用 Koa 的中间件（gzip压缩）
+#### 使用 Koa 的中间件（gzip压缩）
 
 大大提高网站的访问速度（非常有效）
 
@@ -2793,9 +2786,9 @@ module.exports = {
 
 
 
-# 表单提交
+## 表单提交
 
-## post
+### post
 
 app/controller/home.js
 
@@ -2830,15 +2823,7 @@ router.get('/post', controller.home.addInput);
 router.post('/add', controller.home.add);
 ```
 
-
-
-
-
-
-
-
-
-# cookie
+## cookie
 
 ```js
 // 1.设置
@@ -2864,9 +2849,7 @@ ctx.cookies.get('username',{
 ctx.cookies.set('username', null);
 ```
 
-
-
-# session
+## session
 
 ```js
 // 1.设置
@@ -2888,7 +2871,7 @@ ctx.session.username = '测试';
 ctx.session.username = null;
 ```
 
-# 定时任务
+## 定时任务
 
 ```js
 // app/schedule/ceshi.js
@@ -2909,11 +2892,11 @@ module.exports = {
 
 
 
-# API
+## API
 
-## 1. context
+### 1. context
 
-### curl
+#### curl
 
 ```js
 async ceshi() {
@@ -2925,18 +2908,14 @@ async ceshi() {
 }
 ```
 
-
-
-
-
-# 常用插件
+## 常用插件
 ## 缓存
 https://www.npmjs.com/package/egg-cache
 https://www.npmjs.com/package/egg-redis
-## 验证
+### 验证
 https://github.com/temool/egg-validate-plus
 
-## 加密
+### 加密
 
 <https://www.npmjs.com/package/egg-jwt>
 

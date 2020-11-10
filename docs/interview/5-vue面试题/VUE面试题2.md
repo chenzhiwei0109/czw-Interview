@@ -1,5 +1,6 @@
 # vue面试题2
-
+[[toc]]
+[TOC]
 ## Vue中hash模式和history模式的区别
 
 1. 最明显的就是显示上，哈希模式的url会有#,而history5模式没有

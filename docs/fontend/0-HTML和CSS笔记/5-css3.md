@@ -1,4 +1,11 @@
+---
+sidebarDepth: 2
+---
+
 # CSS3
+
+[TOC]
+[[toc]]
 
 ## CSS3简介
 
@@ -6,7 +13,7 @@ CSS3是层叠样式表语言的最新版本。它带来许多期待已久的新�
 
 ## 背景
 
-### 1.background-image
+### background-image
 
 通过此属性添加背景图片。不同的背景图像和图像用逗号隔开，第一个设置的永远显示在最顶端
 
@@ -20,7 +27,7 @@ body{background-image: url(images/hello2.jpeg),url(images/timg.jpeg);background-
 body{    background: url(images/hello2.jpeg) no-repeat center top,url(images/timg.jpeg) repeat center top;}
 ```
 
-### 2.background-size
+### background-size
 
 该属性指定背景图像的大小。CSS3之前，背景图像大小由图像的实际大小决定。
 
@@ -55,7 +62,7 @@ body{
 }
 ```
 
-### 3.background-origin
+### background-origin
 
 该属性指定背景图像的位置区域
 
@@ -77,7 +84,7 @@ div{
 
 ![img](../../.vuepress/public/assets/img/image-20190705113633636.png)
 
-### 4.background-clip
+### background-clip
 
 指定绘图区域的背景
 

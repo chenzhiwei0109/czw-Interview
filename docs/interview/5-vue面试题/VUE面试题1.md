@@ -1,5 +1,6 @@
 # vue面试题1
-
+[[toc]]
+[TOC]
 ## 1.v-if和v-for优先级哪个更高？
 
 v-for更高，因为他是先进行if else判断的。 vue在进行props判断时会先判断静态，然后判断once,之后判断for,然后才会进行if的判断。

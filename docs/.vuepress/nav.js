@@ -1,7 +1,7 @@
 module.exports = [
   // /是docs下d1
   {
-    text: '知识点速记',
+    text: '速记',
     items: [
       { text: '正则表达式', link: '/知识点速记/正则表达式' },
 
@@ -24,17 +24,15 @@ module.exports = [
       { text: 'Vue', link: '/interview/5-vue面试题/' },
       { text: 'React', link: '/interview/6-react面试题/' },
       { text: '浏览器网络', link: '/interview/7-浏览器网络面试题/' },
-      { text: '其他面试题', link: '/interview/8-其他面试题/' },
-      { text: '面经汇总', link: '/interview/面经/' },
+      { text: '面经汇总', link: '/interview/8-面经/' },
     ]
   },
-
   {
     text: '前端基础',
     items: [
       { text: 'HTML和CSS笔记', link: '/fontend/0-HTML和CSS笔记/' },
       { text: 'JavaScript笔记', link: '/fontend/1-JavaScript笔记/' },
-      { text: 'H5移动端笔记', link: '/fontend/2-HTML5和移动端/' },
+      { text: 'H5移动端笔记', link: '/fontend/2-H5和移动端/' },
       { text: 'ECMAScript6笔记', link: '/fontend/3-ES6/' },
       { text: 'Webpack笔记', link: '/fontend/4-Webpack/' },
       { text: 'Vue基础', link: '/fontend/5-Vue基础/' },
@@ -42,6 +40,7 @@ module.exports = [
       { text: 'React基础', link: '/fontend/7-React基础/' },
       { text: 'React进阶', link: '/fontend/8-React进阶/' },
       { text: 'Node', link: '/fontend/9-Node/' },
+      { text: 'Git', link: '/fontend/10-git/' },
     ]
   },
   {
@@ -50,11 +49,9 @@ module.exports = [
       { text: 'koa', link: '/fontendplus/1-koa/' },
       { text: 'eggJs', link: '/fontendplus/2-egg/' },
       { text: 'typescript', link: '/fontendplus/3-ts/' },
-      { text: 'vue源码', link: '/fontendplus/5-vue源码/' },
       { text: 'vue3', link: '/fontendplus/4-vue3/' },
-      { text: '浏览器工作原理实践', link: '/fontendplus/6-浏览器工作原理实践/' },
-      { text: '设计模式', link: '/fontendplus/7-设计模式/' },
-      { text: '数据可视化', link: '/fontendplus/8-数据可视化/' },
+      { text: '浏览器工作原理实践', link: '/fontendplus/5-浏览器工作原理实践/' },
+      { text: '设计模式', link: '/fontendplus/6-设计模式/' }
     ]
   },
   {
@@ -62,12 +59,17 @@ module.exports = [
     items: [
       { text: '个人博客', link: '/project/1-个人博客/' },
       { text: 'vue多媒体', link: '/project/2-vue多媒体/' },
-      { text: '弹幕视频项目', link: '/project/3-b站移动端/' },
-      { text: '直播项目', link: '/project/4-直播项目/' },
+      { text: '弹幕视频网', link: '/project/3-b站移动端/' },
+      { text: '直播项目', link: '/project/4-直播项目/' }
+    ]
+  },
+  {
+    text: '例子',
+    items: [
       { text: 'wp7吧', link: '/project/5-wp7社区/' },
       { text: '移动商城', link: '/project/6-移动商城/' },
       { text: '商城后台', link: '/project/7-后台管理/' },
-      { text: '其他项目', link: '/project/8-其他项目/' },
+      { text: '其他项目', link: '/project/8-其他项目/' }
     ]
   },
   {
@@ -81,9 +83,10 @@ module.exports = [
   {
     text: 'tools',
     items: [
-      { text: 'mock', link: '/tools/mock/' },
+      { text: 'mockJs', link: '/tools/mock/' },
       { text: 'swiper', link: '/tools/swiper/' },
-      { text: 'better-scroll', link: '/tools/better-scroll/' }
+      { text: 'better-scroll', link: '/tools/better-scroll/' },
+      { text: 'axios', link: '/tools/axios/' },
     ]
   },
   // 前端文档

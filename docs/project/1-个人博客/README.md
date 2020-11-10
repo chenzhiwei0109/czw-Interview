@@ -1,4 +1,8 @@
-# vuepress使用指南
+---
+sidebarDepth: 2
+---
+
+# vuepress搭建个人博客
 给自己写的搭建指南，从0采坑，忘记了就来看一下。
 
 ## 安装初始化（有坑）
@@ -36,8 +40,6 @@ npm run docs:dev
 
 ## 目录结构
 
-
-
 ```
 .
 ├─ docs
@@ -70,7 +72,6 @@ npm run docs:dev
    }
    ```
 
-   
 
 VuePress 遵循 **“约定优于配置”** 的原则，推荐的目录结构如下：
 
@@ -103,42 +104,40 @@ VuePress 遵循 **“约定优于配置”** 的原则，推荐的目录结构�
 
 1. 配置默认主题：
 
-docs/README.md
+   docs/README.md
 
-```
----
-home: true
-heroImage: /hero.png
-heroText: Hero 标题
-tagline: Hero 副标题
-actionText: 快速上手 →
-actionLink: /
-features:
-- title: 简洁至上
-  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-- title: Vue驱动
-  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-- title: 高性能
-  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
-footer: MIT Licensed | Copyright © 2018-present Evan You
----
-```
+   ```
+   ---
+   home: true
+   heroImage: /hero.png
+   heroText: Hero 标题
+   tagline: Hero 副标题
+   actionText: 快速上手 →
+   actionLink: /
+   features:
+   - title: 简洁至上
+     details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
+   - title: Vue驱动
+     details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
+   - title: 高性能
+     details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
+   footer: MIT Licensed | Copyright © 2018-present Evan You
+   ---
+   ```
 
 2. 配置首页图片和icon图标
 
-   图片放入**.vuepress/public**文件内
+   图片放入`.vuepress/public文件内
 
    ```js
    module.exports = {
-     head: [
-       ['link', { rel: 'icon', href: '/logo.png' }]
-     ]
+       head: [
+           ['link', { rel: 'icon', href: '/logo.png' }]
+       ]
    }
    ```
 
-## 项目结构配置
-
-## 导航栏配置
+## nav导航栏配置
 
 ### 导航栏 Logo
 
@@ -170,7 +169,7 @@ module.exports = {
 }
 ```
 
-  外部链接 `<a>` 标签的特性将默认包含`target="_blank" rel="noopener noreferrer"`，你可以提供 `target` 与 `rel(css链接)`，它们将被作为特性被增加到 `<a>` 标签上：
+外部链接 `<a>` 标签的特性将默认包含`target="_blank" rel="noopener noreferrer"`，你可以提供 `target` 与 `rel(css链接)`，它们将被作为特性被增加到 `<a>` 标签上：
 
 ```js
 // .vuepress/config.js
@@ -185,8 +184,6 @@ module.exports = {
 ```
 
   当你提供了一个 `items` 数组而不是一个单一的 `link` 时，它将显示为一个 `下拉列表` ：
-
-![1586580478903](D:/typoraPhoto/1586580478903.png)
 
 ```js
 module.exports = {
@@ -206,8 +203,6 @@ module.exports = {
 ```
 
 此外，你还可以通过嵌套的 `items` 来在 `下拉列表` 中设置分组：  
-
-![1586617682514](../../../../../typoraPhoto/1586617682514.png)
 
 ```js
 module.exports = {
@@ -256,8 +251,6 @@ navbar: false
 
 点击Home、关于、项目会跳到不同页面，并且导航栏随之变化
 
-![1586591740231](D:/typoraPhoto/1586591740231.png)
-
 ```js
 // .vuepress/config.js
 module.exports = {
@@ -274,8 +267,6 @@ module.exports = {
 ###  侧边栏分组
 
 你可以通过使用**对象**来将侧边栏划分成多个组：
-
-![1586592312879](D:/typoraPhoto/1586592312879.png)
 
 ```js
 // .vuepress/config.js
@@ -300,8 +291,6 @@ module.exports = {
 ```
 
 ### 多个侧边栏
-
-
 
 如果你想为不同的页面组来显示不同的侧边栏，首先，将你的页面文件组织成下述的目录结构：
 
@@ -392,7 +381,7 @@ module.exports = {
 
 ## 发布到github
 
-### 部署方式1
+### 部署方式
 
 部署到github二级域名
 
@@ -400,7 +389,7 @@ module.exports = {
 https://<USERNAME>.github.io/
 ```
 
-- 创建仓库**chenzhiwei0109.github.io**
+- 创建仓库xx.github.io
 
 - 建立文件deploy.sh
 
@@ -421,22 +410,17 @@ https://<USERNAME>.github.io/
   git commit -m 'deploy'
   
   # 如果发布到 https://<USERNAME>.github.io
-  # git push -f git@github.com:chenzhiwei0109/chenzhiwei0109.github.io.git master
+  # git push -f git@github.com:xx/xx.github.io.git master
   
   cd -
   ```
-
-  <https://chenzhiwei0109.github.io/>
-
-- 项目目录右键
 
   ```
   bash deploy.sh
   ```
 
-  
 
-### 部署方式2
+### 一键部署
 
 1. 验证仓库是否部署:**git config -l**
 
@@ -483,15 +467,8 @@ https://<USERNAME>.github.io/
    "deploy": "bash deploy.sh"
    ```
 
-   
 
 配置命令
-
-```
-
-```
-
-
 
 TIP
 

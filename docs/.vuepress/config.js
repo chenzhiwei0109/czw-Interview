@@ -8,7 +8,5 @@ module.exports = {
         ['meta', { name: 'keywords', content: 'vuepress 学习 笔记' }],
         ['meta', { name: 'author', content: 'Chen' }]
     ],
-    themeConfig: require('./themeconfig.js'),
-    plugins: ['@vuepress/back-to-top']
-
+    themeConfig: require('./themeconfig.js')
 }

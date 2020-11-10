@@ -1,4 +1,9 @@
-# webpack高级配置
+---
+sidebarDepth: 2
+---
+# webpack高级特性
+[[toc]]
+[TOC]
 
 ## 热模块替换(HMR)
 
@@ -484,6 +489,8 @@ add(1, 2);
 
 但是这样生成的文件既有add又有minus两个方法。
 
+### 开发环境配置
+
 **development默认没有tree-shaking**
 
 即使配置，.但是他并不是实际去掉，tree-shaking还会保留代码。他只是在代码里提示。
@@ -950,7 +957,7 @@ import(/* webpackPrefetch: true */ 'LoginModal');
 	}
 ```
 
-## 8 css代码分离压缩
+## css代码分离压缩
 
 > - minicssExtractPlugin不支持HMR,
 > - 安装完需要替换style-loader并且需要在plugins使用
@@ -1215,4 +1222,51 @@ plugins:[
 			}]
 		},
 ```
+
+## 环境变量使用
+
+不使用 merge,这样每个都是自己独立的配置文件
+
+```
+module.exports = devConfig;
+```
+
+```
+module.exports = prodConfig;
+```
+
+common.js
+
+```js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const devConfig = require('./webpack.dev.js');
+const prodConfig = require('./webpack.prod.js');
+const commonConfig = {.....}
+
+//env是全局变量，如果env.production存在，说明是线上环境，否则是开发环境
+module.exports = (env) => {
+	if(env && env.production) {
+		return merge(commonConfig, prodConfig);
+	}else {
+		return merge(commonConfig, devConfig);
+	}
+}
+
+```
+
+```json
+{
+    "scripts": {
+        "dev-build": "webpack --config ./build/webpack.common.js",
+        "dev": "webpack-dev-server --config ./build/webpack.common.js",
+        "build": "webpack --env.production --config ./build/webpack.common.js"//通过全局像webpack传递一个全局属性。这样开发环境下就会。
+    },  
+}
+```
+
+
 

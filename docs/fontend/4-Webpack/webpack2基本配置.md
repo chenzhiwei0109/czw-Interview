@@ -1,4 +1,9 @@
+---
+sidebarDepth: 2
+---
 # webpack核心概念
+[[toc]]
+[TOC]
 
 ## 入口entry和出口output
 
@@ -633,7 +638,7 @@ production生产环境：cheap-module-source-map;
 
 
 
-### SourceMap原理
+## SourceMap原理
 
 <http://www.qiutianaimeili.com/html/page/2019/05/89jrubx1soc.html>
 

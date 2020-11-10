@@ -1,4 +1,6 @@
 # vue面试题3
+[[toc]]
+[TOC]
 ## 响应式的好处
 
 通过getter和setter,修改数据就可以自动更新视图。开发者更多关注于业务逻辑而不是DOM操作
@@ -404,3 +406,71 @@ https://www.jb51.net/article/171869.htm
   - Gatsby
   - Gridsome
   - 不专门做SSG
+
+## vue双向数据绑定
+
+```html
+<body>
+    姓名：<span id="spanName"></span>
+    <br>
+    <input type="text" id="inpName">
+
+    <!-- IMPORT JS -->
+    <script>
+        let obj = {
+            name: ''
+        };
+        let newObj = {
+            ...obj
+        };
+        Object.defineProperty(obj, 'name', {
+            get() {
+                return newObj.name;
+            },
+            set(val) {
+                newObj.name = val;
+                observe();
+            }
+        });
+
+        function observe() {
+            spanName.innerHTML = newObj.name;
+        }
+        inpName.oninput = function () {
+            obj.name = this.value;
+        };
+    </script>
+</body>
+```
+
+```html
+<body>
+    姓名：<span id="spanName"></span>
+    <br>
+    <input type="text" id="inpName">
+
+    <!-- IMPORT JS -->
+    <script>
+        let obj = {
+            name: ''
+        };
+        obj = new Proxy(obj, {
+            get(target, prop) {
+                return target[prop];
+            },
+            set(target, prop, value) {
+                target[prop] = value;
+                observe();
+            }
+        });
+
+        function observe() {
+            spanName.innerHTML = obj.name;
+        }
+        inpName.oninput = function () {
+            obj.name = this.value;
+        };
+    </script>
+</body>
+```
+

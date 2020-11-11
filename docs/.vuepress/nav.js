@@ -40,7 +40,7 @@ module.exports = [
       { text: 'React基础', link: '/fontend/7-React基础/' },
       { text: 'React进阶', link: '/fontend/8-React进阶/' },
       { text: 'Node', link: '/fontend/9-Node/' },
-      { text: 'Git', link: '/fontend/10-git/' },
+      { text: 'Git', link: '/fontend/10-Git/' },
     ]
   },
   {
@@ -64,29 +64,20 @@ module.exports = [
     ]
   },
   {
-    text: '例子',
-    items: [
-      { text: 'wp7吧', link: '/project/5-wp7社区/' },
-      { text: '移动商城', link: '/project/6-移动商城/' },
-      { text: '商城后台', link: '/project/7-后台管理/' },
-      { text: '其他项目', link: '/project/8-其他项目/' }
-    ]
-  },
-  {
     text: '计算机基础',
     items: [
       { text: '计算机组成原理', link: '/计算机基础/计算机组成原理/' },
       { text: '操作系统', link: '/计算机基础/操作系统/' },
-      { text: '计算机网络', link: '/计算机基础/计算机网络/' }
+      { text: '计算机网络', link: '/计算机基础/计算机网络/' },
+      
     ]
   },
   {
     text: 'tools',
     items: [
-      { text: 'mockJs', link: '/tools/mock/' },
-      { text: 'swiper', link: '/tools/swiper/' },
-      { text: 'better-scroll', link: '/tools/better-scroll/' },
-      { text: 'axios', link: '/tools/axios/' },
+      { text: 'mockJs', link: '/tools/mock/mock' },
+      { text: 'swiper', link: '/tools/swiper/swiper' },
+      { text: 'axios', link: '/tools/axios/axios' },
     ]
   },
   // 前端文档

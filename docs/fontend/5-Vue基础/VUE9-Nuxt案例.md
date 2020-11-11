@@ -496,13 +496,13 @@ export default {
 
   
 
-  ![image-20200807083834090](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/image-20200807083834090.png)
+  ![image-20200807083834090](../../.vuepress/public/assets/img/image-20200807083834090.png)
 
 ### 封装请求模块
 
 api
 
-![image-20200807115009733](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/image-20200807115009733.png)
+![image-20200807115009733](../../.vuepress/public/assets/img/image-20200807115009733.png)
 
 项目下创建utils目录
 
@@ -618,7 +618,7 @@ async onSubmit() {
   - minlength='8'
   - required
 
-![image-20200807154153334](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/image-20200807154153334.png)
+![image-20200807154153334](../../.vuepress/public/assets/img/image-20200807154153334.png)
 
 ```html
 <input
@@ -814,7 +814,7 @@ nuxt集成了vuex
 
    
 
-   ![image-20200807181002310](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/image-20200807181002310.png)
+   ![image-20200807181002310](../../.vuepress/public/assets/img/image-20200807181002310.png)
 
 - 通过cookie初始化容器的数据，这样刷新后状态就不会消失了。
 
@@ -864,14 +864,14 @@ computed: {
 
 - 有些页面只能登录才能访问
 
-![image-20200807185931397](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/image-20200807185931397.png)
+![image-20200807185931397](../../.vuepress/public/assets/img/image-20200807185931397.png)
 
-![image-20200807190105046](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/image-20200807190105046.png)
+![image-20200807190105046](../../.vuepress/public/assets/img/image-20200807190105046.png)
 
 - profile页
 - seetings页都一样的不能访问。
 - 登录成功后登录注册后不能访问：notAuthenticated
 
-![image-20200807190310895](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/image-20200807190310895.png)
+![image-20200807190310895](../../.vuepress/public/assets/img/image-20200807190310895.png)
 
 ![image-20200807191915383](../../.vuepress/public/assets/img/image-20200807191915383.png)

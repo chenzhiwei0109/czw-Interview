@@ -94,7 +94,7 @@ new webpack(options)
 
 - 模块分析函数可以把传入的js文件分析出入口文件，文件的依赖文件，文件的es5形式的代码。
 
-![image-20200930210831406](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/image-20200930210831406.png)
+![image-20200930210831406](../../.vuepress/public/assets/img/image-20200930210831406.png)
 
 创建并执行`moduleAnalyser`函数，用于获取传入的文件`index.js`对应的内容，并把内容打印出来:
 
@@ -116,7 +116,7 @@ module.exports = class czwwebpack {
 
 打包出的内容如图，是黑色文本，不容易阅读:
 
-![image-20200930205118682](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/image-20200930205118682.png)
+![image-20200930205118682](../../.vuepress/public/assets/img/image-20200930205118682.png)
 
 安装代码高亮并执行
 
@@ -130,7 +130,7 @@ node ./mywebpack.js | highlight
 
 代码高亮后输出结果：
 
-![image-20200930211434571](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/image-20200930211434571.png)
+![image-20200930211434571](../../.vuepress/public/assets/img/image-20200930211434571.png)
 
 引入@babel/parser用来生成抽象语法树
 
@@ -209,7 +209,7 @@ module.exports = class czwwebpack {
 ]
 ```
 
-![1589680953333](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/1589680953333.png)
+![1589680953333](../../.vuepress/public/assets/img/1589680953333.png)
 
 自己遍历并提取import `ImportDeclaration`节点会很复杂，
 
@@ -281,7 +281,7 @@ Node {
 }
 ```
 
-![image-20200930214408500](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/image-20200930214408500.png)
+![image-20200930214408500](../../.vuepress/public/assets/img/image-20200930214408500.png)
 
 - 上图把`node.source.value`里的`'./a.js'`提取出来到`dependencies`里
 
@@ -301,7 +301,7 @@ webpack('./src/index.js')
 
 输出了`index.js`文件的依赖文件`a.js`
 
-![image-20200930215317892](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/image-20200930215317892.png)
+![image-20200930215317892](../../.vuepress/public/assets/img/image-20200930215317892.png)
 
 但是这个依赖文件是给相对路径，我们应该改为绝对路径，或者相对于根路径的绝对路径。
 
@@ -396,9 +396,9 @@ moduleAnalyser = (filename) => {
 }
 ```
 
-![1589687594921](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/1589687594921.png)
+![1589687594921](../../.vuepress/public/assets/img/1589687594921.png)
 
-![1589687771008](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/1589687771008.png)
+![1589687771008](../../.vuepress/public/assets/img/1589687771008.png)
 
 ### 编写依赖图谱函数
 
@@ -431,7 +431,7 @@ makeDependenciesGraph = (entry) => {
 }
 ```
 
-![1589692422928](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/1589692422928.png)
+![1589692422928](../../.vuepress/public/assets/img/1589692422928.png)
 
 ### 编写bundle包运行到浏览器
 
@@ -458,7 +458,7 @@ module.exports = class czwwebpack {
 
 ```
 
-![1589692422928](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/1589692422928.png)
+![1589692422928](../../.vuepress/public/assets/img/1589692422928.png)
 
 ```js
 - 闭包函数接受依赖图谱
@@ -871,7 +871,7 @@ webpack源码百分之八十使用plugin编写。
 
 ### 插件基本配置
 
-![1589636103922](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/1589636103922.png)
+![1589636103922](../../.vuepress/public/assets/img/1589636103922.png)
 
 ```js
 // plugins/czw-webpack-plugin.js
@@ -964,7 +964,7 @@ module.exports = CzwWebpackPlugin
 }
 ```
 
-![1589637582971](../../../../../../../陈志伟/Desktop/fontend/learningblog/docs/.vuepress/public/assets/img/1589637582971.png)
+![1589637582971](../../.vuepress/public/assets/img/1589637582971.png)
 
 ```js
 class CzwWebpackPlugin {
@@ -985,8 +985,6 @@ class CzwWebpackPlugin {
 }
 module.exports = CzwWebpackPlugin
 ```
-
-## 
 
 
 

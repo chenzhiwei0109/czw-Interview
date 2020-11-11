@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CSS面试题 | 学习笔记</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/learningblog/title.jpg">
+    <meta name="description" content="前端,HTML,CSS,webpack,前端学习,前端面试">
+    <meta name="keywords" content="vuepress 学习 笔记">
+    <meta name="author" content="Chen">
+    <link rel="preload" href="/learningblog/assets/css/0.styles.ffcfda16.css" as="style"><link rel="preload" href="/learningblog/assets/js/app.bc8599de.js" as="script"><link rel="preload" href="/learningblog/assets/js/2.56c2d769.js" as="script"><link rel="preload" href="/learningblog/assets/js/40.96a800d8.js" as="script"><link rel="prefetch" href="/learningblog/assets/js/10.44ce86fa.js"><link rel="prefetch" href="/learningblog/assets/js/100.a22240ad.js"><link rel="prefetch" href="/learningblog/assets/js/101.1d697d77.js"><link rel="prefetch" href="/learningblog/assets/js/102.24aa6c9d.js"><link rel="prefetch" href="/learningblog/assets/js/103.ca5281cb.js"><link rel="prefetch" href="/learningblog/assets/js/104.2cfbdcd4.js"><link rel="prefetch" href="/learningblog/assets/js/105.48bf18cc.js"><link rel="prefetch" href="/learningblog/assets/js/106.78a8299b.js"><link rel="prefetch" href="/learningblog/assets/js/107.6ec77207.js"><link rel="prefetch" href="/learningblog/assets/js/108.ad671bd9.js"><link rel="prefetch" href="/learningblog/assets/js/109.9bbec404.js"><link rel="prefetch" href="/learningblog/assets/js/11.57bf6a9e.js"><link rel="prefetch" href="/learningblog/assets/js/110.ff6000bd.js"><link rel="prefetch" href="/learningblog/assets/js/111.dd4c849f.js"><link rel="prefetch" href="/learningblog/assets/js/112.19c197db.js"><link rel="prefetch" href="/learningblog/assets/js/113.29ef38ea.js"><link rel="prefetch" href="/learningblog/assets/js/114.d139afc6.js"><link rel="prefetch" href="/learningblog/assets/js/115.fc0d3e2b.js"><link rel="prefetch" href="/learningblog/assets/js/116.cd9e9a23.js"><link rel="prefetch" href="/learningblog/assets/js/117.5c816ab4.js"><link rel="prefetch" href="/learningblog/assets/js/118.65e2c356.js"><link rel="prefetch" href="/learningblog/assets/js/119.5852f373.js"><link rel="prefetch" href="/learningblog/assets/js/12.5a95d2eb.js"><link rel="prefetch" href="/learningblog/assets/js/120.64a4877f.js"><link rel="prefetch" href="/learningblog/assets/js/121.5b005d7e.js"><link rel="prefetch" href="/learningblog/assets/js/122.cb5f20a5.js"><link rel="prefetch" href="/learningblog/assets/js/123.4a98a659.js"><link rel="prefetch" href="/learningblog/assets/js/124.7a3a8b16.js"><link rel="prefetch" href="/learningblog/assets/js/125.4f2794b4.js"><link rel="prefetch" href="/learningblog/assets/js/126.0e542a0d.js"><link rel="prefetch" href="/learningblog/assets/js/127.bca6fc5e.js"><link rel="prefetch" href="/learningblog/assets/js/128.f096b2c1.js"><link rel="prefetch" href="/learningblog/assets/js/129.7f0f036e.js"><link rel="prefetch" href="/learningblog/assets/js/13.5c1cffe5.js"><link rel="prefetch" href="/learningblog/assets/js/130.f5a69186.js"><link rel="prefetch" href="/learningblog/assets/js/131.cd68cfc5.js"><link rel="prefetch" href="/learningblog/assets/js/132.83118594.js"><link rel="prefetch" href="/learningblog/assets/js/133.fe8b7284.js"><link rel="prefetch" href="/learningblog/assets/js/134.46031499.js"><link rel="prefetch" href="/learningblog/assets/js/135.a529628e.js"><link rel="prefetch" href="/learningblog/assets/js/136.2d7f0bf5.js"><link rel="prefetch" href="/learningblog/assets/js/137.571196c4.js"><link rel="prefetch" href="/learningblog/assets/js/138.bd595fc6.js"><link rel="prefetch" href="/learningblog/assets/js/139.c2863699.js"><link rel="prefetch" href="/learningblog/assets/js/14.156aa16b.js"><link rel="prefetch" href="/learningblog/assets/js/140.b6d9d945.js"><link rel="prefetch" href="/learningblog/assets/js/141.785687b3.js"><link rel="prefetch" href="/learningblog/assets/js/142.522a96bd.js"><link rel="prefetch" href="/learningblog/assets/js/143.b0a18927.js"><link rel="prefetch" href="/learningblog/assets/js/144.8afecefc.js"><link rel="prefetch" href="/learningblog/assets/js/145.c75e6aa4.js"><link rel="prefetch" href="/learningblog/assets/js/146.50d76f00.js"><link rel="prefetch" href="/learningblog/assets/js/147.f21cf887.js"><link rel="prefetch" href="/learningblog/assets/js/148.4d12a018.js"><link rel="prefetch" href="/learningblog/assets/js/149.9458dbf7.js"><link rel="prefetch" href="/learningblog/assets/js/15.977b5688.js"><link rel="prefetch" href="/learningblog/assets/js/150.b82ce497.js"><link rel="prefetch" href="/learningblog/assets/js/151.e042f21b.js"><link rel="prefetch" href="/learningblog/assets/js/152.5d9c4173.js"><link rel="prefetch" href="/learningblog/assets/js/153.d5dfc46f.js"><link rel="prefetch" href="/learningblog/assets/js/154.b76ef1db.js"><link rel="prefetch" href="/learningblog/assets/js/155.83903d13.js"><link rel="prefetch" href="/learningblog/assets/js/156.721ef3a4.js"><link rel="prefetch" href="/learningblog/assets/js/157.cd5633a1.js"><link rel="prefetch" href="/learningblog/assets/js/158.e37a0794.js"><link rel="prefetch" href="/learningblog/assets/js/159.26d38eed.js"><link rel="prefetch" href="/learningblog/assets/js/16.c53d0ca3.js"><link rel="prefetch" href="/learningblog/assets/js/160.dd37bb78.js"><link rel="prefetch" href="/learningblog/assets/js/161.d6fbb45f.js"><link rel="prefetch" href="/learningblog/assets/js/162.f4e3fd59.js"><link rel="prefetch" href="/learningblog/assets/js/163.2d970cd0.js"><link rel="prefetch" href="/learningblog/assets/js/164.c1403904.js"><link rel="prefetch" href="/learningblog/assets/js/165.894c1aeb.js"><link rel="prefetch" href="/learningblog/assets/js/166.46a02a05.js"><link rel="prefetch" href="/learningblog/assets/js/167.e2227cb7.js"><link rel="prefetch" href="/learningblog/assets/js/168.a8b72783.js"><link rel="prefetch" href="/learningblog/assets/js/169.0c5914da.js"><link rel="prefetch" href="/learningblog/assets/js/17.bc3dbacb.js"><link rel="prefetch" href="/learningblog/assets/js/170.294503c1.js"><link rel="prefetch" href="/learningblog/assets/js/171.b0738a8b.js"><link rel="prefetch" href="/learningblog/assets/js/172.9d2f1651.js"><link rel="prefetch" href="/learningblog/assets/js/173.6f2299c0.js"><link rel="prefetch" href="/learningblog/assets/js/174.77bff33f.js"><link rel="prefetch" href="/learningblog/assets/js/175.ecbc658f.js"><link rel="prefetch" href="/learningblog/assets/js/176.f7a47c06.js"><link rel="prefetch" href="/learningblog/assets/js/177.7ff549a9.js"><link rel="prefetch" href="/learningblog/assets/js/178.9212b3a7.js"><link rel="prefetch" href="/learningblog/assets/js/179.0b830362.js"><link rel="prefetch" href="/learningblog/assets/js/18.56ebd4f0.js"><link rel="prefetch" href="/learningblog/assets/js/180.ec017424.js"><link rel="prefetch" href="/learningblog/assets/js/181.551edebd.js"><link rel="prefetch" href="/learningblog/assets/js/182.a8225fed.js"><link rel="prefetch" href="/learningblog/assets/js/183.6b347aa2.js"><link rel="prefetch" href="/learningblog/assets/js/184.18fb0307.js"><link rel="prefetch" href="/learningblog/assets/js/185.5d7926a8.js"><link rel="prefetch" href="/learningblog/assets/js/186.a0c27a3b.js"><link rel="prefetch" href="/learningblog/assets/js/187.9081db16.js"><link rel="prefetch" href="/learningblog/assets/js/188.7e0ac737.js"><link rel="prefetch" href="/learningblog/assets/js/189.cf7895bf.js"><link rel="prefetch" href="/learningblog/assets/js/19.bbf0eb2b.js"><link rel="prefetch" href="/learningblog/assets/js/190.26901e70.js"><link rel="prefetch" href="/learningblog/assets/js/191.bc0263c6.js"><link rel="prefetch" href="/learningblog/assets/js/192.2db5ec50.js"><link rel="prefetch" href="/learningblog/assets/js/193.13b83f12.js"><link rel="prefetch" href="/learningblog/assets/js/194.5b6df6ef.js"><link rel="prefetch" href="/learningblog/assets/js/195.b0ddf070.js"><link rel="prefetch" href="/learningblog/assets/js/196.486cc968.js"><link rel="prefetch" href="/learningblog/assets/js/197.22ac6c0f.js"><link rel="prefetch" href="/learningblog/assets/js/198.e310bd35.js"><link rel="prefetch" href="/learningblog/assets/js/199.9621cf8a.js"><link rel="prefetch" href="/learningblog/assets/js/20.ee633d47.js"><link rel="prefetch" href="/learningblog/assets/js/200.c3fbf81e.js"><link rel="prefetch" href="/learningblog/assets/js/201.678fd6b8.js"><link rel="prefetch" href="/learningblog/assets/js/202.7a05fddd.js"><link rel="prefetch" href="/learningblog/assets/js/203.0f9af822.js"><link rel="prefetch" href="/learningblog/assets/js/204.15ed3540.js"><link rel="prefetch" href="/learningblog/assets/js/205.900c61d2.js"><link rel="prefetch" href="/learningblog/assets/js/206.f4693c59.js"><link rel="prefetch" href="/learningblog/assets/js/207.e8517b94.js"><link rel="prefetch" href="/learningblog/assets/js/208.2941e5f3.js"><link rel="prefetch" href="/learningblog/assets/js/209.b48e7232.js"><link rel="prefetch" href="/learningblog/assets/js/21.63593271.js"><link rel="prefetch" href="/learningblog/assets/js/210.5f959727.js"><link rel="prefetch" href="/learningblog/assets/js/211.36e96daf.js"><link rel="prefetch" href="/learningblog/assets/js/212.f325c1b2.js"><link rel="prefetch" href="/learningblog/assets/js/213.086fdb63.js"><link rel="prefetch" href="/learningblog/assets/js/214.52a7eea3.js"><link rel="prefetch" href="/learningblog/assets/js/215.34a91f83.js"><link rel="prefetch" href="/learningblog/assets/js/216.d62a4e77.js"><link rel="prefetch" href="/learningblog/assets/js/217.db975dbd.js"><link rel="prefetch" href="/learningblog/assets/js/22.2c173103.js"><link rel="prefetch" href="/learningblog/assets/js/23.31d63383.js"><link rel="prefetch" href="/learningblog/assets/js/24.a10b8e15.js"><link rel="prefetch" href="/learningblog/assets/js/25.f17c9a0c.js"><link rel="prefetch" href="/learningblog/assets/js/26.27482f9d.js"><link rel="prefetch" href="/learningblog/assets/js/27.10c9098d.js"><link rel="prefetch" href="/learningblog/assets/js/28.12bf6a9e.js"><link rel="prefetch" href="/learningblog/assets/js/29.03c240d1.js"><link rel="prefetch" href="/learningblog/assets/js/3.1fc3b23a.js"><link rel="prefetch" href="/learningblog/assets/js/30.f2263db5.js"><link rel="prefetch" href="/learningblog/assets/js/31.6bdedc38.js"><link rel="prefetch" href="/learningblog/assets/js/32.0ba45259.js"><link rel="prefetch" href="/learningblog/assets/js/33.2d61d05b.js"><link rel="prefetch" href="/learningblog/assets/js/34.aefbc5f5.js"><link rel="prefetch" href="/learningblog/assets/js/35.74cabe24.js"><link rel="prefetch" href="/learningblog/assets/js/36.db5fa8d5.js"><link rel="prefetch" href="/learningblog/assets/js/37.c50e4403.js"><link rel="prefetch" href="/learningblog/assets/js/38.ec39afce.js"><link rel="prefetch" href="/learningblog/assets/js/39.cb0043cc.js"><link rel="prefetch" href="/learningblog/assets/js/4.d09d278d.js"><link rel="prefetch" href="/learningblog/assets/js/41.4acf51f1.js"><link rel="prefetch" href="/learningblog/assets/js/42.a7e703a8.js"><link rel="prefetch" href="/learningblog/assets/js/43.80d3531a.js"><link rel="prefetch" href="/learningblog/assets/js/44.12cca6f4.js"><link rel="prefetch" href="/learningblog/assets/js/45.184d775c.js"><link rel="prefetch" href="/learningblog/assets/js/46.35d81277.js"><link rel="prefetch" href="/learningblog/assets/js/47.5ee0a31d.js"><link rel="prefetch" href="/learningblog/assets/js/48.f581d270.js"><link rel="prefetch" href="/learningblog/assets/js/49.9acdb9d7.js"><link rel="prefetch" href="/learningblog/assets/js/5.bbdd072e.js"><link rel="prefetch" href="/learningblog/assets/js/50.a8dc6fc1.js"><link rel="prefetch" href="/learningblog/assets/js/51.0ccb0255.js"><link rel="prefetch" href="/learningblog/assets/js/52.4bab8582.js"><link rel="prefetch" href="/learningblog/assets/js/53.2ca7b0f0.js"><link rel="prefetch" href="/learningblog/assets/js/54.c5a60938.js"><link rel="prefetch" href="/learningblog/assets/js/55.8e201814.js"><link rel="prefetch" href="/learningblog/assets/js/56.dbe6e107.js"><link rel="prefetch" href="/learningblog/assets/js/57.3703a62f.js"><link rel="prefetch" href="/learningblog/assets/js/58.a2ad10fa.js"><link rel="prefetch" href="/learningblog/assets/js/59.c1a87531.js"><link rel="prefetch" href="/learningblog/assets/js/6.a66d0523.js"><link rel="prefetch" href="/learningblog/assets/js/60.4d073e9e.js"><link rel="prefetch" href="/learningblog/assets/js/61.f14f1409.js"><link rel="prefetch" href="/learningblog/assets/js/62.9c6978c3.js"><link rel="prefetch" href="/learningblog/assets/js/63.875b3e8a.js"><link rel="prefetch" href="/learningblog/assets/js/64.dcc69061.js"><link rel="prefetch" href="/learningblog/assets/js/65.efd14c94.js"><link rel="prefetch" href="/learningblog/assets/js/66.a64054ed.js"><link rel="prefetch" href="/learningblog/assets/js/67.19acd48e.js"><link rel="prefetch" href="/learningblog/assets/js/68.6a3d2d28.js"><link rel="prefetch" href="/learningblog/assets/js/69.74082531.js"><link rel="prefetch" href="/learningblog/assets/js/7.411e70b8.js"><link rel="prefetch" href="/learningblog/assets/js/70.646c22e4.js"><link rel="prefetch" href="/learningblog/assets/js/71.323c0d4e.js"><link rel="prefetch" href="/learningblog/assets/js/72.77852999.js"><link rel="prefetch" href="/learningblog/assets/js/73.b42c63ad.js"><link rel="prefetch" href="/learningblog/assets/js/74.83f66ecb.js"><link rel="prefetch" href="/learningblog/assets/js/75.7d8c3414.js"><link rel="prefetch" href="/learningblog/assets/js/76.f39748c0.js"><link rel="prefetch" href="/learningblog/assets/js/77.c2257c7e.js"><link rel="prefetch" href="/learningblog/assets/js/78.b88e060f.js"><link rel="prefetch" href="/learningblog/assets/js/79.f89e3bb3.js"><link rel="prefetch" href="/learningblog/assets/js/8.89f5f6e1.js"><link rel="prefetch" href="/learningblog/assets/js/80.523ebb59.js"><link rel="prefetch" href="/learningblog/assets/js/81.f6537f9e.js"><link rel="prefetch" href="/learningblog/assets/js/82.98cb9e9a.js"><link rel="prefetch" href="/learningblog/assets/js/83.63e9703f.js"><link rel="prefetch" href="/learningblog/assets/js/84.ffafc248.js"><link rel="prefetch" href="/learningblog/assets/js/85.b7c63bcb.js"><link rel="prefetch" href="/learningblog/assets/js/86.e5468920.js"><link rel="prefetch" href="/learningblog/assets/js/87.a2624c9b.js"><link rel="prefetch" href="/learningblog/assets/js/88.c5623550.js"><link rel="prefetch" href="/learningblog/assets/js/89.813054b9.js"><link rel="prefetch" href="/learningblog/assets/js/9.ba3df3ea.js"><link rel="prefetch" href="/learningblog/assets/js/90.f287142a.js"><link rel="prefetch" href="/learningblog/assets/js/91.f70c350e.js"><link rel="prefetch" href="/learningblog/assets/js/92.b0f38a5c.js"><link rel="prefetch" href="/learningblog/assets/js/93.15039cb6.js"><link rel="prefetch" href="/learningblog/assets/js/94.e451c01f.js"><link rel="prefetch" href="/learningblog/assets/js/95.c3e3a96d.js"><link rel="prefetch" href="/learningblog/assets/js/96.5ade6a89.js"><link rel="prefetch" href="/learningblog/assets/js/97.2a4abe5b.js"><link rel="prefetch" href="/learningblog/assets/js/98.6d3fa983.js"><link rel="prefetch" href="/learningblog/assets/js/99.a19705e0.js">
+    <link rel="stylesheet" href="/learningblog/assets/css/0.styles.ffcfda16.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/learningblog/" class="home-link router-link-active"><img src="/learningblog/title.jpg" alt="学习笔记" class="logo"> <span class="site-name can-hide">学习笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="速记" class="dropdown-title"><span class="title">速记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/知识点速记/正则表达式.html" class="nav-link">
+  正则表达式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据结构与算法" class="dropdown-title"><span class="title">数据结构与算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/数据结构与算法/数据结构与算法/01-数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/数据结构与算法/刷题/" class="nav-link">
+  算法刷题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/interview/1-css面试题/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/2-js面试题/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/3-h5移动端/" class="nav-link">
+  H5和移动端
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/4-webpack面试题/" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/5-vue面试题/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/6-react面试题/" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/7-浏览器网络面试题/" class="nav-link">
+  浏览器网络
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/8-面经/" class="nav-link">
+  面经汇总
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/fontend/0-HTML和CSS笔记/" class="nav-link">
+  HTML和CSS笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/1-JavaScript笔记/" class="nav-link">
+  JavaScript笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/2-H5和移动端/" class="nav-link">
+  H5移动端笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/3-ES6/" class="nav-link">
+  ECMAScript6笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/4-Webpack/" class="nav-link">
+  Webpack笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/5-Vue基础/" class="nav-link">
+  Vue基础
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/6-Vue进阶/" class="nav-link">
+  Vue进阶
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/7-React基础/" class="nav-link">
+  React基础
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/8-React进阶/" class="nav-link">
+  React进阶
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/9-Node/" class="nav-link">
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/10-Git/" class="nav-link">
+  Git
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端进阶" class="dropdown-title"><span class="title">前端进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/1-koa/" class="nav-link">
+  koa
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/2-egg/" class="nav-link">
+  eggJs
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/3-ts/" class="nav-link">
+  typescript
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/4-vue3/" class="nav-link">
+  vue3
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/5-浏览器工作原理实践/" class="nav-link">
+  浏览器工作原理实践
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/6-设计模式/" class="nav-link">
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/project/1-个人博客/" class="nav-link">
+  个人博客
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/project/2-vue多媒体/" class="nav-link">
+  vue多媒体
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/project/3-b站移动端/" class="nav-link">
+  弹幕视频网
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/project/4-直播项目/" class="nav-link">
+  直播项目
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机基础" class="dropdown-title"><span class="title">计算机基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/计算机基础/计算机组成原理/" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/计算机基础/操作系统/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/计算机基础/计算机网络/" class="nav-link">
+  计算机网络
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="tools" class="dropdown-title"><span class="title">tools</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/tools/mock/mock.html" class="nav-link">
+  mockJs
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/tools/swiper/swiper.html" class="nav-link">
+  swiper
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/tools/axios/axios.html" class="nav-link">
+  axios
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端文档" class="dropdown-title"><span class="title">前端文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          官方文档
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3C
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MDN文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://wangdoc.com/javascript/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网道JS教程
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://jquery.cuishifeng.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jquery文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://es6.ruanyifeng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ES6阮一峰
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.vuejs.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue官方文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://uniapp.dcloud.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Uni-app官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.webpackjs.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Webpack官方文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://react.docschina.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  React官方文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.wikipedia.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  维基百科
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://element.eleme.cn/#/zh-CN" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VUE-element-ui
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.vuepress.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VUE-vue-press博客搭建
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://youzan.github.io/vant/#/zh-CN/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VUE-vant
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://dev.dcloud.net.cn/mui/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MUI文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ant.design/index-cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  AntDesign
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://didi.github.io/cube-ui/#/zh-CN" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  cube
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.echartsjs.com/zh/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  echart图
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.swiper.com.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Swiper
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  better-scroll
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ai.qq.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯AI
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.lodashjs.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  lodash中文
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  动画animate
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://mockjs.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  随机数据mock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.iconfont.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里图标
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://bird.ioliu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  跨域处理-服务器代理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://regexper.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  正则可视化
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://tool.chinaz.com/tools/imgtobase/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  base64
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端博客" class="dropdown-title"><span class="title">前端博客</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          博客论坛
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://www.ruanyifeng.com/blog/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阮一峰博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.zhangxinxu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  张鑫旭博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.zhihu.com/people/evanyou" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  尤雨溪知乎
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://weibo.com/arttechdesign?is_hot=1" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  尤雨溪微博
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://segmentfault.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  思否
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://juejin.im/timeline" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://time.geekbang.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  极客时间
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.jianshu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          面试题
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/post/6844904116339261447#heading-14" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  2020前端复习
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.history.js.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JavaScript20年
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ustbhuangyi.github.io/vue-analysis/v2/prepare/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue源码
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://www.youbaobao.xyz/admin-docs/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  小慕读书文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.jianshu.com/p/38853c044156" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JS数据结构和算法
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://book.apeland.cn/details/314/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  小猿圈
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.kancloud.cn/hanxuming/vue-iq/945437" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  面试题-看云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://github.com/haizlin/fe-interview" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  面试题-github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          刷题
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.nowcoder.com/contestRoom" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  牛客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://leetcode-cn.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  leetcode
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://github.com/chenzhiwei0109/learningblog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  源码
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="速记" class="dropdown-title"><span class="title">速记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/知识点速记/正则表达式.html" class="nav-link">
+  正则表达式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据结构与算法" class="dropdown-title"><span class="title">数据结构与算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/数据结构与算法/数据结构与算法/01-数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/数据结构与算法/刷题/" class="nav-link">
+  算法刷题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/interview/1-css面试题/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/2-js面试题/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/3-h5移动端/" class="nav-link">
+  H5和移动端
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/4-webpack面试题/" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/5-vue面试题/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/6-react面试题/" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/7-浏览器网络面试题/" class="nav-link">
+  浏览器网络
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/8-面经/" class="nav-link">
+  面经汇总
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/fontend/0-HTML和CSS笔记/" class="nav-link">
+  HTML和CSS笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/1-JavaScript笔记/" class="nav-link">
+  JavaScript笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/2-H5和移动端/" class="nav-link">
+  H5移动端笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/3-ES6/" class="nav-link">
+  ECMAScript6笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/4-Webpack/" class="nav-link">
+  Webpack笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/5-Vue基础/" class="nav-link">
+  Vue基础
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/6-Vue进阶/" class="nav-link">
+  Vue进阶
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/7-React基础/" class="nav-link">
+  React基础
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/8-React进阶/" class="nav-link">
+  React进阶
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/9-Node/" class="nav-link">
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/10-Git/" class="nav-link">
+  Git
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端进阶" class="dropdown-title"><span class="title">前端进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/1-koa/" class="nav-link">
+  koa
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/2-egg/" class="nav-link">
+  eggJs
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/3-ts/" class="nav-link">
+  typescript
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/4-vue3/" class="nav-link">
+  vue3
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/5-浏览器工作原理实践/" class="nav-link">
+  浏览器工作原理实践
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/6-设计模式/" class="nav-link">
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/project/1-个人博客/" class="nav-link">
+  个人博客
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/project/2-vue多媒体/" class="nav-link">
+  vue多媒体
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/project/3-b站移动端/" class="nav-link">
+  弹幕视频网
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/project/4-直播项目/" class="nav-link">
+  直播项目
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机基础" class="dropdown-title"><span class="title">计算机基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/计算机基础/计算机组成原理/" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/计算机基础/操作系统/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/计算机基础/计算机网络/" class="nav-link">
+  计算机网络
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="tools" class="dropdown-title"><span class="title">tools</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/tools/mock/mock.html" class="nav-link">
+  mockJs
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/tools/swiper/swiper.html" class="nav-link">
+  swiper
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/tools/axios/axios.html" class="nav-link">
+  axios
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端文档" class="dropdown-title"><span class="title">前端文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          官方文档
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3C
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MDN文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://wangdoc.com/javascript/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网道JS教程
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://jquery.cuishifeng.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jquery文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://es6.ruanyifeng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ES6阮一峰
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.vuejs.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue官方文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://uniapp.dcloud.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Uni-app官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.webpackjs.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Webpack官方文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://react.docschina.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  React官方文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.wikipedia.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  维基百科
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://element.eleme.cn/#/zh-CN" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VUE-element-ui
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.vuepress.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VUE-vue-press博客搭建
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://youzan.github.io/vant/#/zh-CN/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VUE-vant
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://dev.dcloud.net.cn/mui/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MUI文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ant.design/index-cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  AntDesign
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://didi.github.io/cube-ui/#/zh-CN" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  cube
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.echartsjs.com/zh/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  echart图
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.swiper.com.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Swiper
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  better-scroll
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ai.qq.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯AI
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.lodashjs.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  lodash中文
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  动画animate
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://mockjs.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  随机数据mock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.iconfont.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里图标
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://bird.ioliu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  跨域处理-服务器代理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://regexper.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  正则可视化
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://tool.chinaz.com/tools/imgtobase/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  base64
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端博客" class="dropdown-title"><span class="title">前端博客</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          博客论坛
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://www.ruanyifeng.com/blog/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阮一峰博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.zhangxinxu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  张鑫旭博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.zhihu.com/people/evanyou" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  尤雨溪知乎
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://weibo.com/arttechdesign?is_hot=1" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  尤雨溪微博
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://segmentfault.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  思否
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://juejin.im/timeline" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://time.geekbang.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  极客时间
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.jianshu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          面试题
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/post/6844904116339261447#heading-14" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  2020前端复习
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.history.js.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JavaScript20年
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ustbhuangyi.github.io/vue-analysis/v2/prepare/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue源码
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://www.youbaobao.xyz/admin-docs/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  小慕读书文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.jianshu.com/p/38853c044156" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JS数据结构和算法
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://book.apeland.cn/details/314/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  小猿圈
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.kancloud.cn/hanxuming/vue-iq/945437" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  面试题-看云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://github.com/haizlin/fe-interview" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  面试题-github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          刷题
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.nowcoder.com/contestRoom" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  牛客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://leetcode-cn.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  leetcode
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://github.com/chenzhiwei0109/learningblog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  源码
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/learningblog/interview/1-css%E9%9D%A2%E8%AF%95%E9%A2%98/" class="sidebar-link">面试题</a></li><li><a href="/learningblog/interview/1-css面试题/css面试题.html" class="active sidebar-link">CSS面试题</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#_1-行内元素块级元素" class="sidebar-link">1.行内元素块级元素</a></li><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#_2-css选择器优先级" class="sidebar-link">2.css选择器优先级</a></li><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#_3-浏览器盒模型" class="sidebar-link">3.浏览器盒模型</a></li><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#_4-哪些属性可以继承" class="sidebar-link">4.哪些属性可以继承</a></li><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#_5-介绍一下flex布局吧！" class="sidebar-link">5.介绍一下flex布局吧！</a></li><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#_6-谈一谈不会被渲染到页面的一些标签" class="sidebar-link">6. 谈一谈不会被渲染到页面的一些标签</a></li><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#浮动和清除浮动" class="sidebar-link">浮动和清除浮动</a></li><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#bfc是什么" class="sidebar-link">BFC是什么</a></li><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#响应式布局" class="sidebar-link">响应式布局</a></li><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#div-css布局的好处" class="sidebar-link">div+css布局的好处</a></li><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#如何解决a标签点击后hover失效" class="sidebar-link">如何解决a标签点击后hover失效?</a></li><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#calc-support-media各自含义和用法" class="sidebar-link">calc,support,media各自含义和用法</a></li><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#过渡动画和关键帧动画的区别" class="sidebar-link">过渡动画和关键帧动画的区别?</a></li><li class="sidebar-sub-header"><a href="/learningblog/interview/1-css面试题/css面试题.html#css-sprite是什么？有什么优缺点？" class="sidebar-link">css sprite是什么？有什么优缺点？</a></li></ul></li><li><a href="/learningblog/interview/1-css面试题/css面试题2.html" class="sidebar-link">css面试题2</a></li><li><a href="/learningblog/interview/1-css面试题/css笔试题.html" class="sidebar-link">css笔试题</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="css面试题"><a href="#css面试题" class="header-anchor">#</a> CSS面试题</h1> <p></p><div class="table-of-contents"><ul><li><a href="#_1-行内元素块级元素">1.行内元素块级元素</a></li><li><a href="#_2-css选择器优先级">2.css选择器优先级</a></li><li><a href="#_3-浏览器盒模型">3.浏览器盒模型</a></li><li><a href="#_4-哪些属性可以继承">4.哪些属性可以继承</a></li><li><a href="#_5-介绍一下flex布局吧！">5.介绍一下flex布局吧！</a></li><li><a href="#_6-谈一谈不会被渲染到页面的一些标签">6. 谈一谈不会被渲染到页面的一些标签</a></li><li><a href="#浮动和清除浮动">浮动和清除浮动</a></li><li><a href="#bfc是什么">BFC是什么</a></li><li><a href="#响应式布局">响应式布局</a></li><li><a href="#div-css布局的好处">div+css布局的好处</a></li><li><a href="#如何解决a标签点击后hover失效">如何解决a标签点击后hover失效?</a></li><li><a href="#calc-support-media各自含义和用法">calc,support,media各自含义和用法</a></li><li><a href="#过渡动画和关键帧动画的区别">过渡动画和关键帧动画的区别?</a></li><li><a href="#css-sprite是什么？有什么优缺点？">css sprite是什么？有什么优缺点？</a></li></ul></div>
+[TOC]<p></p> <h2 id="_1-行内元素块级元素"><a href="#_1-行内元素块级元素" class="header-anchor">#</a> 1.行内元素块级元素</h2> <p>行内元素：设置宽高无效，只能设置左右margin，多个占一行</p> <p>块级元素：可以设置宽高，一个占一行</p> <p>行内块：可设置宽高，</p> <h2 id="_2-css选择器优先级"><a href="#_2-css选择器优先级" class="header-anchor">#</a> 2.css选择器优先级</h2> <ul><li><p>!important</p></li> <li><p>内联</p></li> <li><p>id</p></li> <li><p>class、伪类(:first-child)、属性[attr]</p></li> <li><p>标签选择器div、伪元素选择器(::after)</p></li> <li><p>通用选择器(*)、子选择器(&gt;)、相邻选择器(*)、同级选择器(~)</p></li></ul> <p><img src="/learningblog/assets/img/20181104171830408.33a61f4d.png" alt="img"></p> <h2 id="_3-浏览器盒模型"><a href="#_3-浏览器盒模型" class="header-anchor">#</a> 3.浏览器盒模型</h2> <div class="language- extra-class"><pre class="language-text"><code>- 标准盒模型:content-box
+- IE盒模型:border-box
+- 内边距盒模型:padding-box
+- 通过 box-sizing属性改变元素的盒模型
+- 现在不支持margin-box
+</code></pre></div><h2 id="_4-哪些属性可以继承"><a href="#_4-哪些属性可以继承" class="header-anchor">#</a> 4.哪些属性可以继承</h2> <p>可继承的属性：font-size, font-family, color</p> <p>不可继承的样式：border, padding, margin, width, height</p> <h2 id="_5-介绍一下flex布局吧！"><a href="#_5-介绍一下flex布局吧！" class="header-anchor">#</a> 5.介绍一下flex布局吧！</h2> <p>flex布局就是flexable弹性布局的意思。</p> <p>flex布局需要有容器(container)和项目(item)两部分组成，当我们设置<code>display:flex</code>时，容器内部会使用flex的格式化上下文。设置flex后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性将失效。</p> <p>flex布局的容器内部默认有一个主轴和一个交叉轴。</p> <p>容器的属性</p> <div class="language- extra-class"><pre class="language-text"><code>决定主轴方向	flex-direction: row(主轴水平) | row-reverse | column | column-reverse;
+决定多条轴线的换行	flex-wrap:nowrap (不换行)|wrap (第一行在上方)|warp-reverse(第一行在下方)
+上面两个属性缩写,flex-flow:row nowrap
+justify-content
+align-items
+align-content
+</code></pre></div><h2 id="_6-谈一谈不会被渲染到页面的一些标签"><a href="#_6-谈一谈不会被渲染到页面的一些标签" class="header-anchor">#</a> 6. 谈一谈不会被渲染到页面的一些标签</h2> <ul><li>meta标签
+<ul><li><code>&lt;meta http-equiv=&quot;Refresh&quot; content=&quot;5; URL=page2.html&quot;&gt;</code></li> <li><code>&lt;meta content=&quot;&quot; name=&quot;keywords&quot;&gt;</code></li></ul></li> <li>title标签，通过document.title 设置</li> <li>script标签：浏览器解析遇到script标签会停止解析，请求完毕继续解析
+<ul><li>async 属性。异步请求，请求完毕会立刻执行文件内容。</li> <li>defer 属性。异步请求，等html解析完毕立即执行js内容</li> <li>type 属性(h5)，对应值为“module”。让浏览器按照 ECMA Script 6 标准将文件当作模块进行解析，默认阻塞效果同 defer，也可以配合 async 在请求完成后立即执行。</li></ul></li> <li>link标签: <code>&lt;link rel='dns-prefetch' href='xxx.xx.html'&gt;</code> <ul><li>rel属性为dns-prefetch:对<strong>dns</strong>预先解析缓存，下次就不需要进行DNS解析
+<ul><li>preconnect:请求前先进行<strong>TCP</strong>连接，下次请求就不用再建立连接</li> <li>prefetch/preload：不忙时预先下载/预先下载<strong>http</strong>请求内容</li> <li>prerender:这部分资源先加载并解析执行<strong>render</strong></li> <li>canonical</li></ul></li></ul></li></ul> <h2 id="浮动和清除浮动"><a href="#浮动和清除浮动" class="header-anchor">#</a> 浮动和清除浮动</h2> <p>浮动：可以设置元素脱离文档流，向左或者向右，靠近父元素的边缘或者是设置了浮动的其他元素的边缘靠拢</p> <ol><li>给图片加浮动，浮动解决文字不能包围图片的问题</li> <li>给行内块元素加浮动，解决行内块元素间隔问题</li> <li>左右排版布局</li></ol> <p>缺点：子元素浮动后父元素的高度会塌陷。会使得父元素的兄弟元素跑上去，但是图片会被挤到浮动外面</p> <p><img src="/learningblog/assets/img/image-20200914200056518.71f549d5.png" alt="image-20200914200056518"></p> <p>解决方法</p> <ol><li><p>父元素设置高度</p></li> <li><p>父元素添加一个子元素，给这个子元素clear:both</p></li> <li><p>父元素添加clearfix类</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.clearfix::after</span><span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span>block<span class="token punctuation">;</span>
+    <span class="token property">clear</span><span class="token punctuation">:</span>both<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div></li></ol> <h2 id="bfc是什么"><a href="#bfc是什么" class="header-anchor">#</a> BFC是什么</h2> <p><strong>fc是格式上下文，BFC，IFC内联，GFCgrid布局 ,FFCflex布局。</strong></p> <blockquote><p>BFC 就是块级格式上下文，是页面盒模型布局中的一种 CSS 渲染模式，相当于一个独立的容器，里面的元素和外部的元素相互不影响。创建 BFC 的方式有：</p> <ol><li>html 根元素</li> <li>float 浮动</li> <li>绝对定位</li> <li>overflow 不为 visiable</li> <li>display 为表格布局table-cell或者弹性布局，</li></ol></blockquote> <p>我觉得就有点像作用域，块级格式化上下文，是一个独立的渲染区域。在于BFC内部的元素和外部隔离，使得内部和外部元素不会互相影响,内部无论怎么操作都不影响外部。</p> <p><strong>规则</strong></p> <ul><li>BFC内部box会在垂直方向，一个接一个地放置</li> <li>在一个BFC中，两个相邻的块级盒子的垂直外边距会产生折叠。</li> <li>在BFC中，每一个盒子的左外边缘（margin-left）会触碰到容器的左边缘(border-left)（对于从右到左的格式来说，则触碰到右边缘）</li> <li><code>BFC</code> 的区域不会与 <code>float</code> 的元素区域重叠。浮动元素会移到bfc元素右边。</li> <li>计算 <code>BFC</code> 的高度时，浮动子元素也参与计算</li> <li>文字层不会被浮动层覆盖，环绕于周围</li></ul> <p><strong>应用</strong></p> <ul><li>防止同一容器内相邻元素外边距合并</li> <li>清除容器内部浮动。</li> <li>自适应两栏布局。</li> <li>父元素bfc,元素塌陷</li></ul> <p>特性应用：</p> <p><strong>1.同一bfc下外边距会折叠</strong></p> <p>两个div元素在同一个bfc容器下(body元素)，所以会外边距重叠。如果想避免合并可以给他们外部分别包含两个bfc容器。</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.container</span><span class="token punctuation">{</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span>hidden
+  <span class="token punctuation">}</span>
+  <span class="token selector">p</span><span class="token punctuation">{</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>container<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>container<span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+    
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p><strong>2.BFC可以包含浮动元素( 解决父元素塌陷)</strong></p> <p>父元素触发BFC，可以解决子元素脱离文档流造成父元素塌陷的问题</p> <p><strong>3.BFC阻止元素被浮动元素覆盖</strong></p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">='</span><span class="token attr-value">h100w100<span class="token punctuation">;</span><span class="token property">float</span><span class="token punctuation">:</span>left<span class="token punctuation">;</span></span><span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>
+  我是个左浮动
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">='</span><span class="token attr-value">w200h200</span><span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>
+  我没有浮动
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p><img src="/learningblog/assets/img/1588997904431.2f1158f4.png" alt="1588997904431"></p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">='</span><span class="token attr-value">h100w100<span class="token punctuation">;</span><span class="token property">float</span><span class="token punctuation">:</span>left<span class="token punctuation">;</span></span><span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>
+  我是个左浮动
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">='</span><span class="token attr-value"><span class="token property">w200h200overflow</span><span class="token punctuation">:</span>hidden</span><span class="token punctuation">'</span></span><span class="token punctuation">&gt;</span></span>
+	我触发BFC
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p><img src="/learningblog/assets/img/1588998242901.6236b7a2.png" alt="1588998242901"></p> <p>这种方式实现两列布局。</p> <p><strong>垂直方向边距解决重叠:</strong></p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">father</span><span class="token punctuation">{</span>
+	<span class="token property">overflow</span><span class="token punctuation">:</span>hidden<span class="token punctuation">;</span>
+	<span class="token property">margin-top</span><span class="token punctuation">:</span>10px<span class="token selector">;
+	children</span><span class="token punctuation">{</span>
+		<span class="token property">margin-top</span><span class="token punctuation">:</span>20px<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>左固定右自适应:</strong></p> <p>给右侧元素创建bfc,使得他和左侧float元素不重叠；</p> <div class="language- extra-class"><pre class="language-text"><code>.container{
+	left{
+		float:left;
+		width:100;
+		height:100px;
+	}
+	right{
+		height:110px;
+		overflow：auto;
+	}
+}
+</code></pre></div><p><strong>子元素浮动父元素高度塌陷:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>.float{
+	float:left
+}
+.container{
+	overflow:auto;
+	//float:left;
+}
+</code></pre></div><div class="language-html extra-class"><pre class="language-html"><code>div.container
+	&gt;div.float
+</code></pre></div><h2 id="响应式布局"><a href="#响应式布局" class="header-anchor">#</a> 响应式布局</h2> <h2 id="div-css布局的好处"><a href="#div-css布局的好处" class="header-anchor">#</a> div+css布局的好处</h2> <ol><li><p>代码精简，且结构与样式分离，易于维护</p></li> <li><p>代码量减少了，减少了⼤量的带宽，⻚⾯加载的也更快，提升了⽤户的体验</p></li> <li><p>对SEO搜索引擎更加友好，且H5⼜新增了许多语义化标签更是如此</p></li> <li><p>允许更多炫酷的⻚⾯效果，丰富了⻚⾯</p></li> <li><p>符合W3C标准，保证⽹站不会因为⽹络应⽤的升级⽽被淘汰</p></li></ol> <p>缺点: 不同浏览器对web标准默认值不同，所以更容易出现对浏览器的兼容性问题。</p> <h2 id="如何解决a标签点击后hover失效"><a href="#如何解决a标签点击后hover失效" class="header-anchor">#</a> 如何解决a标签点击后hover失效?</h2> <p>love hate,给女朋友买了lv包包，女朋友haha大笑</p> <p><code>a:link</code>未访问的样式,省略成a。<code>a:visited</code>已经访问的样式</p> <p><code>a:hover</code>鼠标移动上的样式 <code>a:active</code>鼠标移开的样式</p> <h2 id="calc-support-media各自含义和用法"><a href="#calc-support-media各自含义和用法" class="header-anchor">#</a> calc,support,media各自含义和用法</h2> <ul><li><p>calc() 函数用于动态计算长度值。支持+-*/运算符前后都需要保留一个空格 <code>width: calc(100% - 100px);</code></p></li> <li><p>support:浏览器兼容性问题</p> <div class="language-html extra-class"><pre class="language-html"><code>@supports ((transition-property: color) or (animation-name: foo)) and (transform: rotate(10deg)) {
+     /*自己的样式 */
+}
+</code></pre></div></li> <li><p>media:通过媒体查询可以为不同大小和尺寸的媒体定义不同的css，适应相应的设备的显示。</p> <div class="language-js extra-class"><pre class="language-js"><code>@<span class="token function">media</span> <span class="token punctuation">(</span><span class="token parameter">max<span class="token operator">-</span>width<span class="token operator">:</span> <span class="token number">700</span>px</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="过渡动画和关键帧动画的区别"><a href="#过渡动画和关键帧动画的区别" class="header-anchor">#</a> 过渡动画和关键帧动画的区别?</h2> <ul><li>过渡动画需要有状态变化</li> <li>关键帧动画不需要有状态变化，控制更精细，你可以控制他播放顺序等等。</li></ul> <h2 id="css-sprite是什么？有什么优缺点？"><a href="#css-sprite是什么？有什么优缺点？" class="header-anchor">#</a> css sprite是什么？有什么优缺点？</h2> <ul><li>概念：将多个小图片拼接到一个图片中。通过<code>background-position</code>和元素尺寸调节需要显示的背景图案。</li> <li>优点：减少http请求次数，增加图片信息重复度，整体图片风格更换容易、</li> <li>缺点：增大维护和设计难度，合并很麻烦</li></ul> <p><strong>2.CSS选择符</strong></p> <div class="language-css extra-class"><pre class="language-css"><code>·id选择器（#myId）
+·类选择器（.myClassName）
+·标签选择器（div<span class="token punctuation">,</span> h1<span class="token punctuation">,</span> p）
+·后代选择器（h1 p）
+·相邻后代选择器（子）选择器（ul &gt; li）
+·兄弟选择器（li~a）
+·相邻兄弟选择器（li+a）
+·属性选择器（a[rel=<span class="token string">&quot;external&quot;</span>]）
+<span class="token property">·伪类选择器（a</span><span class="token punctuation">:</span>hover<span class="token punctuation">,</span> <span class="token property">li</span><span class="token punctuation">:</span>nth-child）
+<span class="token property">·伪元素选择器（</span><span class="token punctuation">:</span><span class="token punctuation">:</span>before<span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">:</span>after）
+·通配符选择器（*）
+</code></pre></div><p><strong>3.::before 和 :after 中双冒号和单冒号的区别？这2个伪元素的作用？</strong></p> <div class="language-css extra-class"><pre class="language-css"><code>·在 CSS3 <span class="token property">中</span> <span class="token punctuation">:</span> <span class="token property">表示伪类，</span> <span class="token punctuation">:</span><span class="token punctuation">:</span> 表示伪元素
+<span class="token property">·想让插入的内容出现在其他内容前，使用</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token property">befroe。否则，使用</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after
+</code></pre></div><p><strong>4.CSS中哪些属性可以继承？</strong></p> <div class="language-text extra-class"><pre class="language-text"><code>·每一个属性在定义中都给出了这个属性是否具有继承性，一个具有继承性的属性会在没有指定值的时候，会使用父元素的同属性的值
+来作为自己的值。
+·一般具有继承性的属性有，字体相关的属性，font-size和font-weight等。
+·文本相关的属性，color和text-align等。
+·表格的一些布局属性、列表属性如list-style等。
+·还有光标属性cursor、元素可见性visibility。
+·当一个属性不是继承属性的时候，我们也可以通过将它的值设置为inherit来使它从父元素那获取同名的属性值来继承。
+</code></pre></div><p><strong>5.如何居中div</strong></p> <p>-水平居中1：给 div 设置一个宽度，然后添加 margin:0 auto; 属性</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">div</span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0 auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>-水平居中2：利用 text-align:center 实现</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.container</span><span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> .5<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> <span class="token property">center</span><span class="token punctuation">:</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.box</span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 500px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>-让绝对定位的div居中</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">div</span><span class="token punctuation">{</span>
+  <span class="token property">positionn</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span> <span class="token comment">/* 方便看效果 */</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>-水平垂直居中1</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token comment">/* 确定容器的宽高，宽500高300 */</span>
+<span class="token selector">div</span><span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span>500px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> -150px 0 0 -250px<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>-水平垂直居中2</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token comment">/* 未知容器宽高，利用 transform 属性 */</span>
+<span class="token selector">div</span><span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 500px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-50%<span class="token punctuation">,</span> -50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>-水平垂直居中3</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token comment">/* 利用 flex 布局实际使用时应考虑兼容性 */</span>
+<span class="token selector">.container</span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token comment">/* 垂直居中 */</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token comment">/* 水平居中 */</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.container div</span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>6.CSS3有哪些新特性</strong></p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token property">·新增各种CSS选择器（</span><span class="token punctuation">:</span><span class="token function">not</span><span class="token punctuation">(</span>.input<span class="token punctuation">)</span> 所有class不是“input”的节点）
+<span class="token property">·圆角（border-radius</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>）
+·多列布局（multi-columnlayout）
+·阴影和反射（Shadow/Reflect）
+·文字特效<span class="token punctuation">(</span>text-shadow<span class="token punctuation">)</span>
+·文字渲染<span class="token punctuation">(</span>Text-decoration<span class="token punctuation">)</span>
+·线性渐变<span class="token punctuation">(</span>gradient<span class="token punctuation">)</span>
+·旋转<span class="token punctuation">(</span>transform<span class="token punctuation">)</span>
+·缩放，定位，倾斜，动画，多背景
+</code></pre></div><p><strong>7.解释一下 Flexbox (弹性盒布局模型)？及适用场景？</strong></p> <div class="language-text extra-class"><pre class="language-text"><code>·任何一个容器都可以指定为 flex 布局。行内元素也可使用 flex 布局。
+·一下6个属性设置在容器上
+  flex-direction  定义主轴的方向
+  flex-wrap  定义“如果一条轴线排不下，如何换行”
+ flex-flow  上述2个属性的简写
+  justify-content  定义项目在主轴上对齐方式
+  align-items  定义项目在交叉轴上如何对齐
+  align-content  定义多根轴线的对齐方式
+
+·flex 布局是CSS3新增的一种布局方式，
+我们可以通过将一个元素的display属性设置为flex 从而使他成为一个flex容器，
+他对我所有子元素都会称谓他的项目。
+·一个容器默认有两条轴，一个是水平的主轴，一个是与主轴垂直的交叉轴。
+我们可以使用flex-direction来指定主轴的方向。
+我们可以使用justify-content来指定元素在主轴上的排列方式，
+使用align-items来指定元素在交叉轴上的排列方式。
+还可以使用flex-wrap来规定当一行排列不下时的换行方式。
+</code></pre></div><p><strong>8.用纯 CSS 创建一个三角形？</strong></p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token comment">/* 
+  采用的是相邻边框链接处的均分原理
+  将元素的宽高设为0，只设置 border ,
+  将任意三条边隐藏掉（颜色设为 transparent ）,剩下的就是一个三角形
+ */</span>
+<span class="token selector">#demo</span><span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">border-width</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+  <span class="token property">border-style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span>
+  <span class="token property">border-color</span><span class="token punctuation">:</span> transparent transparent red transparent<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>9.一个满屏“品”字布局如何设计？</strong></p> <div class="language-text extra-class"><pre class="language-text"><code>·上面的 div 宽100%
+·下面的两个 div 分别宽50%
+·然后用 float 或者 inline 使其不换行
+</code></pre></div><p><strong>10.浏览器兼容性有哪些？*<em>*</em>*</strong></p> <div class="language-text extra-class"><pre class="language-text"><code>① 浏览器默认的 margin 和 padding 不同
+解决：加一个全局 *{ margin: 0; padding: 0; }来统一
+② 谷歌中文界面下默认会将小于12px 的文本强制按照12px显示
+解决：使用-webkit-transform:scale(.75);收缩的是整个span盒子大小，这时候，必须将span准换成块元素。
+③ 超链接访问过后hover样式就不会出现了，被点击访问过的超链接样式不再具有hover 和active 了
+解决：改变css 属性的排列顺序L-V-H-A
+</code></pre></div><p><strong>11.width: auto 和 width: 100% 的区别</strong></p> <div class="language-text extra-class"><pre class="language-text"><code>·width: 100% 会使元素box的宽度等于父元素的contentbox的宽度
+·width: auto 会时元素撑满整个父元素，margin, border, padding, content 区域会自动分配水平空间
+</code></pre></div><p><strong>12.使用 base64 编码的优缺点</strong></p> <div class="language-text extra-class"><pre class="language-text"><code>·base64编码是一种图片处理格式，通过特定的算法将图片编码成一长串字符串，
+在页面上显示时可用该字符串来代替图片的url属性
+·使用base64的优点：
+① 减少一个图片的 HTTP 请求
+·使用base64的缺点：
+① 根据base64的编码原理，编码后的大小会比源文件大小大1/3，如果把大图片编码到html/css中，
+不仅会造成文件体积增加，影响文件的加载速度，还会增加浏览器对html或css文件解析渲染的时间。
+② 使用base64无法直接缓存，要缓存只能缓存包含base64的文件，比如HTML 或CSS，
+这相比于直接缓存图片的效果要差很多。
+③ ie8以前的浏览器不支持
+一般一些网站的小图标可以使用base64图片引入
+</code></pre></div><p><strong>13.为什么要清除浮动？清除浮动的方式？</strong></p> <div class="language-css extra-class"><pre class="language-css"><code>·清除浮动是为了清除使用浮动元素产生的影响。浮动的元素，高度会塌陷，
+而高度的塌陷使我们页面后面的布局不能正常显示。
+① <span class="token property">额外标签法（在最后一个浮动标签后，新加一个标签，给其设置clear</span><span class="token punctuation">:</span> both<span class="token selector">;）(不推荐)
+优点：通俗易懂，方便
+缺点：添加无意义标签，语义化差
+② 父级添加 overflow 属性（父元素添加 overflow: hidden）(不推荐)
+优点：代码简洁
+缺点：内容增多的时候容易造成不会自动换行，导致内容被隐藏掉，无法显示要溢出的元素
+③ 使用 after 伪元素清除浮动 （推荐使用）
+.clearfix::after</span><span class="token punctuation">{</span>
+  <span class="token comment">/* 伪元素是行内元素，正常浏览器清除浮动方法 */</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+  <span class="token property">dispaly</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">clear</span><span class="token punctuation">:</span> both<span class="token punctuation">;</span>
+  <span class="token property">visibility</span><span class="token punctuation">:</span> hiden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.clearfix</span><span class="token punctuation">{</span>
+  <span class="token comment">/* *ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行 */</span>
+  *<span class="token property">zoom</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+<span class="token selector">优点：符合闭合浮动思想，结构语义化正确
+缺点：IE6-7不支持伪元素：after,使用zoom：1触发hasLayout
+④ 使用before 和 after 双伪元素清除浮动
+.clearfix::after, .clearfix::before</span><span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> table<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.clearfix::after</span><span class="token punctuation">{</span>
+  <span class="token property">clear</span><span class="token punctuation">:</span> both<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.clearfix</span><span class="token punctuation">{</span>
+  *<span class="token property">zoom</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>14.CSS优化，提高性能的方法有哪些？</p> <div class="language-text extra-class"><pre class="language-text"><code>·加载性能：
+① CSS 压缩：将写好的CSS 进行打包压缩，可以减少很多的体积。
+② CSS单一样式：当需要下边距和左边距的时候，很多时候选择：margin: top 0 bottom 0;
+但margin-top: top;margin-bottom: bottom;执行的效率更高。
+·选择器性能：
+① 关键选择器。选择器的最后面的部分为关键选择器（即用来匹配目标元素的部分）。
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/learningblog/interview/1-css%E9%9D%A2%E8%AF%95%E9%A2%98/" class="prev router-link-active">
+        面试题
+      </a></span> <span class="next"><a href="/learningblog/interview/1-css面试题/css面试题2.html">
+        css面试题2
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/learningblog/assets/js/app.bc8599de.js" defer></script><script src="/learningblog/assets/js/2.56c2d769.js" defer></script><script src="/learningblog/assets/js/40.96a800d8.js" defer></script>
+  </body>
+</html>

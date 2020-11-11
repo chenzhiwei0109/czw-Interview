@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>webpack核心概念 | 学习笔记</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/learningblog/title.jpg">
+    <meta name="description" content="前端,HTML,CSS,webpack,前端学习,前端面试">
+    <meta name="keywords" content="vuepress 学习 笔记">
+    <meta name="author" content="Chen">
+    <link rel="preload" href="/learningblog/assets/css/0.styles.ffcfda16.css" as="style"><link rel="preload" href="/learningblog/assets/js/app.bc8599de.js" as="script"><link rel="preload" href="/learningblog/assets/js/2.56c2d769.js" as="script"><link rel="preload" href="/learningblog/assets/js/62.9c6978c3.js" as="script"><link rel="prefetch" href="/learningblog/assets/js/10.44ce86fa.js"><link rel="prefetch" href="/learningblog/assets/js/100.a22240ad.js"><link rel="prefetch" href="/learningblog/assets/js/101.1d697d77.js"><link rel="prefetch" href="/learningblog/assets/js/102.24aa6c9d.js"><link rel="prefetch" href="/learningblog/assets/js/103.ca5281cb.js"><link rel="prefetch" href="/learningblog/assets/js/104.2cfbdcd4.js"><link rel="prefetch" href="/learningblog/assets/js/105.48bf18cc.js"><link rel="prefetch" href="/learningblog/assets/js/106.78a8299b.js"><link rel="prefetch" href="/learningblog/assets/js/107.6ec77207.js"><link rel="prefetch" href="/learningblog/assets/js/108.ad671bd9.js"><link rel="prefetch" href="/learningblog/assets/js/109.9bbec404.js"><link rel="prefetch" href="/learningblog/assets/js/11.57bf6a9e.js"><link rel="prefetch" href="/learningblog/assets/js/110.ff6000bd.js"><link rel="prefetch" href="/learningblog/assets/js/111.dd4c849f.js"><link rel="prefetch" href="/learningblog/assets/js/112.19c197db.js"><link rel="prefetch" href="/learningblog/assets/js/113.29ef38ea.js"><link rel="prefetch" href="/learningblog/assets/js/114.d139afc6.js"><link rel="prefetch" href="/learningblog/assets/js/115.fc0d3e2b.js"><link rel="prefetch" href="/learningblog/assets/js/116.cd9e9a23.js"><link rel="prefetch" href="/learningblog/assets/js/117.5c816ab4.js"><link rel="prefetch" href="/learningblog/assets/js/118.65e2c356.js"><link rel="prefetch" href="/learningblog/assets/js/119.5852f373.js"><link rel="prefetch" href="/learningblog/assets/js/12.5a95d2eb.js"><link rel="prefetch" href="/learningblog/assets/js/120.64a4877f.js"><link rel="prefetch" href="/learningblog/assets/js/121.5b005d7e.js"><link rel="prefetch" href="/learningblog/assets/js/122.cb5f20a5.js"><link rel="prefetch" href="/learningblog/assets/js/123.4a98a659.js"><link rel="prefetch" href="/learningblog/assets/js/124.7a3a8b16.js"><link rel="prefetch" href="/learningblog/assets/js/125.4f2794b4.js"><link rel="prefetch" href="/learningblog/assets/js/126.0e542a0d.js"><link rel="prefetch" href="/learningblog/assets/js/127.bca6fc5e.js"><link rel="prefetch" href="/learningblog/assets/js/128.f096b2c1.js"><link rel="prefetch" href="/learningblog/assets/js/129.7f0f036e.js"><link rel="prefetch" href="/learningblog/assets/js/13.5c1cffe5.js"><link rel="prefetch" href="/learningblog/assets/js/130.f5a69186.js"><link rel="prefetch" href="/learningblog/assets/js/131.cd68cfc5.js"><link rel="prefetch" href="/learningblog/assets/js/132.83118594.js"><link rel="prefetch" href="/learningblog/assets/js/133.fe8b7284.js"><link rel="prefetch" href="/learningblog/assets/js/134.46031499.js"><link rel="prefetch" href="/learningblog/assets/js/135.a529628e.js"><link rel="prefetch" href="/learningblog/assets/js/136.2d7f0bf5.js"><link rel="prefetch" href="/learningblog/assets/js/137.571196c4.js"><link rel="prefetch" href="/learningblog/assets/js/138.bd595fc6.js"><link rel="prefetch" href="/learningblog/assets/js/139.c2863699.js"><link rel="prefetch" href="/learningblog/assets/js/14.156aa16b.js"><link rel="prefetch" href="/learningblog/assets/js/140.b6d9d945.js"><link rel="prefetch" href="/learningblog/assets/js/141.785687b3.js"><link rel="prefetch" href="/learningblog/assets/js/142.522a96bd.js"><link rel="prefetch" href="/learningblog/assets/js/143.b0a18927.js"><link rel="prefetch" href="/learningblog/assets/js/144.8afecefc.js"><link rel="prefetch" href="/learningblog/assets/js/145.c75e6aa4.js"><link rel="prefetch" href="/learningblog/assets/js/146.50d76f00.js"><link rel="prefetch" href="/learningblog/assets/js/147.f21cf887.js"><link rel="prefetch" href="/learningblog/assets/js/148.4d12a018.js"><link rel="prefetch" href="/learningblog/assets/js/149.9458dbf7.js"><link rel="prefetch" href="/learningblog/assets/js/15.977b5688.js"><link rel="prefetch" href="/learningblog/assets/js/150.b82ce497.js"><link rel="prefetch" href="/learningblog/assets/js/151.e042f21b.js"><link rel="prefetch" href="/learningblog/assets/js/152.5d9c4173.js"><link rel="prefetch" href="/learningblog/assets/js/153.d5dfc46f.js"><link rel="prefetch" href="/learningblog/assets/js/154.b76ef1db.js"><link rel="prefetch" href="/learningblog/assets/js/155.83903d13.js"><link rel="prefetch" href="/learningblog/assets/js/156.721ef3a4.js"><link rel="prefetch" href="/learningblog/assets/js/157.cd5633a1.js"><link rel="prefetch" href="/learningblog/assets/js/158.e37a0794.js"><link rel="prefetch" href="/learningblog/assets/js/159.26d38eed.js"><link rel="prefetch" href="/learningblog/assets/js/16.c53d0ca3.js"><link rel="prefetch" href="/learningblog/assets/js/160.dd37bb78.js"><link rel="prefetch" href="/learningblog/assets/js/161.d6fbb45f.js"><link rel="prefetch" href="/learningblog/assets/js/162.f4e3fd59.js"><link rel="prefetch" href="/learningblog/assets/js/163.2d970cd0.js"><link rel="prefetch" href="/learningblog/assets/js/164.c1403904.js"><link rel="prefetch" href="/learningblog/assets/js/165.894c1aeb.js"><link rel="prefetch" href="/learningblog/assets/js/166.46a02a05.js"><link rel="prefetch" href="/learningblog/assets/js/167.e2227cb7.js"><link rel="prefetch" href="/learningblog/assets/js/168.a8b72783.js"><link rel="prefetch" href="/learningblog/assets/js/169.0c5914da.js"><link rel="prefetch" href="/learningblog/assets/js/17.bc3dbacb.js"><link rel="prefetch" href="/learningblog/assets/js/170.294503c1.js"><link rel="prefetch" href="/learningblog/assets/js/171.b0738a8b.js"><link rel="prefetch" href="/learningblog/assets/js/172.9d2f1651.js"><link rel="prefetch" href="/learningblog/assets/js/173.6f2299c0.js"><link rel="prefetch" href="/learningblog/assets/js/174.77bff33f.js"><link rel="prefetch" href="/learningblog/assets/js/175.ecbc658f.js"><link rel="prefetch" href="/learningblog/assets/js/176.f7a47c06.js"><link rel="prefetch" href="/learningblog/assets/js/177.7ff549a9.js"><link rel="prefetch" href="/learningblog/assets/js/178.9212b3a7.js"><link rel="prefetch" href="/learningblog/assets/js/179.0b830362.js"><link rel="prefetch" href="/learningblog/assets/js/18.56ebd4f0.js"><link rel="prefetch" href="/learningblog/assets/js/180.ec017424.js"><link rel="prefetch" href="/learningblog/assets/js/181.551edebd.js"><link rel="prefetch" href="/learningblog/assets/js/182.a8225fed.js"><link rel="prefetch" href="/learningblog/assets/js/183.6b347aa2.js"><link rel="prefetch" href="/learningblog/assets/js/184.18fb0307.js"><link rel="prefetch" href="/learningblog/assets/js/185.5d7926a8.js"><link rel="prefetch" href="/learningblog/assets/js/186.a0c27a3b.js"><link rel="prefetch" href="/learningblog/assets/js/187.9081db16.js"><link rel="prefetch" href="/learningblog/assets/js/188.7e0ac737.js"><link rel="prefetch" href="/learningblog/assets/js/189.cf7895bf.js"><link rel="prefetch" href="/learningblog/assets/js/19.bbf0eb2b.js"><link rel="prefetch" href="/learningblog/assets/js/190.26901e70.js"><link rel="prefetch" href="/learningblog/assets/js/191.bc0263c6.js"><link rel="prefetch" href="/learningblog/assets/js/192.2db5ec50.js"><link rel="prefetch" href="/learningblog/assets/js/193.13b83f12.js"><link rel="prefetch" href="/learningblog/assets/js/194.5b6df6ef.js"><link rel="prefetch" href="/learningblog/assets/js/195.b0ddf070.js"><link rel="prefetch" href="/learningblog/assets/js/196.486cc968.js"><link rel="prefetch" href="/learningblog/assets/js/197.22ac6c0f.js"><link rel="prefetch" href="/learningblog/assets/js/198.e310bd35.js"><link rel="prefetch" href="/learningblog/assets/js/199.9621cf8a.js"><link rel="prefetch" href="/learningblog/assets/js/20.ee633d47.js"><link rel="prefetch" href="/learningblog/assets/js/200.c3fbf81e.js"><link rel="prefetch" href="/learningblog/assets/js/201.678fd6b8.js"><link rel="prefetch" href="/learningblog/assets/js/202.7a05fddd.js"><link rel="prefetch" href="/learningblog/assets/js/203.0f9af822.js"><link rel="prefetch" href="/learningblog/assets/js/204.15ed3540.js"><link rel="prefetch" href="/learningblog/assets/js/205.900c61d2.js"><link rel="prefetch" href="/learningblog/assets/js/206.f4693c59.js"><link rel="prefetch" href="/learningblog/assets/js/207.e8517b94.js"><link rel="prefetch" href="/learningblog/assets/js/208.2941e5f3.js"><link rel="prefetch" href="/learningblog/assets/js/209.b48e7232.js"><link rel="prefetch" href="/learningblog/assets/js/21.63593271.js"><link rel="prefetch" href="/learningblog/assets/js/210.5f959727.js"><link rel="prefetch" href="/learningblog/assets/js/211.36e96daf.js"><link rel="prefetch" href="/learningblog/assets/js/212.f325c1b2.js"><link rel="prefetch" href="/learningblog/assets/js/213.086fdb63.js"><link rel="prefetch" href="/learningblog/assets/js/214.52a7eea3.js"><link rel="prefetch" href="/learningblog/assets/js/215.34a91f83.js"><link rel="prefetch" href="/learningblog/assets/js/216.d62a4e77.js"><link rel="prefetch" href="/learningblog/assets/js/217.db975dbd.js"><link rel="prefetch" href="/learningblog/assets/js/22.2c173103.js"><link rel="prefetch" href="/learningblog/assets/js/23.31d63383.js"><link rel="prefetch" href="/learningblog/assets/js/24.a10b8e15.js"><link rel="prefetch" href="/learningblog/assets/js/25.f17c9a0c.js"><link rel="prefetch" href="/learningblog/assets/js/26.27482f9d.js"><link rel="prefetch" href="/learningblog/assets/js/27.10c9098d.js"><link rel="prefetch" href="/learningblog/assets/js/28.12bf6a9e.js"><link rel="prefetch" href="/learningblog/assets/js/29.03c240d1.js"><link rel="prefetch" href="/learningblog/assets/js/3.1fc3b23a.js"><link rel="prefetch" href="/learningblog/assets/js/30.f2263db5.js"><link rel="prefetch" href="/learningblog/assets/js/31.6bdedc38.js"><link rel="prefetch" href="/learningblog/assets/js/32.0ba45259.js"><link rel="prefetch" href="/learningblog/assets/js/33.2d61d05b.js"><link rel="prefetch" href="/learningblog/assets/js/34.aefbc5f5.js"><link rel="prefetch" href="/learningblog/assets/js/35.74cabe24.js"><link rel="prefetch" href="/learningblog/assets/js/36.db5fa8d5.js"><link rel="prefetch" href="/learningblog/assets/js/37.c50e4403.js"><link rel="prefetch" href="/learningblog/assets/js/38.ec39afce.js"><link rel="prefetch" href="/learningblog/assets/js/39.cb0043cc.js"><link rel="prefetch" href="/learningblog/assets/js/4.d09d278d.js"><link rel="prefetch" href="/learningblog/assets/js/40.96a800d8.js"><link rel="prefetch" href="/learningblog/assets/js/41.4acf51f1.js"><link rel="prefetch" href="/learningblog/assets/js/42.a7e703a8.js"><link rel="prefetch" href="/learningblog/assets/js/43.80d3531a.js"><link rel="prefetch" href="/learningblog/assets/js/44.12cca6f4.js"><link rel="prefetch" href="/learningblog/assets/js/45.184d775c.js"><link rel="prefetch" href="/learningblog/assets/js/46.35d81277.js"><link rel="prefetch" href="/learningblog/assets/js/47.5ee0a31d.js"><link rel="prefetch" href="/learningblog/assets/js/48.f581d270.js"><link rel="prefetch" href="/learningblog/assets/js/49.9acdb9d7.js"><link rel="prefetch" href="/learningblog/assets/js/5.bbdd072e.js"><link rel="prefetch" href="/learningblog/assets/js/50.a8dc6fc1.js"><link rel="prefetch" href="/learningblog/assets/js/51.0ccb0255.js"><link rel="prefetch" href="/learningblog/assets/js/52.4bab8582.js"><link rel="prefetch" href="/learningblog/assets/js/53.2ca7b0f0.js"><link rel="prefetch" href="/learningblog/assets/js/54.c5a60938.js"><link rel="prefetch" href="/learningblog/assets/js/55.8e201814.js"><link rel="prefetch" href="/learningblog/assets/js/56.dbe6e107.js"><link rel="prefetch" href="/learningblog/assets/js/57.3703a62f.js"><link rel="prefetch" href="/learningblog/assets/js/58.a2ad10fa.js"><link rel="prefetch" href="/learningblog/assets/js/59.c1a87531.js"><link rel="prefetch" href="/learningblog/assets/js/6.a66d0523.js"><link rel="prefetch" href="/learningblog/assets/js/60.4d073e9e.js"><link rel="prefetch" href="/learningblog/assets/js/61.f14f1409.js"><link rel="prefetch" href="/learningblog/assets/js/63.875b3e8a.js"><link rel="prefetch" href="/learningblog/assets/js/64.dcc69061.js"><link rel="prefetch" href="/learningblog/assets/js/65.efd14c94.js"><link rel="prefetch" href="/learningblog/assets/js/66.a64054ed.js"><link rel="prefetch" href="/learningblog/assets/js/67.19acd48e.js"><link rel="prefetch" href="/learningblog/assets/js/68.6a3d2d28.js"><link rel="prefetch" href="/learningblog/assets/js/69.74082531.js"><link rel="prefetch" href="/learningblog/assets/js/7.411e70b8.js"><link rel="prefetch" href="/learningblog/assets/js/70.646c22e4.js"><link rel="prefetch" href="/learningblog/assets/js/71.323c0d4e.js"><link rel="prefetch" href="/learningblog/assets/js/72.77852999.js"><link rel="prefetch" href="/learningblog/assets/js/73.b42c63ad.js"><link rel="prefetch" href="/learningblog/assets/js/74.83f66ecb.js"><link rel="prefetch" href="/learningblog/assets/js/75.7d8c3414.js"><link rel="prefetch" href="/learningblog/assets/js/76.f39748c0.js"><link rel="prefetch" href="/learningblog/assets/js/77.c2257c7e.js"><link rel="prefetch" href="/learningblog/assets/js/78.b88e060f.js"><link rel="prefetch" href="/learningblog/assets/js/79.f89e3bb3.js"><link rel="prefetch" href="/learningblog/assets/js/8.89f5f6e1.js"><link rel="prefetch" href="/learningblog/assets/js/80.523ebb59.js"><link rel="prefetch" href="/learningblog/assets/js/81.f6537f9e.js"><link rel="prefetch" href="/learningblog/assets/js/82.98cb9e9a.js"><link rel="prefetch" href="/learningblog/assets/js/83.63e9703f.js"><link rel="prefetch" href="/learningblog/assets/js/84.ffafc248.js"><link rel="prefetch" href="/learningblog/assets/js/85.b7c63bcb.js"><link rel="prefetch" href="/learningblog/assets/js/86.e5468920.js"><link rel="prefetch" href="/learningblog/assets/js/87.a2624c9b.js"><link rel="prefetch" href="/learningblog/assets/js/88.c5623550.js"><link rel="prefetch" href="/learningblog/assets/js/89.813054b9.js"><link rel="prefetch" href="/learningblog/assets/js/9.ba3df3ea.js"><link rel="prefetch" href="/learningblog/assets/js/90.f287142a.js"><link rel="prefetch" href="/learningblog/assets/js/91.f70c350e.js"><link rel="prefetch" href="/learningblog/assets/js/92.b0f38a5c.js"><link rel="prefetch" href="/learningblog/assets/js/93.15039cb6.js"><link rel="prefetch" href="/learningblog/assets/js/94.e451c01f.js"><link rel="prefetch" href="/learningblog/assets/js/95.c3e3a96d.js"><link rel="prefetch" href="/learningblog/assets/js/96.5ade6a89.js"><link rel="prefetch" href="/learningblog/assets/js/97.2a4abe5b.js"><link rel="prefetch" href="/learningblog/assets/js/98.6d3fa983.js"><link rel="prefetch" href="/learningblog/assets/js/99.a19705e0.js">
+    <link rel="stylesheet" href="/learningblog/assets/css/0.styles.ffcfda16.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/learningblog/" class="home-link router-link-active"><img src="/learningblog/title.jpg" alt="学习笔记" class="logo"> <span class="site-name can-hide">学习笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="速记" class="dropdown-title"><span class="title">速记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/知识点速记/正则表达式.html" class="nav-link">
+  正则表达式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据结构与算法" class="dropdown-title"><span class="title">数据结构与算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/数据结构与算法/数据结构与算法/01-数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/数据结构与算法/刷题/" class="nav-link">
+  算法刷题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/interview/1-css面试题/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/2-js面试题/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/3-h5移动端/" class="nav-link">
+  H5和移动端
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/4-webpack面试题/" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/5-vue面试题/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/6-react面试题/" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/7-浏览器网络面试题/" class="nav-link">
+  浏览器网络
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/8-面经/" class="nav-link">
+  面经汇总
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/fontend/0-HTML和CSS笔记/" class="nav-link">
+  HTML和CSS笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/1-JavaScript笔记/" class="nav-link">
+  JavaScript笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/2-H5和移动端/" class="nav-link">
+  H5移动端笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/3-ES6/" class="nav-link">
+  ECMAScript6笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/4-Webpack/" class="nav-link router-link-active">
+  Webpack笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/5-Vue基础/" class="nav-link">
+  Vue基础
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/6-Vue进阶/" class="nav-link">
+  Vue进阶
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/7-React基础/" class="nav-link">
+  React基础
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/8-React进阶/" class="nav-link">
+  React进阶
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/9-Node/" class="nav-link">
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/10-Git/" class="nav-link">
+  Git
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端进阶" class="dropdown-title"><span class="title">前端进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/1-koa/" class="nav-link">
+  koa
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/2-egg/" class="nav-link">
+  eggJs
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/3-ts/" class="nav-link">
+  typescript
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/4-vue3/" class="nav-link">
+  vue3
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/5-浏览器工作原理实践/" class="nav-link">
+  浏览器工作原理实践
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/6-设计模式/" class="nav-link">
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/project/1-个人博客/" class="nav-link">
+  个人博客
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/project/2-vue多媒体/" class="nav-link">
+  vue多媒体
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/project/3-b站移动端/" class="nav-link">
+  弹幕视频网
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/project/4-直播项目/" class="nav-link">
+  直播项目
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机基础" class="dropdown-title"><span class="title">计算机基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/计算机基础/计算机组成原理/" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/计算机基础/操作系统/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/计算机基础/计算机网络/" class="nav-link">
+  计算机网络
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="tools" class="dropdown-title"><span class="title">tools</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/tools/mock/mock.html" class="nav-link">
+  mockJs
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/tools/swiper/swiper.html" class="nav-link">
+  swiper
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/tools/axios/axios.html" class="nav-link">
+  axios
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端文档" class="dropdown-title"><span class="title">前端文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          官方文档
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3C
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MDN文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://wangdoc.com/javascript/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网道JS教程
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://jquery.cuishifeng.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jquery文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://es6.ruanyifeng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ES6阮一峰
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.vuejs.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue官方文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://uniapp.dcloud.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Uni-app官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.webpackjs.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Webpack官方文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://react.docschina.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  React官方文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.wikipedia.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  维基百科
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://element.eleme.cn/#/zh-CN" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VUE-element-ui
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.vuepress.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VUE-vue-press博客搭建
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://youzan.github.io/vant/#/zh-CN/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VUE-vant
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://dev.dcloud.net.cn/mui/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MUI文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ant.design/index-cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  AntDesign
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://didi.github.io/cube-ui/#/zh-CN" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  cube
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.echartsjs.com/zh/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  echart图
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.swiper.com.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Swiper
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  better-scroll
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ai.qq.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯AI
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.lodashjs.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  lodash中文
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  动画animate
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://mockjs.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  随机数据mock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.iconfont.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里图标
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://bird.ioliu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  跨域处理-服务器代理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://regexper.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  正则可视化
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://tool.chinaz.com/tools/imgtobase/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  base64
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端博客" class="dropdown-title"><span class="title">前端博客</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          博客论坛
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://www.ruanyifeng.com/blog/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阮一峰博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.zhangxinxu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  张鑫旭博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.zhihu.com/people/evanyou" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  尤雨溪知乎
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://weibo.com/arttechdesign?is_hot=1" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  尤雨溪微博
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://segmentfault.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  思否
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://juejin.im/timeline" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://time.geekbang.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  极客时间
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.jianshu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          面试题
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/post/6844904116339261447#heading-14" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  2020前端复习
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.history.js.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JavaScript20年
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ustbhuangyi.github.io/vue-analysis/v2/prepare/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue源码
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://www.youbaobao.xyz/admin-docs/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  小慕读书文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.jianshu.com/p/38853c044156" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JS数据结构和算法
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://book.apeland.cn/details/314/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  小猿圈
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.kancloud.cn/hanxuming/vue-iq/945437" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  面试题-看云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://github.com/haizlin/fe-interview" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  面试题-github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          刷题
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.nowcoder.com/contestRoom" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  牛客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://leetcode-cn.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  leetcode
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://github.com/chenzhiwei0109/learningblog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  源码
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="速记" class="dropdown-title"><span class="title">速记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/知识点速记/正则表达式.html" class="nav-link">
+  正则表达式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据结构与算法" class="dropdown-title"><span class="title">数据结构与算法</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/数据结构与算法/数据结构与算法/01-数据结构与算法.html" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/数据结构与算法/刷题/" class="nav-link">
+  算法刷题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试" class="dropdown-title"><span class="title">面试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/interview/1-css面试题/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/2-js面试题/" class="nav-link">
+  JS
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/3-h5移动端/" class="nav-link">
+  H5和移动端
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/4-webpack面试题/" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/5-vue面试题/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/6-react面试题/" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/7-浏览器网络面试题/" class="nav-link">
+  浏览器网络
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/interview/8-面经/" class="nav-link">
+  面经汇总
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端基础" class="dropdown-title"><span class="title">前端基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/fontend/0-HTML和CSS笔记/" class="nav-link">
+  HTML和CSS笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/1-JavaScript笔记/" class="nav-link">
+  JavaScript笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/2-H5和移动端/" class="nav-link">
+  H5移动端笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/3-ES6/" class="nav-link">
+  ECMAScript6笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/4-Webpack/" class="nav-link router-link-active">
+  Webpack笔记
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/5-Vue基础/" class="nav-link">
+  Vue基础
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/6-Vue进阶/" class="nav-link">
+  Vue进阶
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/7-React基础/" class="nav-link">
+  React基础
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/8-React进阶/" class="nav-link">
+  React进阶
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/9-Node/" class="nav-link">
+  Node
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontend/10-Git/" class="nav-link">
+  Git
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端进阶" class="dropdown-title"><span class="title">前端进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/1-koa/" class="nav-link">
+  koa
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/2-egg/" class="nav-link">
+  eggJs
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/3-ts/" class="nav-link">
+  typescript
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/4-vue3/" class="nav-link">
+  vue3
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/5-浏览器工作原理实践/" class="nav-link">
+  浏览器工作原理实践
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/fontendplus/6-设计模式/" class="nav-link">
+  设计模式
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/project/1-个人博客/" class="nav-link">
+  个人博客
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/project/2-vue多媒体/" class="nav-link">
+  vue多媒体
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/project/3-b站移动端/" class="nav-link">
+  弹幕视频网
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/project/4-直播项目/" class="nav-link">
+  直播项目
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="计算机基础" class="dropdown-title"><span class="title">计算机基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/计算机基础/计算机组成原理/" class="nav-link">
+  计算机组成原理
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/计算机基础/操作系统/" class="nav-link">
+  操作系统
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/计算机基础/计算机网络/" class="nav-link">
+  计算机网络
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="tools" class="dropdown-title"><span class="title">tools</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/learningblog/tools/mock/mock.html" class="nav-link">
+  mockJs
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/tools/swiper/swiper.html" class="nav-link">
+  swiper
+</a></li><li class="dropdown-item"><!----> <a href="/learningblog/tools/axios/axios.html" class="nav-link">
+  axios
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端文档" class="dropdown-title"><span class="title">前端文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          官方文档
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3C
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MDN文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://wangdoc.com/javascript/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网道JS教程
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://jquery.cuishifeng.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  jquery文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://es6.ruanyifeng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ES6阮一峰
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.vuejs.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue官方文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://uniapp.dcloud.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Uni-app官网
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.webpackjs.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Webpack官方文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://react.docschina.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  React官方文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.wikipedia.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  维基百科
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://element.eleme.cn/#/zh-CN" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VUE-element-ui
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.vuepress.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VUE-vue-press博客搭建
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://youzan.github.io/vant/#/zh-CN/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VUE-vant
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://dev.dcloud.net.cn/mui/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MUI文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ant.design/index-cn" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  AntDesign
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://didi.github.io/cube-ui/#/zh-CN" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  cube
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.echartsjs.com/zh/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  echart图
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.swiper.com.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Swiper
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  better-scroll
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ai.qq.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  腾讯AI
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.lodashjs.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  lodash中文
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  动画animate
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://mockjs.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  随机数据mock
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.iconfont.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里图标
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://bird.ioliu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  跨域处理-服务器代理
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://regexper.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  正则可视化
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://tool.chinaz.com/tools/imgtobase/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  base64
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端博客" class="dropdown-title"><span class="title">前端博客</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          博客论坛
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="http://www.ruanyifeng.com/blog/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阮一峰博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.zhangxinxu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  张鑫旭博客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.zhihu.com/people/evanyou" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  尤雨溪知乎
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://weibo.com/arttechdesign?is_hot=1" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  尤雨溪微博
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://segmentfault.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  思否
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://juejin.im/timeline" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://time.geekbang.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  极客时间
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.jianshu.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          面试题
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://juejin.im/post/6844904116339261447#heading-14" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  2020前端复习
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://cn.history.js.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JavaScript20年
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://ustbhuangyi.github.io/vue-analysis/v2/prepare/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vue源码
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="http://www.youbaobao.xyz/admin-docs/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  小慕读书文档
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.jianshu.com/p/38853c044156" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  JS数据结构和算法
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://book.apeland.cn/details/314/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  小猿圈
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://www.kancloud.cn/hanxuming/vue-iq/945437" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  面试题-看云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://github.com/haizlin/fe-interview" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  面试题-github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li><li class="dropdown-item"><h4>
+          刷题
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.nowcoder.com/contestRoom" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  牛客
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-subitem"><a href="https://leetcode-cn.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  leetcode
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></li></ul></div></div><div class="nav-item"><a href="https://github.com/chenzhiwei0109/learningblog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  源码
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/learningblog/fontend/4-Webpack/" class="sidebar-link">webpack笔记</a></li><li><a href="/learningblog/fontend/4-Webpack/webpack1介绍.html" class="sidebar-link">webpack介绍</a></li><li><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html" class="active sidebar-link">webpack核心概念</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#入口entry和出口output" class="sidebar-link">入口entry和出口output</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#出口" class="sidebar-link">出口</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#多入口" class="sidebar-link">多入口</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#output里filename和chunkfilename区别" class="sidebar-link">output里filename和chunkFilename区别</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#占位符placeholder" class="sidebar-link">占位符placeholder</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#publicpath与cdn" class="sidebar-link">publicPath与CDN</a></li></ul></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#" class="sidebar-link"></a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#模式-mode" class="sidebar-link">模式(mode)</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#模块和loader-module" class="sidebar-link">模块和loader(module)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#loader是什么，loader执行顺序是什么？" class="sidebar-link">loader是什么，loader执行顺序是什么？</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#css打包" class="sidebar-link">css打包</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#scss文件处理" class="sidebar-link">scss文件处理</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#less打包" class="sidebar-link">less打包</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#css3前缀" class="sidebar-link">css3前缀</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#字体文件打包" class="sidebar-link">字体文件打包</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#图片打包" class="sidebar-link">图片打包</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#常用配置项" class="sidebar-link">常用配置项</a></li></ul></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#plugins插件" class="sidebar-link">plugins插件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#htmlwebpackplugin" class="sidebar-link">HtmlWebpackPlugin</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#cleanwebpackplugin" class="sidebar-link">cleanWebpackPlugin</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#mini-css-extract-plugin" class="sidebar-link">mini-css-extract-plugin</a></li></ul></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#devtool" class="sidebar-link">devtool</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#sourcemap介绍" class="sidebar-link">sourcemap介绍</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#配置推荐" class="sidebar-link">配置推荐</a></li></ul></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#sourcemap原理" class="sidebar-link">SourceMap原理</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#devserver本地开发" class="sidebar-link">devServer本地开发</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#devserver跨越代理" class="sidebar-link">devServer跨越代理</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#mockserver" class="sidebar-link">mockServer</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#自定义devserver" class="sidebar-link">自定义devServer</a></li></ul></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#resolve路径处理" class="sidebar-link">resolve路径处理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#resolve-extensions省后缀" class="sidebar-link">resolve.extensions省后缀</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#resolve-mainfiles自定义查找文件" class="sidebar-link">resolve.mainFiles自定义查找文件</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#resolve-modules第三方模块查找" class="sidebar-link">resolve.modules第三方模块查找</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#resolve-alias" class="sidebar-link">resolve.alias</a></li></ul></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#externals" class="sidebar-link">externals</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#优化cdn部署" class="sidebar-link">优化cdn部署</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#类库重复问题" class="sidebar-link">类库重复问题</a></li></ul></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#webpack打包react" class="sidebar-link">webpack打包react</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#webpack多页面打包" class="sidebar-link">webpack多页面打包</a></li><li class="sidebar-sub-header"><a href="/learningblog/fontend/4-Webpack/webpack2基本配置.html#-2" class="sidebar-link"></a></li></ul></li><li><a href="/learningblog/fontend/4-Webpack/webpack3高级特性.html" class="sidebar-link">webpack高级特性</a></li><li><a href="/learningblog/fontend/4-Webpack/webpack4配置案例.html" class="sidebar-link">webpack配置案例</a></li><li><a href="/learningblog/fontend/4-Webpack/webpack5构建优化.html" class="sidebar-link">webpack构建优化</a></li><li><a href="/learningblog/fontend/4-Webpack/webpack6底层原理.html" class="sidebar-link">webpack底层原理</a></li><li><a href="/learningblog/fontend/4-Webpack/webpack7框架配置.html" class="sidebar-link">框架里的Webpack</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="webpack核心概念"><a href="#webpack核心概念" class="header-anchor">#</a> webpack核心概念</h1> <p></p><div class="table-of-contents"><ul><li><a href="#入口entry和出口output">入口entry和出口output</a><ul><li><a href="#出口">出口</a></li><li><a href="#多入口">多入口</a></li><li><a href="#output里filename和chunkfilename区别">output里filename和chunkFilename区别</a></li><li><a href="#占位符placeholder">占位符placeholder</a></li><li><a href="#publicpath与cdn">publicPath与CDN</a></li></ul></li><li><a href="#"></a></li><li><a href="#模式-mode">模式(mode)</a></li><li><a href="#模块和loader-module">模块和loader(module)</a><ul><li><a href="#loader是什么，loader执行顺序是什么？">loader是什么，loader执行顺序是什么？</a></li><li><a href="#css打包">css打包</a></li><li><a href="#scss文件处理">scss文件处理</a></li><li><a href="#less打包">less打包</a></li><li><a href="#css3前缀">css3前缀</a></li><li><a href="#字体文件打包">字体文件打包</a></li><li><a href="#图片打包">图片打包</a></li><li><a href="#常用配置项">常用配置项</a></li></ul></li><li><a href="#plugins插件">plugins插件</a><ul><li><a href="#htmlwebpackplugin">HtmlWebpackPlugin</a></li><li><a href="#cleanwebpackplugin">cleanWebpackPlugin</a></li><li><a href="#mini-css-extract-plugin">mini-css-extract-plugin</a></li></ul></li><li><a href="#devtool">devtool</a><ul><li><a href="#sourcemap介绍">sourcemap介绍</a></li><li><a href="#配置推荐">配置推荐</a></li></ul></li><li><a href="#sourcemap原理">SourceMap原理</a></li><li><a href="#devserver本地开发">devServer本地开发</a><ul><li><a href="#devserver跨越代理">devServer跨越代理</a></li><li><a href="#mockserver">mockServer</a></li><li><a href="#自定义devserver">自定义devServer</a></li></ul></li><li><a href="#resolve路径处理">resolve路径处理</a><ul><li><a href="#resolve-extensions省后缀">resolve.extensions省后缀</a></li><li><a href="#resolve-mainfiles自定义查找文件">resolve.mainFiles自定义查找文件</a></li><li><a href="#resolve-modules第三方模块查找">resolve.modules第三方模块查找</a></li><li><a href="#resolve-alias">resolve.alias</a></li></ul></li><li><a href="#externals">externals</a><ul><li><a href="#优化cdn部署">优化cdn部署</a></li><li><a href="#类库重复问题">类库重复问题</a></li></ul></li><li><a href="#webpack打包react">webpack打包react</a></li><li><a href="#webpack多页面打包">webpack多页面打包</a></li><li><a href="#"></a></li></ul></div>
+[TOC]<p></p> <h2 id="入口entry和出口output"><a href="#入口entry和出口output" class="header-anchor">#</a> 入口entry和出口output</h2> <blockquote><p>entry有三种格式，字符串数组是SPA，对象形式的可以做多入口，多入口要对应多出口</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">//字符串形式</span>
+    entry<span class="token operator">:</span><span class="token string">'./src/index.js'</span><span class="token punctuation">,</span>
+    <span class="token comment">//数组形式,把两个js模块代码打包到一个</span>
+    entry<span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'./src/index.js'</span><span class="token punctuation">,</span><span class="token string">'./src/index2.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">//对象形式，这种写法相当于字符串形式默认写法</span>
+    entry<span class="token operator">:</span><span class="token punctuation">{</span>
+		main<span class="token operator">:</span><span class="token string">'./src/index.js'</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="出口"><a href="#出口" class="header-anchor">#</a> 出口</h3> <div class="language-js extra-class"><pre class="language-js"><code>
+</code></pre></div><h3 id="多入口"><a href="#多入口" class="header-anchor">#</a> 多入口</h3> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">//多入口</span>
+    entry<span class="token operator">:</span><span class="token punctuation">{</span>
+        index<span class="token operator">:</span><span class="token string">'./src/index.js'</span><span class="token punctuation">,</span>
+        other<span class="token operator">:</span><span class="token string">'./src/index2.js'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>	
+    <span class="token comment">//多入口对应多出口</span>
+    output<span class="token operator">:</span><span class="token punctuation">{</span>
+        path<span class="token operator">:</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token comment">//占位符,</span>
+        filename<span class="token operator">:</span><span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">.</span>js
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="output里filename和chunkfilename区别"><a href="#output里filename和chunkfilename区别" class="header-anchor">#</a> output里filename和chunkFilename区别</h3> <div class="language-js extra-class"><pre class="language-js"><code>	entry<span class="token operator">:</span> <span class="token punctuation">{</span>
+		main<span class="token operator">:</span> <span class="token string">'./src/index.js'</span><span class="token punctuation">,</span>  
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	output<span class="token operator">:</span> <span class="token punctuation">{</span>
+		filename<span class="token operator">:</span> <span class="token string">'[name].js'</span><span class="token punctuation">,</span>  <span class="token comment">//filename是main.js ,他里面引入Lodash，异步加载lodash.js</span>
+		chunkFilename<span class="token operator">:</span> <span class="token string">'[name].chunk.js'</span><span class="token punctuation">,</span> <span class="token comment">//lodash这种的不会显示在index.html,而是被间接引入到相应文件</span>
+		path<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../dist'</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+</code></pre></div><h3 id="占位符placeholder"><a href="#占位符placeholder" class="header-anchor">#</a> 占位符placeholder</h3> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    output<span class="token operator">:</span><span class="token punctuation">{</span>
+        path<span class="token operator">:</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        filename<span class="token operator">:</span><span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">[</span>hash<span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">[</span>chunkhash<span class="token punctuation">]</span><span class="token punctuation">.</span>js
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><table><thead><tr><th>模板</th> <th><strong>描述</strong></th></tr></thead> <tbody><tr><td>[hash:10]</td> <td>不推荐，默认20位，每次构建一次就会重新生成哈希，生成新的bundle文件</td></tr> <tr><td>[chunkhash]</td> <td>推荐，使用基于每个入口chunk文件内容的 hash，只有内容改变才会更新，有利于协商缓存</td></tr> <tr><td>[name]</td> <td>入口名称</td></tr> <tr><td>[id]</td> <td>使用内部 chunk id</td></tr> <tr><td>[query]</td> <td>模块的 query，例如，文件名 <code>?</code> 后面的字符串</td></tr></tbody></table> <h3 id="publicpath与cdn"><a href="#publicpath与cdn" class="header-anchor">#</a> publicPath与CDN</h3> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
+  output<span class="token operator">:</span><span class="token punctuation">{</span>
+    publicPath<span class="token operator">:</span><span class="token string">'http://cdn.cn'</span>
+    filename<span class="token operator">:</span><span class="token string">'[name].js'</span><span class="token punctuation">,</span>
+    path<span class="token operator">:</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这样所有引入的js前面都会添加一个cdn地址</p> <p>这样打包后变成</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://cdn.cn/main.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://cdn.cn/main2.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id=""><a href="#" class="header-anchor">#</a></h2> <h2 id="模式-mode"><a href="#模式-mode" class="header-anchor">#</a> 模式(mode)</h2> <p><a href="https://www.webpackjs.com/concepts/mode/" target="_blank" rel="noopener noreferrer">mode<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    mode<span class="token operator">:</span><span class="token string">'development'</span><span class="token punctuation">,</span>  <span class="token comment">//开发环境，不压缩打包  </span>
+	entry<span class="token operator">:</span> <span class="token punctuation">{</span>
+        main<span class="token operator">:</span><span class="token string">'./src/index.js'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	output<span class="token operator">:</span> <span class="token punctuation">{</span>
+		filename<span class="token operator">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+		path<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>development</code>:开发环境，不被压缩，打包速度快，运行速度慢。</p> <p><code>production</code>:生产环境，被压缩的代码，默认开启优化插件，打包速度慢，运行速度快</p> <p><img src="/learningblog/assets/img/image-20200928205832655.67198a97.png" alt="image-20200928205832655"></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//development下</span>
+<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">modules</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment">//webpackBootstrap</span>
+    <span class="token operator">...</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">module<span class="token punctuation">,</span> __webpack_exports__<span class="token punctuation">,</span> __webpack_require__</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token string">&quot;use strict&quot;</span><span class="token punctuation">;</span>
+    <span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">&quot;__webpack_require__.r(__webpack_exports__);\n/* harmony export.....&quot;</span><span class="token punctuation">)</span>	
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">module<span class="token punctuation">,</span> __webpack_exports__<span class="token punctuation">,</span> __webpack_require__</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                                               <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="模块和loader-module"><a href="#模块和loader-module" class="header-anchor">#</a> 模块和loader(module)</h2> <h3 id="loader是什么，loader执行顺序是什么？"><a href="#loader是什么，loader执行顺序是什么？" class="header-anchor">#</a> loader是什么，loader执行顺序是什么？</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span>app<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./index2'</span> <span class="token comment">//默认查找index2.js</span>
+<span class="token keyword">import</span> css <span class="token keyword">from</span> <span class="token string">'./index.css'</span>
+<span class="token comment">//报错</span>
+</code></pre></div><p><strong>webpack最初只是js模块打包机，webpack本身并不知道如何处理非JS和json的一些资源文件，但是loader知道,他帮助我们解析这些非js的文件</strong></p> <p>webpack默认只会处理js文件，而像css、png、scss、vue文件都需要相应的loader进行加载。</p> <p>loader执行顺序从下到上从右到左执行顺序。</p> <ul><li>loader是个函数</li></ul> <p><strong>步骤一：通过npm安装需要使用的loader
+步骤二：在webpack.config.js中的modules关键字下进行配置</strong></p> <h3 id="css打包"><a href="#css打包" class="header-anchor">#</a> css打包</h3> <p><a href="https://www.webpackjs.com/loaders/css-loader/" target="_blank" rel="noopener noreferrer">https://www.webpackjs.com/loaders/css-loader/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <blockquote><p>css-loader把css模块的内容加入到JS，并处理css的@import嵌套逻辑</p> <p>style-loader会把cssinjs从js里提取并挂载到header里的stlye标签。</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>cnpm <span class="token function">install</span> style-loader css-loader -D
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>rules<span class="token operator">:</span><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        test<span class="token operator">:</span><span class="token regex">/\.css$/</span><span class="token punctuation">,</span>
+        use<span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'style-loader'</span><span class="token punctuation">,</span><span class="token string">'css-loader'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><p>index.css</p> <div class="language-js extra-class"><pre class="language-js"><code>@<span class="token keyword">import</span> <span class="token string">'./xxx.css'</span>
+</code></pre></div><p>index.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token string">'./index.css'</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="scss文件处理"><a href="#scss文件处理" class="header-anchor">#</a> scss文件处理</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> sass-loader node-sass --save-dev
+</code></pre></div><div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">div</span><span class="token punctuation">{</span>
+	<span class="token selector">div1</span><span class="token punctuation">{</span>
+		<span class="token property">width</span><span class="token punctuation">:</span>100px<span class="token punctuation">;</span>
+		<span class="token property">height</span><span class="token punctuation">:</span>200px
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token string">'./index.scss'</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
+	module<span class="token operator">:</span><span class="token punctuation">{</span>
+		rules<span class="token operator">:</span><span class="token punctuation">[</span>
+			<span class="token punctuation">{</span>
+				test<span class="token operator">:</span><span class="token regex">/\.scss$/</span><span class="token punctuation">,</span>
+				use<span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'style-loader'</span><span class="token punctuation">,</span><span class="token string">'css-loader'</span><span class="token punctuation">,</span><span class="token string">'sass-loader'</span><span class="token punctuation">]</span>  <span class="token comment">//右到左</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="less打包"><a href="#less打包" class="header-anchor">#</a> less打包</h3> <div class="language- extra-class"><pre class="language-text"><code>cnpm install less less-loader --save-dev
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>rules<span class="token operator">:</span><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        test<span class="token operator">:</span><span class="token regex">/\.lsss$/</span><span class="token punctuation">,</span>
+        use<span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'style-loader'</span><span class="token punctuation">,</span><span class="token string">'css-loader'</span><span class="token punctuation">,</span><span class="token string">'less-loader'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>import css from './index.less'
+</code></pre></div><h3 id="css3前缀"><a href="#css3前缀" class="header-anchor">#</a> css3前缀</h3> <p>使用<strong>postcss-loader</strong>时他需要去使用autoprefixer插件。</p> <p>在css-loader之前使用即可</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> i -D postcss-loader autoprefixer
+</code></pre></div><p>使用<strong>autoprefixer</strong>  plugins插件</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> autoprefixer -D
+</code></pre></div><p>项目跟目录创建<strong>postcss.config.js</strong></p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'autoprefixer'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//自己配置</span>
+<span class="token keyword">const</span> autoprefixer <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'autoprefixer'</span><span class="token punctuation">)</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    plugins<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token function">autoprefixer</span><span class="token punctuation">(</span><span class="token string">'IE 10'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    plugins<span class="token operator">:</span> <span class="token punctuation">[</span> <span class="token function">autoprefixer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//或者</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;autoprefixer&quot;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            overrideBrowserslist<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;last 2 versions&quot;</span><span class="token punctuation">,</span>
+                                   <span class="token string">&quot;&gt;1%&quot;</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>webpack.config.js</strong></p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
+	module<span class="token operator">:</span><span class="token punctuation">{</span>
+		rules<span class="token operator">:</span><span class="token punctuation">[</span>
+			<span class="token punctuation">{</span>
+				test<span class="token operator">:</span> <span class="token regex">/\.(css|scss)$/</span><span class="token punctuation">,</span>
+				use<span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'style-loader'</span><span class="token punctuation">,</span><span class="token string">'css-loader'</span><span class="token punctuation">,</span><span class="token string">'sass-loader'</span><span class="token punctuation">,</span><span class="token string">'postcss-loader'</span><span class="token punctuation">]</span>  <span class="token comment">//右到左</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span> 
+</code></pre></div><h3 id="字体文件打包"><a href="#字体文件打包" class="header-anchor">#</a> 字体文件打包</h3> <p>iconfont</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token string">'./index.scss'</span>
+<span class="token keyword">var</span> root <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span>
+root<span class="token punctuation">.</span>innerHTML<span class="token operator">=</span><span class="token string">&quot;&lt;div class='iconfont icon-xxxx'&gt;abc&lt;/div&gt;&quot;</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    module<span class="token operator">:</span> <span class="token punctuation">{</span>
+        rules<span class="token operator">:</span><span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                test<span class="token operator">:</span><span class="token regex">/\.(eot|ttf|svg)$/</span><span class="token punctuation">,</span>
+                use<span class="token operator">:</span><span class="token punctuation">{</span>
+                    loader<span class="token operator">:</span><span class="token string">'file-loader'</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>rules:[
+	{
+		test:/\.(eot|ttf|svg)$/,
+		use:{
+			loader:'file-loader'
+		}
+	}
+]
+</code></pre></div><h3 id="图片打包"><a href="#图片打包" class="header-anchor">#</a> 图片打包</h3> <h4 id="占位符placeholder-2"><a href="#占位符placeholder-2" class="header-anchor">#</a> 占位符placeholder</h4> <p>placeholder可以使得打包图片名字按照对应格式输出</p> <p><a href="https://www.webpackjs.com/loaders/file-loader/#placeholders" target="_blank" rel="noopener noreferrer">https://www.webpackjs.com/loaders/file-loader/#placeholders<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h4 id="file-loader不推荐"><a href="#file-loader不推荐" class="header-anchor">#</a> file-loader不推荐</h4> <div class="language- extra-class"><pre class="language-text"><code>npm install --save-dev file-loader
+</code></pre></div><p>options参数里配置</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    module<span class="token operator">:</span><span class="token punctuation">{</span>
+        rules<span class="token operator">:</span><span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                test<span class="token operator">:</span><span class="token regex">/\.(jpe?g|png|gif)$/</span><span class="token punctuation">,</span>
+                use<span class="token operator">:</span><span class="token punctuation">{</span>
+                    loader<span class="token operator">:</span><span class="token string">'file-loader'</span><span class="token punctuation">,</span>
+                    options<span class="token operator">:</span><span class="token punctuation">{</span>	<span class="token comment">//placeholder 占位符  [name][hash].[ext]</span>
+                        name<span class="token operator">:</span><span class="token string">'[name]_[hash].[ext]'</span><span class="token punctuation">,</span> <span class="token comment">//老图片名字配合哈希值和后缀,hash用来缓存</span>
+                        outputPath<span class="token operator">:</span><span class="token string">'imgs/'</span>  <span class="token comment">//打包到dist/imgs文件</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="url-loader"><a href="#url-loader" class="header-anchor">#</a> url-loader</h4> <p><code>url-loader</code> 功能类似于 <a href="https://github.com/webpack-contrib/file-loader" target="_blank" rel="noopener noreferrer"><code>file-loader</code><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，但是在文件大小（单位 byte）低于指定的限制时，可以返回一个 DataURL。</p> <p><strong>好处：小图可以减少http请求次数</strong></p> <p><strong>坏处：如果图片过大，加载时间会变多，base64格式图片体积增加了1/3.</strong></p> <p>会创建一个eval()执行语句然后创建一个base6形式</p> <div class="language- extra-class"><pre class="language-text"><code>npm install url-loader --save-dev
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    module<span class="token operator">:</span><span class="token punctuation">{</span>
+        rules<span class="token operator">:</span><span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                test<span class="token operator">:</span><span class="token regex">/\.(png|jgp|gif)$/</span><span class="token punctuation">,</span>
+                use<span class="token operator">:</span><span class="token punctuation">{</span>
+                    loader<span class="token operator">:</span><span class="token string">'url-loader'</span>
+                    options<span class="token operator">:</span><span class="token punctuation">{</span>
+                    <span class="token comment">//placeholder 占位符</span>
+                    name<span class="token operator">:</span><span class="token string">'[name][hash].[ext]'</span><span class="token punctuation">,</span> <span class="token comment">//老图片名字配合哈希值和后缀,hash用来做hash对比 </span>
+                    outputPath<span class="token operator">:</span><span class="token string">'imgs/'</span><span class="token punctuation">,</span>  <span class="token comment">//打包到dist/imgs文件</span>
+                    limit<span class="token operator">:</span><span class="token number">2048</span>  <span class="token comment">//图片小于2kb，就</span>
+                <span class="token punctuation">}</span>	 
+            <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="常用配置项"><a href="#常用配置项" class="header-anchor">#</a> 常用配置项</h3> <p>css-loader常用配置项</p> <div class="language-js extra-class"><pre class="language-js"><code>rules<span class="token operator">:</span><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        test<span class="token operator">:</span><span class="token regex">/\.scss$/</span><span class="token punctuation">,</span>
+        use<span class="token operator">:</span><span class="token punctuation">[</span>
+            <span class="token string">'style-loader'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                loader<span class="token operator">:</span><span class="token string">'css-loader'</span><span class="token punctuation">,</span>
+                options<span class="token operator">:</span><span class="token punctuation">{</span>
+                    importLoaders<span class="token operator">:</span><span class="token number">2</span>    <span class="token comment">//import引入的scss文件在引入之前可能不走前两个loader,希望				 						//在index.scss里引入的xx.scss也去走前两个loaderloader.</span>
+                    modules<span class="token operator">:</span><span class="token boolean">true</span>   <span class="token comment">// 开启样式模块化。</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token string">'sass-loader'</span><span class="token punctuation">,</span>
+            <span class="token string">'postcss-loader'</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><h4 id="importloaders"><a href="#importloaders" class="header-anchor">#</a> importLoaders</h4> <ul><li><p><code>importLoaders: 1</code> 是在<code>css-loader</code> 之后指定1个数量的loader（即 postcss-loader）来处理import进来的资源</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">// a.scss
+body</span> <span class="token punctuation">{</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">// b.scss
+body</span> <span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> #f00<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+// index.scss
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">&quot;./a.scss&quot;</span><span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">&quot;./b.scss&quot;</span><span class="token punctuation">;</span></span>
+
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #0f0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+当css-loader处理index.scss文件，读取到@import语句的时候， 因为将importLoaders设置为1，那么a.scss和b.scss会被postcss-loader给处理
+
+如果将importLoaders设置为2，那么 a.scss和b.scss就会被postcss-loader和sass-loader给处理
+</code></pre></div></li></ul> <h4 id="mudules"><a href="#mudules" class="header-anchor">#</a> mudules</h4> <ul><li>mudules:true  开启css模块化,防止模块化的耦合冲突。</li></ul> <p>modules:true   // 后应该</p> <div class="language- extra-class"><pre class="language-text"><code>import './xxx.css'
+img.classList.add('avatar')
+</code></pre></div><p>改成</p> <div class="language- extra-class"><pre class="language-text"><code>import style from './index.css'
+img.classList.add(style.avatar)
+</code></pre></div><h2 id="plugins插件"><a href="#plugins插件" class="header-anchor">#</a> plugins插件</h2> <p><a href="https://www.webpackjs.com/guides/output-management/" target="_blank" rel="noopener noreferrer">https://www.webpackjs.com/guides/output-management/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <ul><li>作用于webpack打包过程</li> <li>在webpack允许的某个生命周期内自动帮你做的事情,比如刚打包的某个时刻，需要进行怎样的操作。</li> <li>是个类</li></ul> <h3 id="htmlwebpackplugin"><a href="#htmlwebpackplugin" class="header-anchor">#</a> HtmlWebpackPlugin</h3> <blockquote><p><strong>该插件将在打包结束后生成一个 HTML5 文件，并把打包生成的结果自动引入到html文件。</strong></p></blockquote> <p><a href="https://www.webpackjs.com/plugins/html-webpack-plugin/" target="_blank" rel="noopener noreferrer">https://www.webpackjs.com/plugins/html-webpack-plugin/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <div class="language- extra-class"><pre class="language-text"><code>npm install --save-dev html-webpack-plugin
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> webpackConfig <span class="token operator">=</span> <span class="token punctuation">{</span>
+  entry<span class="token operator">:</span> <span class="token string">'index.js'</span><span class="token punctuation">,</span>
+  output<span class="token operator">:</span> <span class="token punctuation">{</span>
+    path<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    filename<span class="token operator">:</span> <span class="token string">'index_bundle.js'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>这将会产生一个包含以下内容的文件 <code>dist/index.html</code>：</strong></p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>webpack App<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>index_bundle.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p><strong>自动生成html里有相应的配置</strong></p> <div class="language-js extra-class"><pre class="language-js"><code>plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+		template<span class="token operator">:</span> <span class="token string">'src/index.html'</span>，
+        filename<span class="token operator">:</span><span class="token string">'html/index.html'</span>，<span class="token comment">//子目录用于多页面</span>
+        title<span class="token operator">:</span><span class="token string">'sss'</span>  <span class="token comment">//需要进行ejs语法替换</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span>
+</code></pre></div><div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>&lt;%= htmlWebpackPlugin.options.title %&gt;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="cleanwebpackplugin"><a href="#cleanwebpackplugin" class="header-anchor">#</a> cleanWebpackPlugin</h3> <blockquote><p>打包之前时自动删除上次打包的内容</p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">npm</span> <span class="token function">install</span> clean-webpack-plugin -D
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">CleanWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span>
+</code></pre></div><h3 id="mini-css-extract-plugin"><a href="#mini-css-extract-plugin" class="header-anchor">#</a> mini-css-extract-plugin</h3> <ul><li>css代码分离，生产环境使用，开发模式不用，因为对HMR不好。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>const MiniCssExtractPlugin = require(&quot;mini-cssextract-plugin&quot;);
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>{
+ test: /\.css$/,
+ use: [MiniCssExtractPlugin.loader, &quot;css-loader&quot;]
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code> new MiniCssExtractPlugin({
+ filename: &quot;[name][chunkhash:8].css&quot;
+ })
+</code></pre></div><h2 id="devtool"><a href="#devtool" class="header-anchor">#</a> devtool</h2> <h3 id="sourcemap介绍"><a href="#sourcemap介绍" class="header-anchor">#</a> sourcemap介绍</h3> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
+    mode<span class="token operator">:</span><span class="token string">'development'</span><span class="token punctuation">,</span>
+    devtool<span class="token operator">:</span><span class="token string">'none'</span>  <span class="token comment">//报错位置出错</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>devtool控制是否生成，以及如何生成 source map。sourcemap用于开发时查找到打包后的源代码出错地方，是一个源代码和目标代码的映射表，SourceMap是个映射关系vlq编码集合。能够知道报错的地方。</p> <table><thead><tr><th>名称</th> <th>作用</th></tr></thead> <tbody><tr><td>sorce-map</td> <td>生成.map文件</td></tr> <tr><td>cheap</td> <td>只告诉我行就可以，忽略这个行的具体哪个位置。</td></tr> <tr><td>inline</td> <td>sorce-map文件变成base64字符串嵌入到生成的main.js</td></tr> <tr><td>module</td> <td>让sorcemap文件也管loader和第三方模块的错误映射。</td></tr> <tr><td>eval</td> <td>不生成.map文件，以eval形式生成sorcemap对应关系，把代码变成字符串形式放到eval里，这种方式执行效率<strong>最快</strong>，但是针对复杂代码，他提升不全。他会</td></tr></tbody></table> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
+    mode<span class="token operator">:</span><span class="token string">'development'</span><span class="token punctuation">,</span>
+    devtool<span class="token operator">:</span><span class="token string">'inline-source-map'</span>  <span class="token comment">//sorcemap文件会变成base64字符串，被嵌入到main.js里</span>
+    devtool<span class="token operator">:</span><span class="token string">'source-map'</span>  <span class="token comment">//会在dist文件生成一个对应source-map文件，精确到哪一行哪一个点</span>
+    devtool<span class="token operator">:</span><span class="token string">'inline-cheap-source-map'</span>  <span class="token comment">//只告诉我行就可以，不会管loader和第三方模块的错</span>
+    devtool<span class="token operator">:</span><span class="token string">'inline-module-cheap-source-map'</span>  <span class="token comment">//只告诉我行就可以，也会管第三方模块的错</span>
+<span class="token punctuation">}</span>
+</code></pre></div><table><thead><tr><th>输出位置</th> <th>输入</th> <th>在输入中的位置</th> <th>字符</th></tr></thead> <tbody><tr><td>行 1, 列 0</td> <td>Yoda_input.txt</td> <td>行 1, 列 5</td> <td>t</td></tr> <tr><td>行 1, 列 1</td> <td>Yoda_input.txt</td> <td>行 1, 列 6</td> <td>h</td></tr> <tr><td>行 1, 列 2</td> <td>Yoda_input.txt</td> <td>行 1, 列 7</td> <td>e</td></tr> <tr><td>行 1, 列 4</td> <td>Yoda_input.txt</td> <td>行 1, 列 9</td> <td>f</td></tr></tbody></table> <p><a href="https://www.webpackjs.com/configuration/devtool/" target="_blank" rel="noopener noreferrer">https://www.webpackjs.com/configuration/devtool/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <blockquote><p>查找到打包后的源代码出错地方，是一个源代码和目标代码的映射。</p> <p>SourceMap是个映射关系vlq编码集合。能够知道报错的地方。</p></blockquote> <h3 id="配置推荐"><a href="#配置推荐" class="header-anchor">#</a> 配置推荐</h3> <div class="language- extra-class"><pre class="language-text"><code>development开发环境:cheap-module-eval-sourcemap；
+只告诉行，第三发模块也报错，并且在eval环境下的source-map
+
+production生产环境：cheap-module-source-map;
+
+线上环境不推荐开启
+</code></pre></div><h2 id="sourcemap原理"><a href="#sourcemap原理" class="header-anchor">#</a> SourceMap原理</h2> <p><a href="http://www.qiutianaimeili.com/html/page/2019/05/89jrubx1soc.html" target="_blank" rel="noopener noreferrer">http://www.qiutianaimeili.com/html/page/2019/05/89jrubx1soc.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <ul><li>大体意思是把某个字符串提取出来，然后找到他的位置，把他们抽象成数组的形式[1,2]表示第一行第二列</li> <li>然后使用|来隔离，因为|占用空间，所以最后是使用vlq这种编码方式导出mappings。</li></ul> <p>VLQ编码，专门用来解决竖线分割数字问题的，毕竟竖线看起来又low又浪费空间。</p> <div class="language-map extra-class"><pre class="language-text"><code>sources:['a.js']
+names:['feel','the','force']
+mappings:[10|0|0|0|0,-10|0|0|5|1,4|0|0|4|2]
+&quot;mappings&quot;:&quot;AAAA,SAASA,SAASC,MACdC,QAAQC,IAAI,SAAUF&quot;
+</code></pre></div><h2 id="devserver本地开发"><a href="#devserver本地开发" class="header-anchor">#</a> devServer本地开发</h2> <h3 id="devserver跨越代理"><a href="#devserver跨越代理" class="header-anchor">#</a> devServer跨越代理</h3> <p>devServer是一个基于express的小型服务</p> <p>devServer不需要我们重新打包然后编译，他会把打包后的内容放入内存里，从而提升打包速度</p> <ul><li>重新打包，自动打开，重新刷新浏览器，开启web服务器。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code>npm install webpack<span class="token operator">-</span>dev<span class="token operator">-</span>server <span class="token operator">--</span>save<span class="token operator">-</span>dev
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
+    devServer<span class="token operator">:</span><span class="token punctuation">{</span>
+        contentBase<span class="token operator">:</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&quot;dist&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        open<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
+        compress<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        port<span class="token operator">:</span> <span class="token number">9000</span>，
+        proxy<span class="token operator">:</span><span class="token punctuation">{</span> <span class="token comment">//跨域代理</span>
+        <span class="token string">'/api'</span><span class="token operator">:</span><span class="token string">'http://localhost:3000'</span>
+    		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+        proxy<span class="token operator">:</span><span class="token punctuation">{</span>
+            <span class="token string">'/api'</span><span class="token operator">:</span><span class="token punctuation">{</span>
+                target<span class="token operator">:</span><span class="token string">'http://mall-pre.springboot.cn'</span><span class="token punctuation">,</span>
+                changeOrigin<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
+                pathRewrite<span class="token operator">:</span><span class="token punctuation">{</span>
+                    <span class="token string">'/api'</span><span class="token operator">:</span><span class="token string">''</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>&quot;server&quot;:&quot;webpack-dev-server&quot;
+</code></pre></div><h3 id="mockserver"><a href="#mockserver" class="header-anchor">#</a> mockServer</h3> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
+    devServer<span class="token operator">:</span><span class="token punctuation">{</span>
+        contentBase<span class="token operator">:</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&quot;dist&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        open<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>
+        compress<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        port<span class="token operator">:</span> <span class="token number">9000</span>，
+        proxy<span class="token operator">:</span><span class="token punctuation">{</span> <span class="token comment">//跨域代理</span>
+        <span class="token string">'/api'</span><span class="token operator">:</span><span class="token string">'http://localhost:3000'</span>
+    	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token function">before</span><span class="token punctuation">(</span><span class="token parameter">app<span class="token punctuation">,</span>server</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/api/mock.json'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span>res</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+                res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>hello<span class="token operator">:</span><span class="token string">'1'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        	<span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code>
+</code></pre></div><h3 id="自定义devserver"><a href="#自定义devserver" class="header-anchor">#</a> 自定义devServer</h3> <p>express配合webpackDevMiddleware这个中间件。</p> <div class="language- extra-class"><pre class="language-text"><code>&quot;server&quot;:&quot;node server.js&quot;
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>npm install express webpack-dev-middleware -D
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>output:{
+	publicPath:'/',
+	//.....
+}
+</code></pre></div><p>package.json同级server.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//引入webpack库</span>
+<span class="token keyword">const</span> webpackDevMiddleware <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-dev-middleware'</span><span class="token punctuation">)</span> <span class="token comment">// 可以监听打包变化</span>
+<span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./webpack.config.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> complier <span class="token operator">=</span> <span class="token function">webpack</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span> <span class="token comment">// 编译</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">webpackDevMiddleware</span><span class="token punctuation">(</span>complier<span class="token punctuation">,</span><span class="token punctuation">{</span>  <span class="token comment">//文件发送改变，就会重新运行，打包生成的就是这个path</span>
+	publicPath<span class="token operator">:</span>config<span class="token punctuation">.</span>output<span class="token punctuation">.</span>publicPath
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="resolve路径处理"><a href="#resolve路径处理" class="header-anchor">#</a> resolve路径处理</h2> <h3 id="resolve-extensions省后缀"><a href="#resolve-extensions省后缀" class="header-anchor">#</a> resolve.extensions省后缀</h3> <ul><li>省略后缀，webpack会自动带后缀并尝试查找是否存在该文件</li> <li>导入语句尽量带上后缀，便于阅读</li> <li>资源类文件不要使用extensions，当我们引入了一个picture配置项，他可能去调用css查找，如果extensions配置过多，会有运算消耗。</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> picture <span class="token keyword">from</span> <span class="token string">'./child/picture'</span>
+
+<span class="token comment">///config.js</span>
+<span class="token comment">//module.exports.resolve:</span>
+resolve<span class="token operator">:</span> <span class="token punctuation">{</span>
+  	extensions<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'.js'</span><span class="token punctuation">,</span> <span class="token string">'.jsx'</span>，<span class="token string">'.css'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">//不要滥用。 虽然可以少些点代码，但是会有额外的查找功耗  </span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="resolve-mainfiles自定义查找文件"><a href="#resolve-mainfiles自定义查找文件" class="header-anchor">#</a> resolve.mainFiles自定义查找文件</h3> <p>默认情况去查找目录下的index.js文件，我们如果想自定义查找文件，应该怎么办?</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Child <span class="token keyword">from</span> <span class="token string">'./child'</span><span class="token punctuation">;</span>  <span class="token comment">//</span>
+
+resolve<span class="token operator">:</span> <span class="token punctuation">{</span>
+  	extensions<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'.js'</span><span class="token punctuation">,</span> <span class="token string">'.jsx'</span>，<span class="token string">'.css'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+   	mainFiles<span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'index'</span><span class="token punctuation">,</span><span class="token string">'child'</span><span class="token punctuation">]</span>  <span class="token comment">//先尝试引index,然后尝试引child</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><h3 id="resolve-modules第三方模块查找"><a href="#resolve-modules第三方模块查找" class="header-anchor">#</a> resolve.modules第三方模块查找</h3> <p>resolve.modules⽤于配置webpack去哪些⽬录下寻找第三⽅模块，默认是['node_modules']</p> <p>寻找第三⽅模块，默认是在当前项⽬⽬录下的node_modules⾥⾯去找，如果没有找到，就会去上⼀级
+⽬录<code>../node_modules</code>找，再没有会去<code>../../node_modules</code>中找，以此类推，和Node.js的模块寻找机制
+很类似。</p> <p>如果所有第三方包都安放在根目录的node_modules下，可以设置如下</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
+    resolve<span class="token operator">:</span><span class="token punctuation">{</span>
+        modules<span class="token operator">:</span><span class="token punctuation">[</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'./node_mudules '</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h3 id="resolve-alias"><a href="#resolve-alias" class="header-anchor">#</a> resolve.alias</h3> <ul><li>可以起别名</li> <li>也可以给node_modules下的依赖包起别名</li></ul> <p>作用1：</p> <p>通过别名来把原来的导入路径映射为一个新的路径</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  entry<span class="token operator">:</span> <span class="token punctuation">{</span>
+    main<span class="token operator">:</span> <span class="token string">'./src/index.js'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  resolve<span class="token operator">:</span> <span class="token punctuation">{</span>
+    extensions<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'.js'</span><span class="token punctuation">,</span> <span class="token string">'.jsx'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    alias<span class="token operator">:</span> <span class="token punctuation">{</span>
+      ss<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../src/a/b/c/child'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Child <span class="token keyword">from</span> <span class="token string">'ss'</span>  <span class="token comment">//在任何文件夹都可以使用这种简写方式引入ss了</span>
+</code></pre></div><p><img src="/learningblog/assets/img/1589625054105.9daa9190.png" alt="1589625054105"></p> <p>作用2：</p> <p>默认情况下，webpack会从⼊⼝⽂件./node_modules/bin/react/index开始递归解析和处理依赖 的⽂件。我们可以直接指定⽂件，避免这处的耗时。</p> <div class="language-js extra-class"><pre class="language-js"><code>alias<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;@&quot;</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&quot;./pages&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    react<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>
+        __dirname<span class="token punctuation">,</span>
+        <span class="token string">&quot;./node_modules/react/umd/react.production.min.js&quot;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;react-dom&quot;</span><span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>
+        __dirname<span class="token punctuation">,</span>
+        <span class="token string">&quot;./node_modules/react-dom/umd/react-dom.production.min.js&quot;</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="externals"><a href="#externals" class="header-anchor">#</a> externals</h2> <h3 id="优化cdn部署"><a href="#优化cdn部署" class="header-anchor">#</a> 优化cdn部署</h3> <p>我们可以将⼀些JS⽂件存储在 CDN 上(减少 Webpack 打包出来的 js 体积)，在 index.html 中通过 标签引⼊，如:</p> <div class="language-html extra-class"><pre class="language-html"><code> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>http://libs.baidu.com/jquery/2.0.0/jquery.min.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>我们希望在使⽤时，仍然可以通过 import 的⽅式去引⽤(如 import $ from 'jquery' )，并且希望 webpack 不会对其进⾏打包，此时就可以配置 externals 。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//webpack.config.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">//...</span>
+    externals<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">//jquery通过script引⼊之后，全局中即有了 jQuery 变量</span>
+        <span class="token string">'jquery'</span><span class="token operator">:</span> <span class="token string">'jQuery'</span>，
+        <span class="token string">'lodash'</span><span class="token operator">:</span><span class="token string">'_'</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="类库重复问题"><a href="#类库重复问题" class="header-anchor">#</a> 类库重复问题</h3> <p>如果我们的库里使用了lodash,但是用户的代码里也有lodash;这样，我们打包了一次lodash,用户又引入了lodash,这样会导致两个lodash。。。。</p> <p>为了解决这个问题，需要在config.js配置</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{</span>
+	externals<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;lodash&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token comment">//打包遇到lodash就忽略;此时如果使用我们的库，需要其他依赖。</span>
+	externals<span class="token operator">:</span> <span class="token string">'lodash'</span><span class="token punctuation">,</span>  <span class="token comment">//打包遇到lodash就忽略;此时如果使用我们的库，需要其他依赖。</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>此时用户使用我们的库时，需要在业务代码引入lodash。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> _ <span class="token keyword">from</span> <span class="token string">'lodash'</span>
+</code></pre></div><p>配置项:</p> <p>如果在commonjs环境必须要引入Lodash时名字必须是lodash,否则在我们的文件里他的名字出错</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//这个配置项一般不用，使用externals: 'lodash',  就可以</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  mode<span class="token operator">:</span> <span class="token string">'production'</span><span class="token punctuation">,</span>
+  entry<span class="token operator">:</span> <span class="token string">'./src/index.js'</span><span class="token punctuation">,</span>
+  output<span class="token operator">:</span> <span class="token punctuation">{</span>
+    path<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    filename<span class="token operator">:</span> <span class="token string">'library.js'</span><span class="token punctuation">,</span>
+    libraryTarget<span class="token operator">:</span><span class="token string">'this'</span><span class="token punctuation">,</span>  <span class="token comment">//this.library;可以这样做但是不推荐</span>
+    library<span class="token operator">:</span><span class="token string">'library'</span>   <span class="token comment">//</span>
+  <span class="token punctuation">}</span>，
+  	externals<span class="token operator">:</span> <span class="token punctuation">{</span>
+		lodash<span class="token operator">:</span><span class="token punctuation">{</span>
+      root<span class="token operator">:</span><span class="token string">'_'</span><span class="token punctuation">,</span> <span class="token comment">//使用script引用的，必须使用_的形式在全局注入一个变量</span>
+			commonjs<span class="token operator">:</span><span class="token string">'lodash'</span>，  <span class="token comment">//不管任何环境下，你引入的lodash必须是这个名字</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> lodash <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'lodash'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> library <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'library'</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="webpack打包react"><a href="#webpack打包react" class="header-anchor">#</a> webpack打包react</h2> <p><a href="https://www.babeljs.cn/docs/babel-preset-react" target="_blank" rel="noopener noreferrer">https://www.babeljs.cn/docs/babel-preset-react<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <div class="language- extra-class"><pre class="language-text"><code>npm install --save-dev @babel/preset-react  //解析jsx语法
+</code></pre></div><p>.bablerc</p> <p>从下往上，从右往左执行转换！！！</p> <div class="language-bablerc extra-class"><pre class="language-text"><code>{
+	&quot;presets&quot;: [
+		[
+			&quot;@babel/preset-env&quot;, {
+				&quot;targets&quot;: {
+					&quot;chrome&quot;: &quot;67&quot;,
+				},
+				&quot;useBuiltIns&quot;: &quot;usage&quot;
+			}
+		],
+		&quot;@babel/preset-react&quot;
+	]
+}
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>npm install react react-dom --save    //安装react
+</code></pre></div><p>index.js</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token string">&quot;@babel/polyfill&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> React<span class="token punctuation">,</span><span class="token punctuation">{</span>Component<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span><span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>Hello World<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>App<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>App<span class="token operator">&gt;</span><span class="token punctuation">,</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="webpack多页面打包"><a href="#webpack多页面打包" class="header-anchor">#</a> webpack多页面打包</h2> <p>当前大部分是单页面应用</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> CleanWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'clean-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> AddAssetHtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'add-asset-html-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">const</span> <span class="token function-variable function">makePlugins</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">configs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> plugins <span class="token operator">=</span> <span class="token punctuation">[</span>
+		<span class="token keyword">new</span> <span class="token class-name">CleanWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'dist'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+			root<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../'</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span>
+	<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>configs<span class="token punctuation">.</span>entry<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		plugins<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+			<span class="token keyword">new</span> <span class="token class-name">HtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+				template<span class="token operator">:</span> <span class="token string">'src/index.html'</span><span class="token punctuation">,</span>
+				filename<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>item<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.html</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+				chunks<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'runtime'</span><span class="token punctuation">,</span> <span class="token string">'vendors'</span><span class="token punctuation">,</span> item<span class="token punctuation">]</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span>
+		<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">const</span> files <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readdirSync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../dll'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	files<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">file</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token regex">/.*\.dll.js/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			plugins<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">AddAssetHtmlWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+				filepath<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../dll'</span><span class="token punctuation">,</span> file<span class="token punctuation">)</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token regex">/.*\.manifest.json/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			plugins<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>DllReferencePlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+				manifest<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../dll'</span><span class="token punctuation">,</span> file<span class="token punctuation">)</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> plugins<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> configs <span class="token operator">=</span> <span class="token punctuation">{</span>
+	entry<span class="token operator">:</span> <span class="token punctuation">{</span>
+		index<span class="token operator">:</span> <span class="token string">'./src/index.js'</span><span class="token punctuation">,</span>
+		list<span class="token operator">:</span> <span class="token string">'./src/list.js'</span><span class="token punctuation">,</span>
+		detail<span class="token operator">:</span> <span class="token string">'./src/detail.js'</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	resolve<span class="token operator">:</span> <span class="token punctuation">{</span>
+		extensions<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'.js'</span><span class="token punctuation">,</span> <span class="token string">'.jsx'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	module<span class="token operator">:</span> <span class="token punctuation">{</span>
+		rules<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> 
+			test<span class="token operator">:</span> <span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span> 
+			include<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../src'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+			use<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+				loader<span class="token operator">:</span> <span class="token string">'babel-loader'</span>
+			<span class="token punctuation">}</span><span class="token punctuation">]</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+			test<span class="token operator">:</span> <span class="token regex">/\.(jpg|png|gif)$/</span><span class="token punctuation">,</span>
+			use<span class="token operator">:</span> <span class="token punctuation">{</span>
+				loader<span class="token operator">:</span> <span class="token string">'url-loader'</span><span class="token punctuation">,</span>
+				options<span class="token operator">:</span> <span class="token punctuation">{</span>
+					name<span class="token operator">:</span> <span class="token string">'[name]_[hash].[ext]'</span><span class="token punctuation">,</span>
+					outputPath<span class="token operator">:</span> <span class="token string">'images/'</span><span class="token punctuation">,</span>
+					limit<span class="token operator">:</span> <span class="token number">10240</span>
+				<span class="token punctuation">}</span>
+			<span class="token punctuation">}</span> 
+		<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+			test<span class="token operator">:</span> <span class="token regex">/\.(eot|ttf|svg)$/</span><span class="token punctuation">,</span>
+			use<span class="token operator">:</span> <span class="token punctuation">{</span>
+				loader<span class="token operator">:</span> <span class="token string">'file-loader'</span>
+			<span class="token punctuation">}</span> 
+		<span class="token punctuation">}</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	optimization<span class="token operator">:</span> <span class="token punctuation">{</span>
+		runtimeChunk<span class="token operator">:</span> <span class="token punctuation">{</span>
+			name<span class="token operator">:</span> <span class="token string">'runtime'</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		usedExports<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+		splitChunks<span class="token operator">:</span> <span class="token punctuation">{</span>
+      chunks<span class="token operator">:</span> <span class="token string">'all'</span><span class="token punctuation">,</span>
+      cacheGroups<span class="token operator">:</span> <span class="token punctuation">{</span>
+      	vendors<span class="token operator">:</span> <span class="token punctuation">{</span>
+      		test<span class="token operator">:</span> <span class="token regex">/[\\/]node_modules[\\/]/</span><span class="token punctuation">,</span>
+      		priority<span class="token operator">:</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span>
+      		name<span class="token operator">:</span> <span class="token string">'vendors'</span><span class="token punctuation">,</span>
+      	<span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	performance<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+	output<span class="token operator">:</span> <span class="token punctuation">{</span>
+		path<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'../dist'</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+configs<span class="token punctuation">.</span>plugins <span class="token operator">=</span> <span class="token function">makePlugins</span><span class="token punctuation">(</span>configs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> configs
+</code></pre></div><h2 id="-2"><a href="#-2" class="header-anchor">#</a></h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/learningblog/fontend/4-Webpack/webpack1介绍.html" class="prev">
+        webpack介绍
+      </a></span> <span class="next"><a href="/learningblog/fontend/4-Webpack/webpack3高级特性.html">
+        webpack高级特性
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/learningblog/assets/js/app.bc8599de.js" defer></script><script src="/learningblog/assets/js/2.56c2d769.js" defer></script><script src="/learningblog/assets/js/62.9c6978c3.js" defer></script>
+  </body>
+</html>

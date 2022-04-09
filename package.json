@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/chenzhiwei0109/learningblog#readme",
   "dependencies": {
-    "moment": "^2.24.0"
+    "moment": "^2.29.2"
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.7.1"
